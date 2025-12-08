@@ -1,0 +1,6 @@
+(
+  // disable default keybinding for `h` (call help)
+  open_help: Some(( code: Char('?'), modifiers: "",)),
+)
+
+// vim: ft=ron sw=2 et

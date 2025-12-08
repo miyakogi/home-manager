@@ -1,0 +1,149 @@
+[
+{
+  "layer": "top",
+  "output": ["DP-2"],
+  "name": "4K",
+  "spacing": 16,
+  "height": 32,  // 1 + tray icon + 1
+  "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
+  "modules-center": ["custom/media"],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "systemd-failed-units", "tray"],
+  "custom/os": {
+    "exec": "echo \"  openSUSE\"",
+    "format": "{}",
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "",
+    "persistent-workspaces": {
+      "DP-2": 10,
+    },
+  },
+  "niri/workspaces": {
+    "format": "",
+  },
+  "clock": {
+    "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
+    "tooltip": false,
+    "interval": 1,
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false,
+    "format": " {nr_failed}",
+    "format-ok": "󰸞",
+  },
+  "custom/idle": {
+    "return-type": "json",
+    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
+    "interval": "once",  // don't know why, but necessary
+    "signal": 6,  // -SIGRTMIN+6
+    "format": "{}",
+  },
+  "custom/mic": {
+    "return-type": "json",
+    "exec": "$HOME/bin/mic-mute-watch",
+    "on-click": "$HOME/bin/mic-mute-toggle",
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
+  },
+  "custom/ff-volume": {
+    "return-type": "json",
+    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
+    "interval": -1,  // need anyway
+    "format": "{}",
+    "tooltip": false,
+  },
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 120,
+    "on-click": "waybar-mediaplayer toggle",
+    "on-click-middle": "waybar-mediaplayer previous-player",
+    "on-click-right": "waybar-mediaplayer next-player",
+    "on-scroll-up": "waybar-mediaplayer previous",
+    "on-scroll-down": "waybar-mediaplayer next",
+    "exec": "waybar-mediaplayer",
+    "exec-if": "true",
+    "interval": 1,
+  },
+  "tray": {
+    "icon-size": 26,
+    "spacing": 8,
+  },
+}, {
+  "layer": "top",
+  "output": ["HDMI-A-3"],
+  "name": "FHD",
+  "position": "bottom",
+  "spacing": 4,
+  "height": 30,  // 1 + tray icon + 1
+  "modules-left": ["hyprland/workspaces", "niri/workspaces"],
+  "modules-center": [],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "tray"],
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "",
+    "persistent-workspaces": {
+      "HDMI-A-3": 10,
+    },
+  },
+  "niri/workspaces": {
+    "format": "",
+  },
+  "custom/idle": {
+    "return-type": "json",
+    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
+    "interval": "once",  // don't know why, but necessary
+    "signal": 6,  // -SIGRTMIN+6
+    "format": "{}",
+  },
+  "custom/mic": {
+    "return-type": "json",
+    "exec": "$HOME/bin/mic-mute-watch",
+    "on-click": "$HOME/bin/mic-mute-toggle",
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
+  },
+  "custom/ff-volume": {
+    "return-type": "json",
+    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
+    "interval": -1,  // need anyway
+    "format": "{}",
+    "tooltip": false,
+  },
+  "custom/clock": {
+    "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
+    "interval": 1,
+    "format": "{}",
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19} {usage:2}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
+  "memory": {
+    "interval": 1,
+    "format": " {used:2.1f}G/{total:2.1f}G ({percentage:2}%)",
+  },
+  "custom/gpu": {
+    "exec": "printf \"󰍹 %4dMHz (%2d%%)\" $(cat /sys/class/drm/card*/device/pp_dpm_sclk | rg '\\*' | head -n1 | cut -d' ' -f2 | tr -d '[:alpha:]') $(cat /sys/class/drm/card*/device/gpu_busy_percent)",
+    "exec-if": "true",
+    "interval": 1,
+    "format": "{}",
+  },
+  "custom/temperature": {
+    "return-type": "json",
+    "exec": "$HOME/bin/temperature all",
+    "interval": 1,
+    "format": "{}",
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 6,
+  },
+}
+]

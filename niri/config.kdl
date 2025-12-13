@@ -5,7 +5,9 @@
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
-  TERMINAL "foot"
+  TERMINAL "kitty"
+
+  DISPLAY ":0"
 
   GTK_THEME "Adwaita:dark"
   GTK_USE_PORTAL "1"
@@ -90,6 +92,12 @@ output "HDMI-A-3" {
     background-color "#181616"
 }
 // spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
+
+// xwayland
+spawn-sh-at-startup "nixGL ~/.nix-profile/bin/xwayland-satellite"
+
+// Input Method
+spawn-sh-at-startup "systemctl --user restart fcitx5.service"
 
 // Wallpaper
 spawn-sh-at-startup "app2unit -s b -t service -- hyprpaper -c ~/.config/niri/hyprpaper.conf"
@@ -228,10 +236,8 @@ overview {
 // which may be more convenient to use.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
+spawn-sh-at-startup "app2unit -s b -t service -- nixGL qs -c qs-dots"
 // spawn-at-startup "foot --server"
-
-spawn-sh-at-startup "app2unit -s b -t service -a vicinae -- env QT_SCALE_FACTOR=1.75 vicinae server"
 
 spawn-sh-at-startup "app2unit -s b -- nixGL flatpak run com.logseq.Logseq --force-device-scale-factor=1.5"
 
@@ -401,10 +407,9 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "nixGL" "terminal"; }
-    Mod+Space { spawn "vicinae" "toggle"; }
-    // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
+    Mod+Space { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit -- nixGL"; }
     Mod+D { spawn "fuzzel" "--launch-prefix" "app2unit --fuzzel-compat -- nixGL"; }
-    Mod+S { spawn "launch-menu"; }  // sklauncher
+    Mod+S { spawn "launch-menu"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -553,7 +558,7 @@ binds {
     Mod+E { focus-workspace "logseq"; }
 
     // Open dropdown terminal
-    F2 { spawn "app2unit" "kitten" "quick_access_terminal" "--override" "lines=42"; }
+    F2 { spawn "app2unit" "nixGL" "kitten" "quick_access_terminal" "--override" "lines=42"; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }

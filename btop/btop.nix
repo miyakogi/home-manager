@@ -3,7 +3,7 @@
     btop
   ];
 
-  home.file.".conifg/btop/btop.conf" = {
+  home.file.".config/btop/btop.conf" = {
     source = ./btop.conf;
   };
 }

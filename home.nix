@@ -55,6 +55,7 @@
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
     SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";
     GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";
+    MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
   };
 
   # Input Methods
@@ -64,7 +65,7 @@
   # };
 
   # Fonts
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = false;
   gtk = {
     gtk3.font = {
       name = "monospace";
@@ -96,25 +97,38 @@
     fd
     jq
     dua
+    tokei
+
+    man-db
+    man-pages
+    tldr
+    less
 
     fastfetch
-
     wget
     unzip
     libarchive
     unar
 
     # Dev tools
+    clang
     rustup
+    mold
     uv
     ruff
     typos
     typos-lsp
+    bash-language-server
+    lua-language-server
+    pyright
+    shellcheck
+    typescript-language-server
+    vscode-css-languageserver
 
+    # HW accel
     nixgl.auto.nixGLDefault
     mesa
     libva
-    wl-clipboard
 
     # uwsm
     newt
@@ -125,15 +139,15 @@
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
-    xdg-utils
-    libnotify
-
-    qt6Packages.qt6ct
 
     # Utilities
+    xdg-utils
+    libnotify
+    wl-clipboard
     lxqt.pcmanfm-qt
 
-    # multimedia
+
+    # Multimedia
     lxqt.pavucontrol-qt
     pulsemixer
     alsa-utils
@@ -143,23 +157,12 @@
     imv
     mpv
     gamescope
+    spotify  # temporally (until flatpak version fixes spotify-connect)
 
-    # Input Methods
-    # fcitx5
-    # fcitx5-mozc
-    # fcitx5-gtk
-    kdePackages.fcitx5-configtool
-
-    # font
-    fontconfig
-    googlesans-code
-    ibm-plex
-    noto-fonts
-    noto-fonts-cjk-sans
-
-    # Icons
-    numix-icon-theme
-    qogir-icon-theme
+    # Theme
+    qt6Packages.qt6ct
+    kdePackages.qtstyleplugin-kvantum
+    adwaita-icon-theme
   ];
 
   imports = [
@@ -167,6 +170,7 @@
     ./scripts.nix
 
     ./fish/fish.nix
+    ./man/man.nix
     ./starship/starship.nix
 
     ./nvim/neovim.nix
@@ -191,6 +195,8 @@
 
     ./waybar/waybar.nix
     ./quickshell/quickshell.nix
+
+    ./fontconfig/fontconfig.nix
 
     ./alacritty/alacritty.nix
     ./foot/foot.nix

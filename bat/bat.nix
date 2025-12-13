@@ -9,4 +9,9 @@
       ];
     };
   };
+
+  home.file.".config/bat/themes" = {
+    source = ./themes;
+    recursive = true;
+  };
 }

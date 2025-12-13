@@ -27,7 +27,8 @@
 
       mkdir = "mkdir -p";
 
-      e = "nvim";
+      e = "edit";
+      n = "nvim";
       h = "hx";
 
       gstatus = "git status -s -b";

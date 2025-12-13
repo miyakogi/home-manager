@@ -32,4 +32,4 @@ cmd+=(
 )
 
 # execute command
-app2unit -- "${cmd[@]}"
+"${cmd[@]}"

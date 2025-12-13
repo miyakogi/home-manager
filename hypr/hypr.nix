@@ -1,7 +1,12 @@
 { pkgs, ... }: {
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   extraConfig = builtins.readFile ./hyprland.conf;
+  # };
+
   home.packages = with pkgs; [
     hyprland
-    xwayland
+    # xwayland -> system
     hyprpaper
     hypridle
     # hyprlock -> system

@@ -98,7 +98,6 @@
     man-pages
     tldr
     less
-    pinentry-tty
 
     fastfetch
     wget
@@ -169,6 +168,7 @@
     ./fish/fish.nix
     ./man/man.nix
     ./git/git.nix
+    ./gpg/gpg.nix
     ./starship/starship.nix
 
     ./nvim/neovim.nix

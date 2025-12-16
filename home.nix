@@ -53,8 +53,8 @@
   # Environment Variables
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
-    SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";
-    GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";
+    SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";  # openSUSE
+    GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";  # openSUSE
     MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
   };
 
@@ -88,11 +88,6 @@
 
   # Install programs
   home.packages = with pkgs; [
-    git
-    delta
-    difftastic
-    gh
-
     fzf
     fd
     jq
@@ -103,6 +98,7 @@
     man-pages
     tldr
     less
+    pinentry-tty
 
     fastfetch
     wget
@@ -153,6 +149,7 @@
     alsa-utils
     playerctl
     mpc
+    mpdris2-rs
     ffmpegthumbnailer
     imv
     mpv
@@ -171,6 +168,7 @@
 
     ./fish/fish.nix
     ./man/man.nix
+    ./git/git.nix
     ./starship/starship.nix
 
     ./nvim/neovim.nix

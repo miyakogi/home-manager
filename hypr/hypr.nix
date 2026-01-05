@@ -11,6 +11,7 @@
     hypridle
     # hyprlock -> system
     hyprpolkitagent
+    hyprpicker
   ];
 
   home.file.".config/hypr/hyprland.conf" = {

@@ -25,7 +25,8 @@ font-feature = +ss03
 # theme = Raycast_Dark
 # theme = Snazzy
 # theme = carbonfox-vivid-oled
-theme = kanagawa-dragon
+theme = Kanagawa Dragon
+# theme = mikado
 background-opacity = 0.92
 
 command = fish
@@ -47,5 +48,7 @@ window-padding-x = 12
 window-padding-y = 12
 
 quit-after-last-window-closed = false
+
+keybind = global:F3=toggle_quick_terminal
 
 # vim: ft=ini

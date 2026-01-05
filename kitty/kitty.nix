@@ -9,4 +9,7 @@
   home.file.".config/kitty/kanagawa_dragon.conf" = {
     source = ./kanagawa_dragon.conf;
   };
+  home.file.".config/kitty/mikado.conf" = {
+    source = ./mikado.conf;
+  };
 }

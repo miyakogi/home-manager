@@ -153,9 +153,11 @@
       set -x LSCOLORS Exfxcxdxbxegedabagacad
       set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-      # macchina
-      if type -q macchina
-        macchina
+      # fetch
+      if test -f /usr/bin/fastfetch
+        /usr/bin/fastfetch
+      else if type -q fastfetch
+        fastfetch
       end
 
       # load machine local setting

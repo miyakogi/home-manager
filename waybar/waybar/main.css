@@ -112,15 +112,15 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-media.Playing {
-  color: @cyan;
+  color: @white;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @cyan;
+  box-shadow: inset 0px -4px @white;
 }
 
 #custom-media.Paused {
-  color: @subtle;
+  color: @comment;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @subtle;
+  box-shadow: inset 0px -4px @comment;
 }
 
 #custom-media.Stopped {

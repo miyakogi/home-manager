@@ -19,6 +19,7 @@ cmd+=(
   -e
   sklauncher
   --terminal-command "$termcmd"
+  --command-prefix "app2unit --"
   # --match-generic-name
   --exact
   --tiebreak "index"

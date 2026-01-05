@@ -2,7 +2,7 @@ import Quickshell
 
 ShellRoot {
 
-  property var color: Quickshell.env("XDG_CURRENT_DESKTOP").includes("niri") ? "#181616" : "#181616"
+  property var color: Quickshell.env("XDG_CURRENT_DESKTOP").includes("niri") ? "#000000" : "#181616"
 
   Desktop {
     screenName: "DP-2"

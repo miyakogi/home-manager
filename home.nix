@@ -98,8 +98,8 @@
     man-pages
     tldr
     less
+    which
 
-    fastfetch
     wget
     unzip
     libarchive
@@ -107,8 +107,12 @@
 
     # Dev tools
     clang
+    python313Packages.cmake
+    pkgconf
     rustup
     mold
+
+    # LSP
     uv
     ruff
     typos
@@ -119,6 +123,9 @@
     shellcheck
     typescript-language-server
     vscode-css-languageserver
+
+    # AI
+    codex
 
     # HW accel
     nixgl.auto.nixGLDefault
@@ -141,7 +148,6 @@
     wl-clipboard
     lxqt.pcmanfm-qt
 
-
     # Multimedia
     lxqt.pavucontrol-qt
     pulsemixer
@@ -154,6 +160,10 @@
     mpv
     gamescope
     spotify  # temporally (until flatpak version fixes spotify-connect)
+    ffmpeg
+    imagemagick
+    libavif
+    pngquant
 
     # Theme
     qt6Packages.qt6ct
@@ -169,7 +179,8 @@
     ./man/man.nix
     ./git/git.nix
     ./gpg/gpg.nix
-    ./starship/starship.nix
+
+    ./cargo/cargo.nix
 
     ./nvim/neovim.nix
     ./helix/helix.nix
@@ -182,9 +193,11 @@
     ./btop/btop.nix
     ./direnv/direnv.nix
     ./eza/eza.nix
+    ./fastfetch/fastfetch.nix
     ./gitui/gitui.nix
     ./macchina/macchina.nix
     ./ripgrep/ripgrep.nix
+    ./starship/starship.nix
     ./yazi/yazi.nix
     ./zoxide/zoxide.nix
 
@@ -208,5 +221,7 @@
 
     ./mako/mako.nix
     ./swappy/swappy.nix
+
+    ./desktop/desktop.nix
   ];
 }

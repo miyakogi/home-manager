@@ -94,7 +94,7 @@ output "HDMI-A-3" {
 // spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
 
 // xwayland
-spawn-sh-at-startup "nixGL ~/.nix-profile/bin/xwayland-satellite"
+spawn-sh-at-startup "~/.nix-profile/bin/xwayland-satellite"
 
 // Input Method
 spawn-sh-at-startup "systemctl --user restart fcitx5.service"
@@ -161,7 +161,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 1
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -169,10 +169,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#8ea4a2"
+        active-color "#900000"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#524f67"
+        inactive-color "#666666"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -195,22 +195,22 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         // off
 
-        width 2
-        active-color "#8ea4a2"
-        inactive-color "#524f67"
+        width 1
+        active-color "#900000"
+        inactive-color "#666666"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     shadow {
-        on
+        off
         softness 30
         spread 3
         offset x=0 y=0
         draw-behind-window false
-        color "#c5c9c570"
-        inactive-color "#c5c9c520"
+        color "#90000090"
+        inactive-color "#66666690"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -228,7 +228,15 @@ layout {
 
 overview {
     zoom 0.80
-    backdrop-color "#181616"
+    backdrop-color "#000000"
+
+    workspace-shadow {
+      // off
+      softness 40
+      spread 10
+      offset x=0 y=0
+      color "#ffffffaa"
+    }
 }
 
 // Add lines like this to spawn processes at startup.
@@ -236,10 +244,10 @@ overview {
 // which may be more convenient to use.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-sh-at-startup "app2unit -s b -t service -- nixGL qs -c qs-dots"
+spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
 // spawn-at-startup "foot --server"
 
-spawn-sh-at-startup "app2unit -s b -- nixGL flatpak run com.logseq.Logseq --force-device-scale-factor=1.5"
+spawn-sh-at-startup "app2unit -s b -- flatpak run com.logseq.Logseq --force-device-scale-factor=1.5"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -311,8 +319,8 @@ window-rule {
 window-rule {
     match app-id="^[Ll]ogseq$"
     open-on-workspace "logseq"
-    default-column-width { proportion 0.75; }
-    opacity 0.92
+    default-column-width { proportion 0.50; }
+    opacity 0.95
 }
 
 window-rule {
@@ -336,6 +344,7 @@ window-rule {
 
 window-rule {
     match app-id="^firefox-sub$"
+    match app-id="^zen-sub$"
     match app-id="^org.mozilla.firefox$"
     open-maximized true
     open-on-workspace "sub"
@@ -343,8 +352,9 @@ window-rule {
 
 window-rule {
     match app-id="^Vivaldi"
-    match app-id="^[Cc]hromium"
-    match app-id="^discord"
+    match app-id="^[Cc]hromium$"
+    match app-id="^discord$"
+    match app-id="^steam$"
     open-maximized true
 }
 
@@ -355,15 +365,23 @@ window-rule {
 
 window-rule {
     match app-id="^[Ss]potify$"
-    match app-id="spotify-player$"
+    match app-id="^spotify-player$"
     open-on-workspace "music"
-    open-maximized true
+    default-column-width { proportion 0.75; }
+    opacity 0.87
+}
+
+window-rule {
+    match app-id="^Chromium-browser$"
+    open-on-workspace "music"
+    default-column-width { proportion 0.25; }
     opacity 0.87
 }
 
 window-rule {
     match app-id="^[Ss]potify$" is-focused=true
-    opacity 0.95
+    match app-id="^Chromium-browser$" is-focused=true
+    opacity 1.0
 }
 
 window-rule {
@@ -390,6 +408,12 @@ window-rule {
     }
 }
 
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+spawn-sh-at-startup "app2unit -s b -t service -- swaybg -o '*' -m fill -i ~/.config/niri/overview.png"
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -406,9 +430,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return { spawn "nixGL" "terminal"; }
-    Mod+Space { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit -- nixGL"; }
-    Mod+D { spawn "fuzzel" "--launch-prefix" "app2unit --fuzzel-compat -- nixGL"; }
+    Mod+Return { spawn "terminal"; }
+    Mod+Space { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit"; }
+    Mod+D { spawn "fuzzel" "--launch-prefix" "app2unit --fuzzel-compat --"; }
     Mod+S { spawn "launch-menu"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -551,14 +575,11 @@ binds {
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
-    // Switches focus between the current and the previous workspace.
-    Mod+Tab { focus-workspace-previous; }
-
     // Switches to Logseq
     Mod+E { focus-workspace "logseq"; }
 
     // Open dropdown terminal
-    F2 { spawn "app2unit" "nixGL" "kitten" "quick_access_terminal" "--override" "lines=42"; }
+    F2 { spawn "app2unit" "kitten" "quick_access_terminal" "--override" "lines=42"; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }

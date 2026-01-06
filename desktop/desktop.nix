@@ -18,6 +18,14 @@
     };
   };
   xdg.desktopEntries = {
+    "Zen-Main" = {
+      name = "Zen (Main)";
+      type = "Application";
+      icon = "app.zen_browser.zen";
+      exec = ''flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen -P "Default (release)" --name zen-main'';
+    };
+  };
+  xdg.desktopEntries = {
     "Zen-Sub" = {
       name = "Zen (Sub)";
       type = "Application";

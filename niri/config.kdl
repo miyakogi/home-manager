@@ -337,6 +337,7 @@ window-rule {
 
 window-rule {
     match app-id="^zen$"
+    match app-id="^zen-main$"
     match app-id="^app.zen_browser.zen$"
     open-maximized true
     open-on-workspace "main"

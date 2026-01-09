@@ -103,7 +103,7 @@
 
     man-db
     man-pages
-    tldr
+    tlrc
     less
     which
 

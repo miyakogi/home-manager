@@ -106,6 +106,7 @@
     tlrc
     less
     which
+    lazygit
 
     wget
     unzip

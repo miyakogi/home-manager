@@ -106,7 +106,6 @@
     tlrc
     less
     which
-    lazygit
 
     wget
     unzip
@@ -203,6 +202,7 @@
     ./eza/eza.nix
     ./fastfetch/fastfetch.nix
     ./gitui/gitui.nix
+    ./lazygit/lazygit.nix
     ./macchina/macchina.nix
     ./ripgrep/ripgrep.nix
     ./starship/starship.nix

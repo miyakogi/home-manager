@@ -31,6 +31,8 @@
       n = "nvim";
       h = "hx";
 
+      tl = "tldr";
+
       gstatus = "git status -s -b";
 
       t = "btop";

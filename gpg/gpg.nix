@@ -5,8 +5,8 @@
   services.gpg-agent = {
     enable = true;
     pinentry = {
-      package = pkgs.pinentry-tty;
-      program = "pinentry-tty";
+      package = pkgs.pinentry-curses;
+      program = "pinentry-curses";
     };
   };
 }

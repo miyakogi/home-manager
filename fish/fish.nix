@@ -53,8 +53,10 @@
     '';
 
     loginShellInit = ''
-      export SSL_CERT_FILE="/etc/ssl/ca-bundle.pem"
-      export GIT_SSL_CAINFO="/etc/ssl/ca-bundle.pem"
+      if test -f /etc/ssl/ca-bundle.pem
+        export SSL_CERT_FILE="/etc/ssl/ca-bundle.pem"
+        export GIT_SSL_CAINFO="/etc/ssl/ca-bundle.pem"
+      end
 
       fish_add_path --global "$HOME/.nix-profile/bin"
       fish_add_path --global "$HOME/.local/bin"
@@ -147,6 +149,12 @@
 
     interactiveShellInit = ''
       set -x GPG_TTY (tty)
+
+      # arch container
+      if test -f /etc/ssl/cert.pem
+        export SSL_CERT_FILE="/etc/ssl/cert.pem"
+        export GIT_SSL_CAINFO="/etc/ssl/cert.pem"
+      end
 
       # auto ls on cd
       function __auto_ls --on-variable PWD; ls; end

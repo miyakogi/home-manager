@@ -81,7 +81,7 @@ output "DP-2" {
     position x=0 y=0
     // variable-refresh-rate
     focus-at-startup
-    background-color "#181616"
+    background-color "#000000"
 }
 // spawn-sh-at-startup "swaybg -o DP-1 -i ~/.config/niri/bg_4k.png -m fill"
 
@@ -89,7 +89,7 @@ output "HDMI-A-3" {
     mode "2560x1600@60"
     scale 1.0
     position x=640 y=2160
-    background-color "#181616"
+    background-color "#000000"
 }
 // spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
 

@@ -1,2 +1,3 @@
 @import "mikado.css";
+@define-color os @green;
 @import "main.css";

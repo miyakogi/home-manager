@@ -95,6 +95,8 @@
 
   # Install programs
   home.packages = with pkgs; [
+    uutils-coreutils-noprefix
+    
     fzf
     fd
     jq

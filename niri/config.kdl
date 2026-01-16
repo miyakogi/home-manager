@@ -386,6 +386,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^rio$"
+    open-maximized-to-edges false
+}
+
+window-rule {
     match app-id="^dropdown$"
     open-floating true
     default-window-height { proportion 0.8; }

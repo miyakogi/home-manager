@@ -15,7 +15,7 @@
 #
 # Example:
 # theme = "dracula"
-theme = "kanagawa-dragon"
+theme = "mikado"
 
 # Use fork
 #
@@ -123,7 +123,7 @@ blinking-interval = 500
 # decorations = "Enabled"
 [window]
 mode = "Maximized"
-opacity = 0.95
+opacity = 0.82
 decorations = "Disabled"
 
 # Renderer
@@ -184,9 +184,10 @@ backend = "Vulkan"
 # Example:
 # [fonts]
 [fonts]
-size = 18
+size = 20
 family = "Google Sans Code"
-extras = [ { family = "Symbols Nerd Font" }, { family = "IBM Plex Sans JP" }, { family = "Unifont" } ]
+extras = [ { family = "Symbols Nerd Font" }, { family = "IBM Plex Sans JP" } ]
+# extras = [ { family = "Symbols Nerd Font" }, { family = "IBM Plex Sans JP" }, { family = "Unifont" } ]
 # features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
 features = []
 use-drawable-chars = false

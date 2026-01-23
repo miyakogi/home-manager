@@ -177,6 +177,7 @@
     # Theme
     qt6Packages.qt6ct
     kdePackages.qtstyleplugin-kvantum
+    rose-pine-cursor
     adwaita-icon-theme
 
     # Software

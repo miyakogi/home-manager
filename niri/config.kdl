@@ -71,8 +71,8 @@ input {
 
 cursor {
   hide-when-typing
-  // xcursor-theme "Breeze"
-  // xcursor-size 24
+  xcursor-theme "BreezeX-RosePineDawn-Linux"
+  xcursor-size 48
 }
 
 output "DP-2" {

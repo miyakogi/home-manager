@@ -43,12 +43,15 @@
       fish_greeting = "";
     };
 
+    binds = {
+      "ctrl-w".command = "backward-kill-word";
+      "ctrl-backspace".command = "backward-kill-word";
+      "ctrl-y".command = [ "commandline \"cd ../\"" "commandline -f execute" ];
+      "ctrl-j".command = "myjump";
+      "ctrl-f".command = "nextd-or-forward-word";
+    };
+
     shellInit = ''
-      bind ctrl-w backward-kill-word
-      bind \b backward-kill-word
-      bind ctrl-y 'commandline "cd ../" ; commandline -f execute'
-      bind ctrl-j myjump
-      bind ctrl-f nextd-or-forward-word
       if [ -n "$ZELLIJ" ]; bind ctrl-d delete-char; end
     '';
 

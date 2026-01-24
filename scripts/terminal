@@ -42,12 +42,12 @@ cmd=("$_term")
 
 # Set initial command options if needed
 case "$_term" in
-  ghostty)
-    # disable +new-window if --class/-e is specified (currently not supported)
-    if [ "$1" != "--class" ] && [ "$1" != "-e" ]; then
-      cmd+=(+new-window)
-    fi
-    ;;
+  # ghostty)
+  #   # disable +new-window if --class/-e is specified (currently not supported)
+  #   if [ "$1" != "--class" ] && [ "$1" != "-e" ]; then
+  #     cmd+=(+new-window)
+  #   fi
+  #   ;;
   wezterm)
     cmd+=(start --always-new-process)
     ;;

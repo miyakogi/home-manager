@@ -1,0 +1,14 @@
+[Unit]
+Description=Fcitx5 in Arch Linux Container with Hazkey
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/fcitx5
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

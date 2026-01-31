@@ -56,20 +56,26 @@
     # SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";  # openSUSE
     # GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";  # openSUSE
     MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
+
+    # Input Method
+    # GTK_IM_MODULE = "fcitx";
+    # QT_IM_MODULE = "fcitx";
+    # XMODIFIERS = "@im=fcitx";
+    # SDL_IM_MODULE = "fcitx";
   };
 
   # Input Methods
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-      libsForQt5.fcitx5-qt
-      kdePackages.fcitx5-qt
-      kdePackages.fcitx5-configtool
-    ];
-  };
+  # i18n.inputMethod = {
+  #   type = "fcitx5";
+  #   enable = true;
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-mozc
+  #     fcitx5-gtk
+  #     libsForQt5.fcitx5-qt
+  #     kdePackages.fcitx5-qt
+  #     kdePackages.fcitx5-configtool
+  #   ];
+  # };
 
   # Fonts
   fonts.fontconfig.enable = false;
@@ -114,6 +120,8 @@
     unzip
     libarchive
     unar
+
+    distrobox
 
     # Dev tools
     clang

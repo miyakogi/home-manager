@@ -12,4 +12,7 @@
   home.file.".local/share/systemd/user/waybar-niri.service" = {
     source = ./services/waybar-niri.service;
   };
+  home.file.".local/share/systemd/user/fcitx5-arch.service" = {
+    source = ./services/fcitx5-arch.service;
+  };
 }

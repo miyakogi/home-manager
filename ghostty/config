@@ -25,7 +25,8 @@ font-feature = +ss03
 # theme = Raycast_Dark
 # theme = Snazzy
 # theme = carbonfox-vivid-oled
-theme = Kanagawa Dragon
+# theme = Kanagawa Dragon
+theme = kanagawa-dragon
 # theme = mikado
 background-opacity = 0.92
 

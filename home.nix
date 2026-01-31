@@ -53,23 +53,23 @@
   # Environment Variables
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
-    SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";  # openSUSE
-    GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";  # openSUSE
+    # SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";  # openSUSE
+    # GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";  # openSUSE
     MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
   };
 
   # Input Methods
-  # i18n.inputMethod = {
-  #   type = "fcitx5";
-  #   enable = true;
-  #   fcitx5.addons = with pkgs; [
-  #     fcitx5-mozc
-  #     fcitx5-gtk
-  #     libsForQt5.fcitx5-qt
-  #     kdePackages.fcitx5-qt
-  #     kdePackages.fcitx5-configtool
-  #   ];
-  # };
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+      libsForQt5.fcitx5-qt
+      kdePackages.fcitx5-qt
+      kdePackages.fcitx5-configtool
+    ];
+  };
 
   # Fonts
   fonts.fontconfig.enable = false;
@@ -96,12 +96,13 @@
   # Install programs
   home.packages = with pkgs; [
     uutils-coreutils-noprefix
-    
+
     fzf
     fd
     jq
     dua
     tokei
+    just
 
     man-db
     man-pages
@@ -168,7 +169,6 @@
     imv
     mpv
     gamescope
-    spotify  # temporally (until flatpak version fixes spotify-connect)
     ffmpeg
     imagemagick
     libavif

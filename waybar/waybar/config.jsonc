@@ -1,7 +1,7 @@
 [
 {
   "layer": "top",
-  "output": ["DP-2"],
+  "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
   "height": 32,  // 1 + tray icon + 1
@@ -16,7 +16,7 @@
     "on-click": "activate",
     "format": "",
     "persistent-workspaces": {
-      "DP-2": 10,
+      "DP-1": 10,
     },
   },
   "niri/workspaces": {
@@ -74,7 +74,7 @@
   },
 }, {
   "layer": "top",
-  "output": ["HDMI-A-3"],
+  "output": ["HDMI-A-1"],
   "name": "FHD",
   "position": "bottom",
   "spacing": 4,
@@ -86,7 +86,7 @@
     "on-click": "activate",
     "format": "",
     "persistent-workspaces": {
-      "HDMI-A-3": 10,
+      "HDMI-A-1": 10,
     },
   },
   "niri/workspaces": {

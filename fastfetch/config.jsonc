@@ -44,7 +44,7 @@
       {
         "type": "packages",
         "key": "{#90}│ {#93}Packages    {#90}│",
-        "format": "{$1}nix: {nix-all}, flatpak: {flatpak-all}, system: {rpm}"
+        "format": "{$1}nix: {nix-all}, flatpak: {flatpak-all}"
       },
       {
         "type": "uptime",

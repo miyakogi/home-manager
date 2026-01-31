@@ -75,7 +75,7 @@ cursor {
   xcursor-size 48
 }
 
-output "DP-2" {
+output "DP-1" {
     mode "3840x2160@120"
     scale 1.0
     position x=0 y=0
@@ -83,15 +83,13 @@ output "DP-2" {
     focus-at-startup
     background-color "#000000"
 }
-// spawn-sh-at-startup "swaybg -o DP-1 -i ~/.config/niri/bg_4k.png -m fill"
 
-output "HDMI-A-3" {
+output "HDMI-A-1" {
     mode "2560x1600@60"
     scale 1.0
     position x=640 y=2160
     background-color "#000000"
 }
-// spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
 
 // xwayland
 spawn-sh-at-startup "~/.nix-profile/bin/xwayland-satellite"
@@ -294,19 +292,19 @@ animations {
 }
 
 workspace "logseq" {
-    open-on-output "DP-2"
+    open-on-output "DP-1"
 }
 
 workspace "music" {
-    open-on-output "HDMI-A-3"
+    open-on-output "HDMI-A-1"
 }
 
 workspace "main" {
-    open-on-output "DP-2"
+    open-on-output "DP-1"
 }
 
 workspace "sub" {
-    open-on-output "HDMI-A-3"
+    open-on-output "HDMI-A-1"
 }
 
 // Rounded corner for all windows

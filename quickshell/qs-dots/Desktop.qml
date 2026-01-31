@@ -47,7 +47,7 @@ Variants {
       visible: false
 
       Border {
-        isMain: screenName == "DP-2"
+        isMain: screenName == "DP-1"
         desktopColor: root.desktopColor
       }
     }

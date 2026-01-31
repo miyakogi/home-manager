@@ -6,7 +6,7 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "niri" ""
+ExecCondition=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = niri ]'
 ExecStart=%h/.nix-profile/bin/waybar --style %h/.config/waybar/style-niri.css
 ExecReload=kill -SIGUSR2 $MAINPID
 Restart=on-failure

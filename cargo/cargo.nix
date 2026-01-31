@@ -1,6 +1,7 @@
 { ... }: {
   programs.cargo = {
     enable = true;
+    package = null;
     settings = {
       cargo-new = {
         vcs = "none";

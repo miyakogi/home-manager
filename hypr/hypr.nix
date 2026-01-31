@@ -6,10 +6,10 @@
 
   home.packages = with pkgs; [
     hyprland
-    # xwayland -> system
+    # xwayland  # -> system
     hyprpaper
     hypridle
-    # hyprlock -> system
+    hyprlock
     hyprpolkitagent
     hyprpicker
   ];

@@ -150,11 +150,6 @@
     mesa
     libva
 
-    uwsm
-    newt
-    app2unit
-    xdg-terminal-exec
-
     # XDG Desktop Portals
     xdg-desktop-portal
     xdg-desktop-portal-gtk
@@ -228,6 +223,7 @@
     ./yazi/yazi.nix
     ./zoxide/zoxide.nix
 
+    ./uwsm/uwsm.nix
     ./hypr/hypr.nix
     ./niri/niri.nix
 

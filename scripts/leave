@@ -47,7 +47,11 @@ _hibernate() {
 }
 
 _exit() {
-  uwsm stop || hyprctl dispatch exit || niri msg action quit
+  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+    hyprshutdown
+  else
+    uwsm stop || niri msg action quit || hyprctl dispatch exit
+  fi
 }
 
 _reboot() {

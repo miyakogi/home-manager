@@ -150,7 +150,7 @@
     mesa
     libva
 
-    # uwsm
+    uwsm
     newt
     app2unit
     xdg-terminal-exec

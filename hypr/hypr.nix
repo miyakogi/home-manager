@@ -12,6 +12,7 @@
     hyprlock
     hyprpolkitagent
     hyprpicker
+    hyprshutdown
   ];
 
   home.file.".config/hypr/hyprland.conf" = {

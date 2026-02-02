@@ -6,8 +6,8 @@ Requisite=graphical-session.target
 
 [Service]
 Type=simple
-ExecCondition=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = niri ]'
-ExecStart=%h/.local/bin/fcitx5
+ExecCondition=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = Hyprland ]'
+ExecStart=/run/current-system/sw/bin/flatpak run org.fcitx.Fcitx5
 Restart=on-failure
 RestartSec=5
 

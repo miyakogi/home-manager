@@ -143,7 +143,7 @@
     vscode-css-languageserver
 
     # AI
-    codex
+    claude-code
 
     # HW accel
     nixgl.auto.nixGLDefault

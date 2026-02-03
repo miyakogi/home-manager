@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -65,17 +65,18 @@
   };
 
   # Input Methods
-  # i18n.inputMethod = {
-  #   type = "fcitx5";
-  #   enable = true;
-  #   fcitx5.addons = with pkgs; [
-  #     fcitx5-mozc
-  #     fcitx5-gtk
-  #     libsForQt5.fcitx5-qt
-  #     kdePackages.fcitx5-qt
-  #     kdePackages.fcitx5-configtool
-  #   ];
-  # };
+  services.hazkey.enable = true;
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      inputs.nix-hazkey.packages.${pkgs.system}.fcitx5-hazkey
+      fcitx5-gtk
+      libsForQt5.fcitx5-qt
+      kdePackages.fcitx5-qt
+      kdePackages.fcitx5-configtool
+    ];
+  };
 
   # Fonts
   fonts.fontconfig.enable = false;
@@ -193,6 +194,9 @@
   ];
 
   imports = [
+    # haykey flake
+    inputs.nix-hazkey.homeModules.hazkey
+
     ./services.nix
     ./scripts.nix
 

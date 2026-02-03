@@ -144,6 +144,7 @@
 
     # AI
     claude-code
+    codex
 
     # HW accel
     mesa

@@ -5,13 +5,9 @@ function wm-start
     exec uwsm start (string lower $argv[1]).desktop
   else if test "$argv[1]" = "Hyprland"
     exec start-hyprland
-  else if command -q nixGL
-    if test $argv[1] = niri
-      exec nixGL niri-session
-    else
-      exec nixGL $argv[1]
-    end
+  else if test $argv[1] = niri
+    exec niri-session
   else
-    exec "$argv[1]"
+    exec $argv[1]
   end
 end

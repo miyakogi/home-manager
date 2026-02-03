@@ -146,7 +146,6 @@
     claude-code
 
     # HW accel
-    nixgl.auto.nixGLDefault
     mesa
     libva
 

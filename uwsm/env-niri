@@ -1,7 +1,5 @@
 export TERMINAL=kitty
 
-export DISPLAY=:0
-
 export XDG_CURRENT_DESKTOP=niri
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSOIN_DESKTOP=niri

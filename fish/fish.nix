@@ -40,7 +40,19 @@
     };
 
     functions = {
-      fish_greeting = "";
+      fish_greeting = ''
+        if ! status is-login
+          if string match --quiet --regex '.*(ghostty|wezterm).*' "$TERM"; and type -q macchina
+            macchina
+          else if type -q fastfetch
+            fastfetch
+          end
+        end
+      '';
+      __auto_ls = {
+        onVariable = "PWD";
+        body = "ls";
+      };
     };
 
     binds = {
@@ -56,14 +68,9 @@
     '';
 
     loginShellInit = ''
-      if test -f /etc/ssl/ca-bundle.pem
-        export SSL_CERT_FILE="/etc/ssl/ca-bundle.pem"
-        export GIT_SSL_CAINFO="/etc/ssl/ca-bundle.pem"
-      end
-
       fish_add_path --global "$HOME/.nix-profile/bin"
-      fish_add_path --global "$HOME/.local/bin"
       fish_add_path --global "$HOME/.cargo/bin"
+      fish_add_path --global "$HOME/.local/bin"
       fish_add_path --global --move "$HOME/bin"
 
       export GOPATH="$HOME/.go"
@@ -153,25 +160,12 @@
     interactiveShellInit = ''
       set -x GPG_TTY (tty)
 
-      # arch container
-      if test -f /etc/ssl/cert.pem
-        export SSL_CERT_FILE="/etc/ssl/cert.pem"
-        export GIT_SSL_CAINFO="/etc/ssl/cert.pem"
-      end
-
-      # auto ls on cd
-      function __auto_ls --on-variable PWD; ls; end
+      # need to activate auto ls function
+      type -q __auto_ls
 
       # ls color setting
       set -x LSCOLORS Exfxcxdxbxegedabagacad
       set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
-      # fetch
-      if string match --quiet --regex '.*(ghostty|wezterm).*' "$TERM"; and type -q macchina
-        macchina
-      else if type -q fastfetch
-        fastfetch
-      end
 
       # load machine local setting
       if test -f ~/.config/fish/local.fish

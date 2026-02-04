@@ -88,7 +88,7 @@
       set -x _ZO_FZF_OPTS "--bind=ctrl-z:ignore --exit-0 --height=40% --info=inline --no-sort --reverse --select-1 --exact"
 
       ### Login on TTY1
-      if test -z "$DISPLAY"; and test "$XDG_VTNR" = 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
+      if test -z "$DISPLAY"; and test "$XDG_VTNR" = 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; or begin type -q uwsm; and uwsm check may-start; end; end
         echo -e -n "\
       Select Window Manager of Shell:
       > 1) Hyprland [default]

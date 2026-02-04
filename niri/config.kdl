@@ -5,6 +5,7 @@
 
 environment {
 }
+spawn-sh-at-startup "systemctl --user start niri-graphical-session.target"
 
 // Input device configuration.
 // Find the full list of options on the wiki:

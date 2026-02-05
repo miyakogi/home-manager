@@ -159,7 +159,7 @@
     # Utilities
     xdg-utils
     libnotify
-    wl-clipboard
+    wl-clipboard-rs
     lxqt.pcmanfm-qt
 
     # Multimedia

@@ -11,7 +11,7 @@
   home.file.".config/uwsm/env-hyprland" = {
     source = ./env-hyprland;
   };
-  home.file.".config/uwsm/env-niri" = {
-    source = ./env-niri;
-  };
+  # home.file.".config/uwsm/env-niri" = {
+  #   source = ./env-niri;
+  # };
 }

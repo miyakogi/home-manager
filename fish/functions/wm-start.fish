@@ -5,7 +5,7 @@ function wm-start
     if test "$argv[1]" = "Hyprland"
       exec uwsm start hyprland.desktop
     else if test "$argv[1]" = "niri"
-      exec niri-session
+      uwsm start -a -D niri niri-uwsm.desktop
     else
       exec uwsm start (string lower $argv[1]).desktop
     end

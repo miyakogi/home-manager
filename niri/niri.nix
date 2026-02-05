@@ -5,6 +5,14 @@
     swaybg  # for overview backdrop
   ];
 
+  xdg.dataFile."wayland-sessions/niri-uwsm.desktop".text = ''
+    [Desktop Entry]
+    Name=Niri (UWSM)
+    Comment=Niri Wayland Compositor Session for UWSM Management
+    Exec=systemctl --user --wait start niri.service
+    Type=Application
+  '';
+
   home.file.".config/niri/config.kdl" = {
     source = ./config.kdl;
   };

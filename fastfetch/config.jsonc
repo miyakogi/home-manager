@@ -90,26 +90,6 @@
         "key": "{#90}│ {#95}Shell       {#90}│",
         "format": "{$1}{pretty-name} {#2}v{version}"
       },
-      // {
-      //   // localip IPv4
-      //   "type": "localip",
-      //   "key": "{#90}│ {#94}Local IPv4  {#90}│",
-      //   "showPrefixLen": true,
-      //   "showIpv4": true,
-      //   "showIpv6": false,
-      //   "showMtu": false,
-      //   "format": "{$1}{ipv4}"
-      // },
-      // {
-      //   // localip IPv6
-      //   "type": "localip",
-      //   "key": "{#90}│ {#94}Local IPv6  {#90}│",
-      //   "showPrefixLen": true,
-      //   "showIpv4": false,
-      //   "showIpv6": true,
-      //   "showMtu": false,
-      //   "format": "{$1}{ipv6}"
-      // },
       {
         "type": "player",
         "key": "{#90}│ {#94}Player      {#90}│",

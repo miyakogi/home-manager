@@ -4,8 +4,8 @@ function wm-start
   if type -q uwsm
     if test "$argv[1]" = "Hyprland"
       exec uwsm start hyprland.desktop
-    else if "$argv[1]" = "niri"
-      exec uwsm start niri
+    else if test "$argv[1]" = "niri"
+      exec niri-session
     else
       exec uwsm start (string lower $argv[1]).desktop
     end

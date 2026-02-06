@@ -9,6 +9,9 @@
   home.file.".local/share/systemd/user/niri-graphical-session.target" = {
     source = ./services/niri-graphical-session.target;
   };
+  home.file.".local/share/systemd/user/ollama.service" = {
+    source = ./services/ollama.service;
+  };
   home.file.".local/share/systemd/user/waybar-hyprland.service" = {
     source = ./services/waybar-hyprland.service;
   };

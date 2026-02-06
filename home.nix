@@ -146,6 +146,7 @@
     # AI
     claude-code
     codex
+    ollama-vulkan
 
     # HW accel
     mesa

@@ -51,7 +51,6 @@
     "return-type": "json",
     "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
     "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
-    "interval": -1,  // need anyway
     "format": "{}",
     "tooltip": false,
   },
@@ -111,7 +110,6 @@
     "return-type": "json",
     "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
     "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
-    "interval": -1,  // need anyway
     "format": "{}",
     "tooltip": false,
   },

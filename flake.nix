@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-hazkey = {
-      url = "github:aster-void/nix-hazkey";
+      url = "github:miyakogi/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # rio.url = "github:raphamorim/rio/main";

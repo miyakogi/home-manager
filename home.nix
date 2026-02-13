@@ -79,7 +79,7 @@
   };
 
   # Fonts
-  fonts.fontconfig.enable = false;
+  fonts.fontconfig.enable = true;
   gtk = {
     gtk3.font = {
       name = "monospace";
@@ -170,6 +170,7 @@
     playerctl
     mpc
     mpdris2-rs
+    yt-dlp
     ffmpegthumbnailer
     imv
     mpv

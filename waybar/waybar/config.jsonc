@@ -9,7 +9,7 @@
   "modules-center": ["custom/media"],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "systemd-failed-units", "tray"],
   "custom/os": {
-    "exec": "echo \"  openSUSE\"",
+    "exec": "echo \" NixOS\"",
     "format": "{}",
   },
   "hyprland/workspaces": {

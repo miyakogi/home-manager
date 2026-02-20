@@ -6,6 +6,7 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    shellWrapperName = "yy";
     settings = {
       mgr = {
         ratio = [ 0 4 4 ];

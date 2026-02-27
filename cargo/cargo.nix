@@ -8,7 +8,7 @@
       };
       "target.x86_64-unknown-linux-gnu" = {
         linker = "clang";
-        rustflags = [ "-C" "link-args=-fuse-ld=/usr/bin/modl" ];
+        rustflags = ["-C" "link-arg=-fuse-ld=mold"];
       };
       term = {
         color = "auto";

@@ -126,7 +126,10 @@
 
     # Dev tools
     clang
-    python313Packages.cmake
+    cmake
+    openssl
+    extra-cmake-modules
+    libxkbcommon.dev
     pkgconf
     rustup
     mold

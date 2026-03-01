@@ -78,21 +78,6 @@ local plugins = {
   },
 
   -- ### File Management ###
-  {
-    'ggandor/leap.nvim',
-    dependencies = {
-      { 'tpope/vim-repeat' },
-    },
-    lazy = true,
-    keys = {
-      { 'f', '<Plug>(leap-forward-to)', mode = {'n', 'x', 'o'}, },
-      { 'F', '<Plug>(leap-backward-to)', mode = {'n', 'x', 'o'}, },
-    },
-    config = function()
-      require('leap').add_default_mappings()
-    end,
-  },
-
   -- git integration
   {
     'lewis6991/gitsigns.nvim',

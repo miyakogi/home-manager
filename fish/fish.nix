@@ -42,10 +42,14 @@
     functions = {
       fish_greeting = ''
         if ! status is-login
-          if string match --quiet --regex '.*(ghostty|wezterm).*' "$TERM"; and type -q macchina
+          if type -q fastfetch
+            if string match --quiet --regex '.*(ghostty|wezterm).*' "$TERM"
+              fastfetch --config config-short.jsonc
+            else
+              fastfetch
+            end
+          else if type -q macchina
             macchina
-          else if type -q fastfetch
-            fastfetch
           end
         end
       '';

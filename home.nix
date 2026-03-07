@@ -53,15 +53,7 @@
   # Environment Variables
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
-    # SSL_CERT_FILE = "/etc/ssl/ca-bundle.pem";  # openSUSE
-    # GIT_SSL_CAINFO = "/etc/ssl/ca-bundle.pem";  # openSUSE
     MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
-
-    # Input Method
-    # GTK_IM_MODULE = "fcitx";
-    # QT_IM_MODULE = "fcitx";
-    # XMODIFIERS = "@im=fcitx";
-    # SDL_IM_MODULE = "fcitx";
   };
 
   # Input Methods
@@ -69,6 +61,7 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       inputs.nix-hazkey.packages.${pkgs.system}.fcitx5-hazkey
       fcitx5-gtk

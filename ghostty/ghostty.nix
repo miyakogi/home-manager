@@ -12,8 +12,8 @@
       font-variation-italic = "wght=300";
       font-variation-bold-italic = "wght=600";
 
-      theme = "kanagawa-dragon";
-      background-opacity = 0.92;
+      theme = "mikado";
+      background-opacity = 0.82;
 
       command = "fish";
 

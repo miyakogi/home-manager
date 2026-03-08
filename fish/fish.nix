@@ -43,11 +43,7 @@
       fish_greeting = ''
         if ! status is-login
           if type -q fastfetch
-            if string match --quiet --regex '.*(ghostty|wezterm).*' "$TERM"
-              fastfetch --config config-short.jsonc
-            else
-              fastfetch
-            end
+            fastfetch --config config-short.jsonc
           else if type -q macchina
             macchina
           end

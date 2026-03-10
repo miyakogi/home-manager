@@ -1,5 +1,7 @@
 { config, inputs, pkgs, ... }:
-
+let
+  inherit (pkgs.stdenv) system;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -57,7 +59,10 @@
   };
 
   # Input Methods
-  services.hazkey.enable = true;
+  services.hazkey = {
+    enable = true;
+    server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override { enableVulkan = true; };
+  };
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
@@ -152,6 +157,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gnome  # for niri dark theme, see: https://github.com/niri-wm/niri/issues/2878#issuecomment-3573812112
 
     # Utilities
     xdg-utils

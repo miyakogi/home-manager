@@ -31,6 +31,10 @@
       window-padding-x = 12;
       window-padding-y = 12;
 
+      notify-on-command-finish = "unfocused";
+      notify-on-command-finish-action = "no-bell,notify";
+      notify-on-command-finish-after = "3s";
+
       quit-after-last-window-closed = false;
     };
   };

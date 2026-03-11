@@ -48,6 +48,11 @@ case "$_term" in
   #     cmd+=(+new-window)
   #   fi
   #   ;;
+  ghostty)
+    if [ "$XDG_CURRENT_DESKTOP" = niri ]; then
+      cmd+=(--theme="mikado" --background-opacity=0.82)
+    fi
+    ;;
   wezterm)
     cmd+=(start --always-new-process)
     ;;

@@ -5,7 +5,7 @@
       genericName = "Video player on chrome with gamescope";
       type = "Application";
       icon = "com.google.Chrome";
-      exec = "gamescope -f -w 1920 -h 1080 -W 3840 -H 2160 --filter fsr --sharpness 10 --backend sdl -- flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chrome --file-forwarding com.google.Chrome";
+      exec = "gamescope -f -w 1920 -h 1080 -W 3840 -H 2160 --filter fsr --sharpness 10 --backend wayland --hdr-enabled -- flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chrome --file-forwarding com.google.Chrome";
     };
   };
   xdg.desktopEntries = {

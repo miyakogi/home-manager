@@ -4,8 +4,11 @@ case "$XDG_CURRENT_DESKTOP" in
   sway*)
     service="swayidle.service"
     ;;
-  [Hh]yprland|niri)
-    service="hypridle.service"
+  [Hh]yprland)
+    service="hypridle-hyprland.service"
+    ;;
+  niri)
+    service="swayidle-niri.service"
     ;;
   *)
     ;;

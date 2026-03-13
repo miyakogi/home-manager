@@ -8,11 +8,11 @@ case "$XDG_CURRENT_DESKTOP" in
     ;;
   [Hh]yprland)
     class="class"
-    service="hypridle.service"
+    service="hypridle-hyprland.service"
     ;;
   niri)
     class="class"
-    service="hypridle.service"
+    service="swayidle-niri.service"
     ;;
   *)
     class="class"

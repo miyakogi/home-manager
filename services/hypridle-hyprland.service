@@ -6,7 +6,7 @@ Requisite=graphical-session.target
 
 [Service]
 Type=simple
-ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland:niri" ""
+ExecCondition=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = Hyprland ]'
 ExecStart=%h/.nix-profile/bin/hypridle
 Restart=on-failure
 

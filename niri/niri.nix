@@ -3,6 +3,7 @@
     niri
     xwayland-satellite
     swaybg  # for overview backdrop
+    swayidle
   ];
 
   xdg.dataFile."wayland-sessions/niri-uwsm.desktop".text = ''

@@ -12,6 +12,12 @@
   home.file.".local/share/systemd/user/ollama.service" = {
     source = ./services/ollama.service;
   };
+  home.file.".local/share/systemd/user/hypridle-hyprland.service" = {
+    source = ./services/hypridle-hyprland.service;
+  };
+  home.file.".local/share/systemd/user/swayidle-niri.service" = {
+    source = ./services/swayidle-niri.service;
+  };
   home.file.".local/share/systemd/user/waybar-hyprland.service" = {
     source = ./services/waybar-hyprland.service;
   };

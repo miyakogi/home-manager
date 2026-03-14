@@ -7,7 +7,7 @@ Requisite=graphical-session.target
 [Service]
 Type=simple
 ExecCondition=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = niri ]'
-ExecStart=%h/.nix-profile/bin/swayidle -w lock hyprlock timeout 600 'loginctl lock-session' timeout 1200 'systemctl suspend'
+ExecStart=%h/.nix-profile/bin/swayidle lock hyprlock timeout 600 'loginctl lock-session' timeout 1200 'systemctl suspend'
 Restart=on-failure
 
 [Install]

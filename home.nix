@@ -176,7 +176,6 @@ in
     yt-dlp
     ffmpegthumbnailer
     imv
-    mpv
     gamescope
     ffmpeg
     imagemagick
@@ -253,6 +252,8 @@ in
 
     ./mako/mako.nix
     ./swappy/swappy.nix
+
+    ./mpv/mpv.nix
 
     ./desktop/desktop.nix
   ];

@@ -9,15 +9,6 @@
     };
   };
   xdg.desktopEntries = {
-    "Logseq" = {
-      name = "Logseq";
-      genericName = "A privacy-first, open-source platform for knowledga management and collaboration.";
-      type = "Application";
-      icon = "com.logseq.Logseq";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=run.sh --file-forwarding com.logseq.Logseq --force-device-scale-factor=1.5";
-    };
-  };
-  xdg.desktopEntries = {
     "Zen-Main" = {
       name = "Zen (Main)";
       type = "Application";

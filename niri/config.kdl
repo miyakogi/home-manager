@@ -227,7 +227,7 @@ overview {
 spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
 // spawn-at-startup "foot --server"
 
-spawn-sh-at-startup "app2unit -s b -- flatpak run com.logseq.Logseq --force-device-scale-factor=1.5"
+spawn-sh-at-startup "app2unit -s b -- flatpak run com.logseq.Logseq"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

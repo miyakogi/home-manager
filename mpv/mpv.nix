@@ -31,19 +31,19 @@
       dscale = "mitchell";
       tscale = "mitchell";
 
-      vf = "vapoursynth=~~/interpolation.vpy:8:4";
+      # vf = "vapoursynth=~~/interpolation.vpy:8:4";
 
       glsl-shaders = "~~/shaders/Anime4K_Clamp_Highlights.glsl:~~/shaders/Anime4K_Restore_CNN_VL.glsl:~~/shaders/Anime4K_Upscale_CNN_x2_VL.glsl:~~/shaders/Anime4K_AutoDownscalePre_x2.glsl:~~/shaders/Anime4K_AutoDownscalePre_x4.glsl:~~/shaders/Anime4K_Upscale_CNN_x2_M.glsl";
 
       ao = "pipewire";
 
       hr-seek = "absolute";
-      osc = false;
+      # osc = false;
     };
   };
 
   home.file.".config/mpv/input.conf".source = ./input.conf;
-  home.file.".config/mpv/interpolation.vpy".source = ./interpolation.vpy;
+  # home.file.".config/mpv/interpolation.vpy".source = ./interpolation.vpy;
   home.file.".config/mpv/shaders" = {
     source = ./shaders;
     recursive = true;

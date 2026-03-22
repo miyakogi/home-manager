@@ -181,6 +181,10 @@ in
     imagemagick
     libavif
     pngquant
+    lsfg-vk
+    lsfg-vk-ui
+    vulkan-tools
+    mangohud
 
     # Theme
     qt6Packages.qt6ct

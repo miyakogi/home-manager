@@ -58,7 +58,7 @@ cursor {
 }
 
 output "DP-1" {
-    mode "3840x2160@120"
+    mode "3840x2160@144"
     scale 1.0
     position x=0 y=0
     variable-refresh-rate

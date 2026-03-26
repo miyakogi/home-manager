@@ -41,7 +41,7 @@ program = "fish"
 [window]
 dynamic_padding = true
 opacity = 0.80
-startup_mode = "Maximized"
+startup_mode = "Windowed"
 
 [window.padding]
 x = 6

@@ -12,7 +12,7 @@
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # rio.url = "github:raphamorim/rio/main";
+    rio.url = "github:raphamorim/rio/main";
   };
 
 

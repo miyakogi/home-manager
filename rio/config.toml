@@ -40,6 +40,11 @@ args = []
 # Default cursor is Block
 # Other available options are: '_' and '|'
 #
+
+[effects]
+custom-mouse-cursor = false
+trail-cursor = true
+
 [cursor]
 shape = 'beam'
 

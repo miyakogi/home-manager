@@ -92,6 +92,16 @@ in
     "FONT_DIRS" = "${config.home.homeDirectory}/.local/share/fonts:${config.home.homeDirectory}/.nix-profile/share/fonts";
   };
 
+  # Theme
+  qt.kvantum = {
+    enable = true;
+    settings = {
+      General = {
+        theme = "KvGnomeDark";
+      };
+    };
+  };
+
   # notification
   # services.mako = {
   #   enable = true;

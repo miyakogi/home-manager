@@ -155,7 +155,7 @@ in
     vscode-css-languageserver
 
     # AI
-    claude-code
+    # claude-code
     codex
     ollama-vulkan
 

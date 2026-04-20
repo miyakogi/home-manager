@@ -217,6 +217,24 @@ weight = 700
 # style = "italic"
 # weight = 800
 
+[hints]
+# Characters used for hint labels (should be easy to type)
+alphabet = "jfkdls;ahgurieowpq"
+
+# URL hint example
+[[hints.rules]]
+regex = "(https://|http://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^\u27E8\u27E9`\\\\]+"
+hyperlinks = true
+post-processing = true
+persist = false
+
+[hints.rules.action]
+action = "Copy"
+
+[hints.rules.mouse]
+enabled = true
+mods = []
+
 # Scroll
 #
 # You can change how many lines are scrolled each time by setting this option.

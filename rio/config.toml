@@ -223,7 +223,7 @@ alphabet = "jfkdls;ahgurieowpq"
 
 # URL hint example
 [[hints.rules]]
-regex = "(https://|http://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^\u27E8\u27E9`\\\\]+"
+regex = "(https://|http://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^\u27E8\u27E9`\\\\]+"  # 27E8と27E9は '()'
 hyperlinks = true
 post-processing = true
 persist = false

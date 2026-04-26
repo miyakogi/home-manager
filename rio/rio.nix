@@ -1,7 +1,8 @@
 { pkgs, inputs, ... }:
 let
-  rio = inputs.rio.packages.${pkgs.system}.rio.overrideAttrs (_: {
+  rio = inputs.rio.packages.${pkgs.system}.rio.overrideAttrs (old: {
       doCheck = false;
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.shaderc ];
     });
 in {
   home.packages = with pkgs; [

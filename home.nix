@@ -158,6 +158,7 @@ in
     claude-code
     codex
     ollama-vulkan
+    radeontop
 
     # HW accel
     mesa

@@ -494,10 +494,10 @@ local plugins = {
 
   -- highlight current word
   {
-    'RRethy/vim-illuminate',
+    'nvim-mini/mini.cursorword',
     config = function()
-      require('illuminate').configure({
-        delay = 30,  -- sway's key repeat rate = 36/s -> 27.8ms
+      require("mini.cursorword").setup({
+        delay = 30,
       })
     end,
   },
@@ -560,7 +560,7 @@ local plugins = {
 
   -- surround (parenthesis/quote/tab/etc...) control
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     config = function()
       require('mini.surround').setup({})
     end,

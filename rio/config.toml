@@ -209,7 +209,7 @@ symbol-map = [
   { start = "F400", end = "F532", font-family = "Symbols Nerd Font" },
   { start = "2665", end = "2665", font-family = "Symbols Nerd Font" },
   { start = "26A1", end = "26A1", font-family = "Symbols Nerd Font" },
-  # Powerline Symbols (use-drawable-charsで描画されるものと重複するが念のため)
+  # Powerline Symbols (some code-points overlap to use-drawable-chars)
   { start = "E0A0", end = "E0A2", font-family = "Symbols Nerd Font" },
   { start = "E0B0", end = "E0B3", font-family = "Symbols Nerd Font" },
   # Powerline Extra Symbols

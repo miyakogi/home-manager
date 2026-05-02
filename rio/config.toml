@@ -188,8 +188,8 @@ strategy = "Game"
 # Example:
 # [fonts]
 [fonts]
-size = 20
-family = "Google Sans Code"
+size = 21
+family = "Lilex"
 # features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
 features = []
 symbol-map = [
@@ -237,22 +237,18 @@ use-drawable-chars = true
 # [fonts.regular]
 # family = "cascadiamono"
 # style = "normal"
-# weight = 400
 #
 [fonts.bold]
 # family = "cascadiamono"
 # style = "normal"
-weight = 700
 #
 # [fonts.italic]
 # family = "cascadiamono"
 # style = "italic"
-# weight = 400
 #
 # [fonts.bold-italic]
 # family = "cascadiamono"
 # style = "italic"
-# weight = 800
 
 [hints]
 # Characters used for hint labels (should be easy to type)

@@ -7,6 +7,8 @@ let
 in {
   home.packages = with pkgs; [
     unifont
+    lilex
+    glslang  # for build
   ];
 
   programs.rio = {

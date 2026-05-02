@@ -7,7 +7,6 @@
     ibm-plex
     noto-fonts
     noto-fonts-cjk-sans
-
   ];
 
   home.file.".config/fontconfig/conf.d" = {

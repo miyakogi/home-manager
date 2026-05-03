@@ -9,7 +9,7 @@ local weight_normal = 'Light'
 local weight_bold = 'Medium'
 local font = wezterm.font_with_fallback({
   {
-    family =  font_default,
+    family = font_default,
     weight = weight_normal,
   },
   font_jp,
@@ -86,6 +86,8 @@ return {
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
+  default_prog = { 'brush', '--enable-zsh-hooks' },
+
   term = 'wezterm',
 
   font = font,
@@ -109,8 +111,8 @@ return {
 
   -- Tab bar
   use_fancy_tab_bar = false,
-  color_scheme = 'Kanagawa Dragon (Gogh)',
-  -- color_scheme = 'Black Metal (base16)',
+  -- color_scheme = 'Kanagawa Dragon (Gogh)',
+  color_scheme = 'Black Metal (base16)',
   -- color_scheme = 'Mikado (terminal.sexy)',
 
   hide_tab_bar_if_only_one_tab = true,
@@ -145,6 +147,7 @@ return {
   skip_close_confirmation_for_processes_named = {
     'bash',
     'sh',
+    'brush',
     'zsh',
     'fish',
     'zellij',

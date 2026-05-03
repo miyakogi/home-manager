@@ -1,6 +1,7 @@
 { ... }: {
   programs.broot = {
     enable = true;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     settings = {
       default_flags = "-c :open_preview";

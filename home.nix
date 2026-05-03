@@ -58,6 +58,11 @@ in
     MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
   };
 
+  # Bash
+  programs.bash = {
+    enable = true;
+  };
+
   # Input Methods
   services.hazkey = {
     enable = true;

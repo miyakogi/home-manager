@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.ghostty = {
     enable = true;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     systemd.enable = true;
     settings = {

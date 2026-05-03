@@ -3,7 +3,7 @@ local wezterm = require('wezterm')
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
-local font_default = 'Google Sans Code'
+local font_default = 'Lilex'
 local font_jp = 'IBM Plex Sans JP'
 local weight_normal = 'Light'
 local weight_bold = 'Medium'

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# alias / abbreviation
+alias -- :q=exit
+alias -- ln="ln -s -v"
+alias -- mv="mv -i"
+alias -- mkdir="mkdir -p"
+alias -- e="edit"
+alias -- n="nvim"
+alias -- h="hx"
+alias -- tl="tldr"
+alias -- gstatus="git status -s -b"
+
+# eza / ls
+alias -- ls='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso'
+alias -- la='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -a'
+alias -- ll='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -l'
+alias -- lla='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -la'
+alias -- lt='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso --tree'
+
+# functions
+function edit() {
+  $EDITOR "$@"
+}
+
+# prompt
+eval "$(starship init bash --print-full-init)"
+
+# startup
+if type macchina &>/dev/null; then
+  macchina
+elif type fastfetch &>/dev/null; then
+  fastfetch --config config-short.jsonc
+fi

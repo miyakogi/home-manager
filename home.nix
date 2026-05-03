@@ -225,6 +225,7 @@ in
     ./scripts.nix
 
     ./fish/fish.nix
+    ./brush/brush.nix
     ./man/man.nix
     ./git/git.nix
     ./gpg/gpg.nix

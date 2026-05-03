@@ -8,7 +8,7 @@
       "--group-directories-first"
       "--sort" "Filename"
       "--group"
-      "--time-style" "+%Y-%m-%d %H:%M"
+      "--time-style" "long-iso"
     ];
   };
 }

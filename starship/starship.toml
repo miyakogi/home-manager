@@ -59,7 +59,7 @@ format = "[$ssh_symbol$hostname]($style) "
 [shell]
 disabled = false
 format = '$indicator'
-bash_indicator = '[󱆃](dimmed white) '
+bash_indicator = '[](dimmed white) '
 zsh_indicator = '[zsh](dimmed white) '
 fish_indicator = '[](dimmed white) '
 powershell_indicator = '[PowerShell](yellow) '

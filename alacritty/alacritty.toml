@@ -36,7 +36,8 @@ key = "Plus"
 mods = "Control|Shift"
 
 [terminal.shell]
-program = "fish"
+program = "brush"
+args = ["--enable-zsh-hooks"]
 
 [window]
 dynamic_padding = true

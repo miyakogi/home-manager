@@ -18,6 +18,9 @@ alias -- ll='eza --icons auto --git --group-directories-first --sort Filename --
 alias -- lla='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -la'
 alias -- lt='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso --tree'
 
+# key-bind
+bind -x '"\C-y": cd ../'
+
 # functions
 function edit() {
   $EDITOR "$@"

@@ -27,6 +27,17 @@ function edit() {
   $EDITOR "$@"
 }
 
+# execute `ls` on `cd`
+_auto_ls() {
+  if [ "$PWD" != "$_LAST_PWD" ]; then
+    if [ -n "$_LAST_PWD" ]; then
+      ls
+    fi
+    _LAST_PWD="$PWD"
+  fi
+}
+PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
 # prompt
 eval "$(starship init bash --print-full-init)"
 

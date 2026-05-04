@@ -23,10 +23,6 @@
 
       ln = "ln -s -v";
 
-      mv = "mv -i";
-
-      mkdir = "mkdir -p";
-
       e = "edit";
       n = "nvim";
       h = "hx";
@@ -37,6 +33,12 @@
 
       t = "btop";
       b = "btm";
+    };
+
+    shellAliases = {
+      cp = "cp -i";
+      mv = "mv -i";
+      mkdir = "mkdir -p";
     };
 
     functions = {

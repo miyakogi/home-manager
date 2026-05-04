@@ -8,10 +8,17 @@ local font_jp = 'IBM Plex Sans JP'
 local font_nerd = 'Symbols Nerd Font'
 local weight_normal = 'Light'
 local weight_bold = 'Medium'
+local harfbuzz_features = {
+  'cv08',  -- alt equality
+  'cv11',  -- connected bar / triangle
+  'cv15',  -- # with crossbars
+}
+
 local font = wezterm.font_with_fallback({
   {
     family = font_default,
     weight = weight_normal,
+    harfbuzz_features = harfbuzz_features,
   },
   font_jp,
   font_nerd,
@@ -24,6 +31,7 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_normal,
+        harfbuzz_features = harfbuzz_features,
         style = 'Italic',
       },
       font_jp,
@@ -37,6 +45,7 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_bold,
+        harfbuzz_features = harfbuzz_features,
       },
       font_jp,
       font_nerd,
@@ -49,6 +58,7 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_bold,
+        harfbuzz_features = harfbuzz_features,
         style = 'Italic',
       },
       font_jp,

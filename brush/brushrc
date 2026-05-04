@@ -3,6 +3,7 @@
 # alias / abbreviation
 alias -- :q=exit
 alias -- ln="ln -s -v"
+alias -- cp="cp -i"
 alias -- mv="mv -i"
 alias -- mkdir="mkdir -p"
 alias -- e="edit"

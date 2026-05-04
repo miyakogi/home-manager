@@ -193,18 +193,18 @@ family = "Lilex"
 # features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
 features = []
 symbol-map = [
-  { start = "E000", end = "E00A", font-family = "Symbols Nerd Font Mono" },
-  { start = "E0A0", end = "E0D7", font-family = "Symbols Nerd Font Mono" },  # Powerline + Extra
-  { start = "E200", end = "E2A9", font-family = "Symbols Nerd Font Mono" },
-  { start = "E300", end = "E3E3", font-family = "Symbols Nerd Font Mono" },
-  { start = "E5FA", end = "E6B7", font-family = "Symbols Nerd Font Mono" },
-  { start = "E700", end = "E8EF", font-family = "Symbols Nerd Font Mono" },  # Deviconsなど
-  { start = "EA60", end = "EC1E", font-family = "Symbols Nerd Font Mono" },
-  { start = "ED00", end = "EFCE", font-family = "Symbols Nerd Font Mono" },
-  { start = "F000", end = "F2FF", font-family = "Symbols Nerd Font Mono" },  # Font Awesome
-  { start = "F300", end = "F381", font-family = "Symbols Nerd Font Mono" },
-  { start = "F400", end = "F533", font-family = "Symbols Nerd Font Mono" },
-  { start = "F0001", end = "F1AF0", font-family = "Symbols Nerd Font Mono" },  # Additional
+  { start = "E000", end = "E00A", font-family = "Symbols Nerd Font" },
+  { start = "E0A0", end = "E0D7", font-family = "Symbols Nerd Font" },  # Powerline + Extra
+  { start = "E200", end = "E2A9", font-family = "Symbols Nerd Font" },
+  { start = "E300", end = "E3E3", font-family = "Symbols Nerd Font" },
+  { start = "E5FA", end = "E6B7", font-family = "Symbols Nerd Font" },
+  { start = "E700", end = "E8EF", font-family = "Symbols Nerd Font" },  # Deviconsなど
+  { start = "EA60", end = "EC1E", font-family = "Symbols Nerd Font" },
+  { start = "ED00", end = "EFCE", font-family = "Symbols Nerd Font" },
+  { start = "F000", end = "F2FF", font-family = "Symbols Nerd Font" },  # Font Awesome
+  { start = "F300", end = "F381", font-family = "Symbols Nerd Font" },
+  { start = "F400", end = "F533", font-family = "Symbols Nerd Font" },
+  { start = "F0001", end = "F1AF0", font-family = "Symbols Nerd Font" },  # Additional
 
   # Japanese (Hiragana, Katakana, Kanji, etc.)
   { start = "3000", end = "9FFF", font-family = "IBM Plex Sans JP" },

@@ -42,8 +42,8 @@ PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 eval "$(starship init bash --print-full-init)"
 
 # startup
-if type macchina &>/dev/null; then
-  macchina
-elif type fastfetch &>/dev/null; then
+if type fastfetch &>/dev/null; then
   fastfetch --config config-short.jsonc
+elif type macchina &>/dev/null; then
+  macchina
 fi

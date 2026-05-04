@@ -5,6 +5,7 @@ local act = wezterm.action
 
 local font_default = 'Lilex'
 local font_jp = 'IBM Plex Sans JP'
+local font_nerd = 'Symbols Nerd Font'
 local weight_normal = 'Light'
 local weight_bold = 'Medium'
 local font = wezterm.font_with_fallback({
@@ -13,6 +14,7 @@ local font = wezterm.font_with_fallback({
     weight = weight_normal,
   },
   font_jp,
+  font_nerd,
 })
 local font_rules = {
   {
@@ -25,6 +27,7 @@ local font_rules = {
         style = 'Italic',
       },
       font_jp,
+      font_nerd,
     })
   },
   {
@@ -36,6 +39,7 @@ local font_rules = {
         weight = weight_bold,
       },
       font_jp,
+      font_nerd,
     })
   },
   {
@@ -48,6 +52,7 @@ local font_rules = {
         style = 'Italic',
       },
       font_jp,
+      font_nerd,
     })
   },
 }

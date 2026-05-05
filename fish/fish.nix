@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   home.file.".config/fish/functions" = {
     source = ./functions;
     recursive = true;
@@ -64,6 +64,10 @@
       "ctrl-j".command = "myjump";
       "ctrl-f".command = "nextd-or-forward-word";
     };
+
+    plugins = [
+      { name = "done"; src = pkgs.fishPlugins.done.src; }
+    ];
 
     shellInit = ''
       if [ -n "$ZELLIJ" ]; bind ctrl-d delete-char; end

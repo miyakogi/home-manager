@@ -22,7 +22,7 @@ alias -- lt='eza --icons auto --git --group-directories-first --sort Filename --
 # key-bind
 bind -x '"\C-y": cd ../'
 
-# functions
+### Functions
 function edit() {
   $EDITOR "$@"
 }
@@ -38,8 +38,32 @@ _auto_ls() {
 }
 PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
-# prompt
-eval "$(starship init bash --print-full-init)"
+# Long command notifier
+# Notify when command takes longer than N seconds
+LONG_CMD_THRESHOLD=10
+__cmd_start=$SECONDS
+__cmd_running=0
+
+# Called before each command runs (receives actual command as $1)
+__notify_preexec() {
+    __cmd_start=$SECONDS
+    __cmd_running=1
+}
+
+# Called before each prompt is displayed
+__notify_precmd() {
+    if [[ $__cmd_running -eq 1 ]]; then
+        local elapsed=$(( SECONDS - __cmd_start ))
+        if (( elapsed >= LONG_CMD_THRESHOLD )); then
+            notify-send "Terminal" "Command finished (${elapsed}s)" \
+                --icon=utilities-terminal
+        fi
+    fi
+    __cmd_running=0
+}
+
+preexec_functions+=(__notify_preexec)
+precmd_functions+=(__notify_precmd)
 
 # startup
 if type fastfetch &>/dev/null; then

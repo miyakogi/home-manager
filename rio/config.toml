@@ -324,7 +324,7 @@ use-split = false
 # args = ["new-session", "-c", "/var/www"]
 
 [shell]
-program = "fish"
+program = "brush"
 
 # Colors
 #

@@ -101,7 +101,7 @@ return {
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
-  default_prog = { 'brush' },
+  default_prog = { 'fish' },
 
   term = 'wezterm',
 

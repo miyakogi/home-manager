@@ -37,7 +37,6 @@ mods = "Control|Shift"
 
 [terminal.shell]
 program = "brush"
-args = ["--enable-zsh-hooks"]
 
 [window]
 dynamic_padding = true

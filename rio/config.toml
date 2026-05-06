@@ -192,6 +192,7 @@ size = 21
 family = "Lilex"
 # features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
 features = []
+hinting = false
 symbol-map = [
   { start = "E000", end = "E00A", font-family = "Symbols Nerd Font" },
   { start = "E0A0", end = "E0D7", font-family = "Symbols Nerd Font" },  # Powerline + Extra

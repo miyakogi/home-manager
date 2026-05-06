@@ -12,4 +12,7 @@
   home.file.".config/kitty/mikado.conf" = {
     source = ./mikado.conf;
   };
+  home.file.".config/kitty/hybrid.conf" = {
+    source = ./hybrid.conf;
+  };
 }

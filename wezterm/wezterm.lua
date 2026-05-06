@@ -129,8 +129,8 @@ return {
   -- color_scheme = 'Kanagawa Dragon (Gogh)',
   -- color_scheme = 'Black Metal (base16)',
   -- color_scheme = 'Hemisu Dark (Gogh)',
-  color_scheme = 'Hybrid (terminal.sexy)',
-  -- color_scheme = 'Mikado (terminal.sexy)',
+  -- color_scheme = 'Hybrid (terminal.sexy)',
+  color_scheme = 'Mikado (terminal.sexy)',
 
   hide_tab_bar_if_only_one_tab = true,
 

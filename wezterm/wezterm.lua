@@ -101,7 +101,7 @@ return {
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
-  default_prog = { 'brush', '--enable-highlighting', '--enable-terminal-integration', '--enable-zsh-hooks' },
+  default_prog = { 'brush' },
 
   term = 'wezterm',
 

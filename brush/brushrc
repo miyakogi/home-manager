@@ -19,6 +19,14 @@ alias -- ll='eza --icons auto --git --group-directories-first --sort Filename --
 alias -- lla='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -la'
 alias -- lt='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso --tree'
 
+# image
+case $TERM in
+  kitty|xterm-ghostty|xterm-rio)
+    alias -- img="kitten icat";;
+  wezterm)
+    alias -- img="wezterm imgcat";;
+esac
+
 # key-bind
 bind -x '"\C-y": cd ../'
 

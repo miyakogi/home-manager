@@ -7,11 +7,7 @@ else
 fi
 
 get_term_address() {
-  if [ "$TERMINAL" = "rio" ]; then
-    hyprctl clients -j | jq '.[] | select(.title | test("'"$class"'")) | .address' ||true
-  else
-    hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' ||true
-  fi
+  hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' ||true
 }
 
 is_exist() {
@@ -27,7 +23,9 @@ start_term() {
   )
 
   declare -a zcmd
-  if type zellij &>/dev/null; then
+  if type zmx &>/dev/null; then
+    zcmd=(zmx attach "$class")
+  elif type zellij &>/dev/null; then
     zcmd=(zellij)
     if zellij ls | grep -E "^$class\$"; then
       # use existing session

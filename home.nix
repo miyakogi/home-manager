@@ -141,7 +141,7 @@ in
     clang
     cmake
     openssl
-    extra-cmake-modules
+    #extra-cmake-modules
     libxkbcommon.dev
     pkgconf
     rustup
@@ -250,6 +250,7 @@ in
     ./ripgrep/ripgrep.nix
     ./starship/starship.nix
     ./yazi/yazi.nix
+    ./zmx/zmx.nix
     ./zoxide/zoxide.nix
 
     ./uwsm/uwsm.nix

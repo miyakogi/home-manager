@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio.url = "github:raphamorim/rio/main";
+    zmx.url = "github:neurosnap/zmx";
   };
 
 

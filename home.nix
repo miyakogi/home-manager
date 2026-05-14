@@ -218,11 +218,14 @@ in
   ];
 
   imports = [
+    # flatpak
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # haykey flake
     inputs.nix-hazkey.homeModules.hazkey
 
     ./services.nix
     ./scripts.nix
+    ./flatpak/flatpak.nix
 
     ./fish/fish.nix
     ./brush/brush.nix

@@ -24,4 +24,21 @@
       exec = "flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen -P Sub --name zen-sub";
     };
   };
+  xdg.desktopEntries = {
+    "md.obsidian.Obsidian" = {
+      name = "Obsidian";
+      type = "Application";
+      icon = "md.obsidian.Obsidian";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
+    };
+  };
+  xdg.desktopEntries = {
+    # GMetronome (flatpak)
+    "org.gnome.gitlab.dqpb.GMetronome" = {
+      name = "GMetronome";
+      type = "Application";
+      icon = "org.gnome.gitlab.dqpb.GMetronome";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=gmetronome --env=GDK_SCALE=2 --env=GDK_DPI_SCALE=2.0 org.gnome.gitlab.dqpb.GMetronome";
+    };
+  };
 }

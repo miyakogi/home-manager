@@ -4,6 +4,7 @@
 
     # font
     googlesans-code
+    lilex
     ibm-plex
     noto-fonts
     noto-fonts-cjk-sans

@@ -3,6 +3,7 @@
     fontconfig
 
     # font
+    _0xproto
     googlesans-code
     lilex
     ibm-plex

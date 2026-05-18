@@ -6,7 +6,7 @@
     systemd.enable = true;
     settings = {
       font-family = [
-        "Lilex"
+        "0xProto"
         "IBM Plex Sans JP"
       ];
       font-size = 15.0;

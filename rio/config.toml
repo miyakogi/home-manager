@@ -15,7 +15,8 @@
 #
 # Example:
 # theme = "dracula"
-theme = "mikado"
+#theme = "mikado"
+theme = "hybrid"
 
 # Use fork
 #

@@ -52,6 +52,9 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # License
+  nixpkgs.config.allowUnfree = true;
+
   # Environment Variables
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";

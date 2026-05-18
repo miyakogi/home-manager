@@ -5,7 +5,10 @@
     enableFishIntegration = true;
     systemd.enable = true;
     settings = {
-      font-family = [ "Lilex" "IBM Plex Sans JP" ];
+      font-family = [
+        "Lilex"
+        "IBM Plex Sans JP"
+      ];
       font-size = 15.0;
       font-feature = "+cv08 +cv11 +cv15";
 

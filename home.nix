@@ -139,6 +139,8 @@ in
 
     # Dev tools
     clang
+    nodejs
+    pnpm
     cmake
     openssl
     #extra-cmake-modules

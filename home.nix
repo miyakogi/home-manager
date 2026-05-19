@@ -141,6 +141,7 @@ in
     ouch
 
     distrobox
+    appimage-run
 
     # Dev tools
     clang

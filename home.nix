@@ -134,9 +134,11 @@ in
     which
 
     wget
+    zip
     unzip
     libarchive
     unar
+    ouch
 
     distrobox
 

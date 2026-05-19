@@ -84,6 +84,16 @@ in
     ];
   };
 
+  # Keyring
+  services.gnome-keyring = {
+    enable = true;
+    components = [
+      "secrets"
+      "ssh"
+      "pkcs11"
+    ];
+  };
+
   # Fonts
   fonts.fontconfig.enable = true;
   gtk = {

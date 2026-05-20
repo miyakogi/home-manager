@@ -540,29 +540,10 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'rebelot/kanagawa.nvim',
+    'stevedylandev/ansi-nvim',
     config = function()
-      require('kanagawa').setup({
-        compile = true,
-        commentStyle = { italic = true },
-        functionStyle = {},
-        keywordStyle = { italic = false },
-        statementStyle = { bold = true },
-        typeStyle = {},
-        transparent = true,
-        dimInactive = false,
-        terminalColors = true,
-        colors = {
-          theme = {
-            all = {
-              ui = {
-                bg_gutter = 'none',
-              }
-            }
-          }
-        }
-      })
-      vim.cmd([[colorscheme kanagawa-dragon]])
+      vim.cmd([[colorscheme ansi]])
+      vim.opt.termguicolors = false
     end,
   },
 

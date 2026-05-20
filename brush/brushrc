@@ -35,8 +35,20 @@ function edit() {
   $EDITOR "$@"
 }
 
+# change terminal bg color on ssh
+function ssh() {
+  # change bg color (dark red)
+  printf '\033]11;#140000\a'
+
+  # execute ssh
+  command ssh "$@"
+
+  # reset to original background
+  printf '\033]111\a'
+}
+
 # execute `ls` on `cd`
-_auto_ls() {
+function _auto_ls() {
   if [ "$PWD" != "$_LAST_PWD" ]; then
     if [ -n "$_LAST_PWD" ]; then
       ls

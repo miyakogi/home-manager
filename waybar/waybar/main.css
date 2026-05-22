@@ -229,6 +229,17 @@ window#waybar.FHD #custom-ff-volume.Info {
   border-bottom-color: @red;
 }
 
+#custom-swaync {
+  color: @background;
+  background-color: @foreground;
+  padding: 0rem 1.5rem;
+  border-radius: 1rem;
+}
+
+#custom-swaync.notification {
+  background-color: @yellow;
+}
+
 #cpu {
   color: @cyan;
   border-radius: 0rem;

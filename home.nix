@@ -226,13 +226,16 @@ in
     rose-pine-cursor
     adwaita-icon-theme
 
-    # Software
-    ### QMK
+    ### Software
+    # QMK
     qmk
     avrdude
     dfu-programmer
     dfu-util
     picotool
+
+    ### PKM
+    capacities
   ];
 
   imports = [

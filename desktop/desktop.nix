@@ -33,6 +33,14 @@
     };
   };
   xdg.desktopEntries = {
+    "capacities" = {
+      name = "Capacities";
+      type = "Application";
+      icon = "capacities";
+      exec = "capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland";
+    };
+  };
+  xdg.desktopEntries = {
     # GMetronome (flatpak)
     "org.gnome.gitlab.dqpb.GMetronome" = {
       name = "GMetronome";

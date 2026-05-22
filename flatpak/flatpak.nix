@@ -21,6 +21,9 @@
       "com.logseq.Logseq"             # Logseq
       "md.obsidian.Obsidian"          # Obsidian
 
+      # Task Management
+      "com.ticktick.TickTick"         # TickTick
+
       ### Multimedia
       # Music Player
       "com.spotify.Client"            # Spotify

@@ -294,6 +294,7 @@ in
     ./tofi/tofi.nix
 
     ./mako/mako.nix
+    ./swaync/swaync.nix
     ./swappy/swappy.nix
 
     ./mpv/mpv.nix

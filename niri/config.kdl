@@ -228,8 +228,6 @@ overview {
 spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
 // spawn-at-startup "foot --server"
 
-spawn-sh-at-startup "app2unit -s b -- flatpak run com.logseq.Logseq"
-
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some rounded corners.
@@ -274,10 +272,6 @@ animations {
     // block-out-from "screencast"
 }
 
-workspace "logseq" {
-    open-on-output "DP-1"
-}
-
 workspace "music" {
     open-on-output "HDMI-A-1"
 }
@@ -295,13 +289,6 @@ window-rule {
     geometry-corner-radius 24
     clip-to-geometry true
     draw-border-with-background false
-}
-
-window-rule {
-    match app-id="^[Ll]ogseq$"
-    open-on-workspace "logseq"
-    default-column-width { proportion 0.50; }
-    opacity 0.95
 }
 
 window-rule {
@@ -562,9 +549,6 @@ binds {
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches to Logseq
-    Mod+E { focus-workspace "logseq"; }
 
     // Open dropdown terminal
     F2 { spawn "app2unit" "kitten" "quick_access_terminal" "--override" "lines=42"; }

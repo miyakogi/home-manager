@@ -86,7 +86,8 @@ spawn-sh-at-startup "app2unit -s b -t service -- hyprpaper -c ~/.config/niri/hyp
 // spawn-sh-at-startup "app2unit -s b -t service -- waybar --style ~/.config/waybar/style-niri.css"
 
 // Notification Daemon
-spawn-sh-at-startup "app2unit -s b -t service -- mako"
+// spawn-sh-at-startup "app2unit -s b -t service -- mako"
+spawn-sh-at-startup "app2unit -s b -t service -- swaync"
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:

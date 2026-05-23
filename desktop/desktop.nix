@@ -65,4 +65,12 @@
       exec = "flatpak run --branch=stable --arch=x86_64 --command=gmetronome --env=GDK_SCALE=2 --env=GDK_DPI_SCALE=2.0 org.gnome.gitlab.dqpb.GMetronome";
     };
   };
+  xdg.desktopEntries = {
+    "spotify-player" = {
+      name = "Spotify Player";
+      type = "Application";
+      icon = "com.spotify.Client";
+      exec = "terminal --class spotify-player -e spotify_player";
+    };
+  };
 }

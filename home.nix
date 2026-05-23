@@ -219,6 +219,7 @@ in
     lsfg-vk-ui
     vulkan-tools
     mangohud
+    spotify-player
 
     # Theme
     qt6Packages.qt6ct

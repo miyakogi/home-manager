@@ -25,6 +25,14 @@
     };
   };
   xdg.desktopEntries = {
+    "com.tutanota.Tutanota" = {
+      name = "Tuta (Mail)";
+      type = "Application";
+      icon = "com.tutanota.Tutanota";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=tutanota-desktop --file-forwarding com.tutanota.Tutanota --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
+    };
+  };
+  xdg.desktopEntries = {
     "md.obsidian.Obsidian" = {
       name = "Obsidian";
       type = "Application";

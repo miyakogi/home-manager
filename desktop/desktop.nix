@@ -41,6 +41,14 @@
     };
   };
   xdg.desktopEntries = {
+    "com.ticktick.TickTick" = {
+      name = "TickTick";
+      type = "Application";
+      icon = "com.ticktick.TickTick";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=ticktick --file-forwarding com.ticktick.TickTick --force-device-scale-factor=2 --ozone-platform=wayland @@u %U @@";
+    };
+  };
+  xdg.desktopEntries = {
     # GMetronome (flatpak)
     "org.gnome.gitlab.dqpb.GMetronome" = {
       name = "GMetronome";

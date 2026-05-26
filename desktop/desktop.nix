@@ -70,7 +70,7 @@
       name = "Spotify Player";
       type = "Application";
       icon = "com.spotify.Client";
-      exec = "terminal --class spotify-player -e spotify_player";
+      exec = ''wezterm start --class spotify-player zmx attach spotify-player bash -c "sleep 0.3s && spotify_player"'';
     };
   };
 }

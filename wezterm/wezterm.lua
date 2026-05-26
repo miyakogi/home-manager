@@ -167,6 +167,9 @@ return {
     'brush',
     'zsh',
     'fish',
+    'ssh',
     'zellij',
+    'zmx',
+    'spotify_player',
   },
 }

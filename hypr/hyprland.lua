@@ -31,18 +31,18 @@ hl.monitor({
     max_luminance        = 1000,
     -- max_avg_luminance = 200,
     sdr_eotf             = "srgb",
-    -- addreserved          = { 0, 0, 32, 32 },
+    reserved_area        = { top=0, right=32, bottom=0, left=32 },
 })
 
 hl.monitor({
-    output      = "HDMI-A-1",
-    mode        = "preferred",
-    position    = "640x2160",
-    scale       = 1,
-    vrr         = 0,
-    bitdepth    = 10,
-    cm          = "srgb",
-    -- addreserved = { 0, 0, 32, 32 },
+    output        = "HDMI-A-1",
+    mode          = "preferred",
+    position      = "640x2160",
+    scale         = 1,
+    vrr           = 0,
+    bitdepth      = 10,
+    cm            = "srgb",
+    reserved_area = { top=0, right=32, bottom=0, left=32 },
 })
 
 -- *** Misc / Global Config ***

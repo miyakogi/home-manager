@@ -1,0 +1,7 @@
+{
+  "workspace": {
+    "library": [
+      "~/.nix-profile/share/hypr/stubs"
+    ]
+  }
+}

@@ -250,7 +250,7 @@ hl.bind("F2", hl.dsp.exec_cmd("hypr-scratchterm"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel --launch-prefix='app2unit --fuzzel-compat --'"))
 -- tofi
 hl.bind(mainMod .. " + CTRL + Space", hl.dsp.exec_cmd(
-    "tofi-drun --drun-launch=false --anchor=center --background-color=000000AA | xargs --no-run-if-empty hyprctl dispatch exec " .. run .. " --"
+    "tofi-drun --drun-launch=false --anchor=center --background-color=000000AA | xargs --no-run-if-empty " .. run .. " --"
 ))
 -- tofi (web search)
 -- hl.bind(mainMod .. " + CTRL + Space", hl.dsp.exec_cmd("hyprctl dispatch exec " .. run .. " -- tofi-web"))

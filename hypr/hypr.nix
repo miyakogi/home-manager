@@ -15,11 +15,11 @@
     hyprshutdown
   ];
 
-  home.file.".config/hypr/hyprland.conf" = {
-    source = ./hyprland.conf;
+  home.file.".config/hypr/hyprland.lua" = {
+    source = ./hyprland.lua;
   };
-  home.file.".config/hypr/kanagawa-dragon.conf" = {
-    source = ./kanagawa-dragon.conf;
+  home.file.".config/hypr/kanagawa-dragon.lua" = {
+    source = ./kanagawa-dragon.lua;
   };
 
   home.file.".config/hypr/hyprpaper.conf" = {

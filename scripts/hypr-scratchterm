@@ -55,4 +55,4 @@ if ! is_exist; then
   fi
 fi
 
-hyprctl dispatch togglespecialworkspace "$class"
+hyprctl dispatch "hl.dsp.workspace.toggle_special(\"$class\")"

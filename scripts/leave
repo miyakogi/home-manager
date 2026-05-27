@@ -50,7 +50,7 @@ _exit() {
   if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
     hyprshutdown
   else
-    uwsm stop || niri msg action quit || hyprctl dispatch exit
+    uwsm stop || niri msg action quit || hyprctl dispatch 'hl.dsp.exit()'
   fi
 }
 

@@ -342,9 +342,8 @@ window-rule {
 
 window-rule {
     match app-id="^Chromium-browser$"
-    open-on-workspace "music"
-    default-column-width { proportion 0.25; }
-    opacity 0.87
+    match app-id="^org.chromium.Chromium$"
+    default-column-width { proportion 0.3333; }
 }
 
 window-rule {

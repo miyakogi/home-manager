@@ -1,4 +1,4 @@
-theme = {
+local theme = {
   base           = 0xff181616,
   text           = 0xffc5c9c5,
 
@@ -15,3 +15,5 @@ theme = {
   comment        = 0xff6e6f70,
   subtle         = 0xffdfdfdf,
 }
+
+return theme

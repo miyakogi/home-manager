@@ -7,7 +7,7 @@ local up       = "K"
 local down     = "J"
 
 -- *** Source Colors ***
-require("kanagawa-dragon")
+local theme = require("kanagawa-dragon")
 
 -- *** Environment ***
 hl.env("TERMINAL", "wezterm")

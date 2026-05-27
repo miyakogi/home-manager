@@ -247,7 +247,7 @@ hl.bind("F2", hl.dsp.exec_cmd("hypr-scratchterm"))
 
 -- *** Launcher ***
 -- fuzzel
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel --launch-prefix='app2unit --fuzzel-compat --'"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel --launch-prefix='" .. run .. " --fuzzel-compat --'"))
 -- tofi
 hl.bind(mainMod .. " + CTRL + Space", hl.dsp.exec_cmd(
     "tofi-drun --drun-launch=false --anchor=center --background-color=000000AA | xargs --no-run-if-empty " .. run .. " --"

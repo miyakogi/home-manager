@@ -40,7 +40,7 @@ program = "brush"
 
 [window]
 dynamic_padding = true
-opacity = 0.80
+opacity = 0.92
 startup_mode = "Windowed"
 
 [window.padding]

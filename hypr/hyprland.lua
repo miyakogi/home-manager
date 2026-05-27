@@ -70,7 +70,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd(run .. " -s b -t service -- " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
 
   -- Status Bar
-  hl.exec_cmd(run .. " -s b -a qs -- qs -c qs-dots")
+  hl.exec_cmd(run .. " -s b -a qs -t service -- qs -c qs-dots")
   -- hl.exec_cmd(run .. " -s b -t service -a waybar -- waybar")
 
   -- Wallpaper

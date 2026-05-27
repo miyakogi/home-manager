@@ -222,7 +222,7 @@ hl.animation({ leaf = "workspaces",  enabled = true,  speed = 1.2,  bezier = "Li
 -- *** Keybindings ***
 -- https://wiki.hypr.land/Configuring/Basics/Binds/
 
-hl.bind(mainMod .. " + RETURN",        hl.dsp.exec_cmd(run .. " -- terminal"))
+hl.bind(mainMod .. " + RETURN",        hl.dsp.exec_cmd("setsid " .. run .. " -- setsid terminal"))
 hl.bind(mainMod .. " + Q",             hl.dsp.window.close())
 hl.bind(mainMod .. " + W",             hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + E",     hl.dsp.exec_cmd("leave"))

@@ -15,192 +15,192 @@ hl.env("TERMINAL", "wezterm")
 -- *** Monitors ***
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output               = "DP-1",
-    mode                 = "3840x2160@144",
-    position             = "0x0",
-    scale                = 1,
-    bitdepth             = 10,
-    cm                   = "srgb",
-    sdrbrightness        = 1.12,
-    sdrsaturation        = 0.95,
-    supports_wide_color  = 1,
-    supports_hdr         = 0,         -- 0: auto, 1: force on, -1: off
-    sdr_min_luminance    = 0.005,
-    sdr_max_luminance    = 225,
-    min_luminance        = 0,
-    max_luminance        = 1000,
-    -- max_avg_luminance = 200,
-    sdr_eotf             = "srgb",
-    reserved_area        = { top=0, right=32, bottom=0, left=32 },
+  output               = "DP-1",
+  mode                 = "3840x2160@144",
+  position             = "0x0",
+  scale                = 1,
+  bitdepth             = 10,
+  cm                   = "srgb",
+  sdrbrightness        = 1.12,
+  sdrsaturation        = 0.95,
+  supports_wide_color  = 1,
+  supports_hdr         = 0,         -- 0: auto, 1: force on, -1: off
+  sdr_min_luminance    = 0.005,
+  sdr_max_luminance    = 225,
+  min_luminance        = 0,
+  max_luminance        = 1000,
+  -- max_avg_luminance = 200,
+  sdr_eotf             = "srgb",
+  reserved_area        = { top=0, right=32, bottom=0, left=32 },
 })
 
 hl.monitor({
-    output        = "HDMI-A-1",
-    mode          = "preferred",
-    position      = "640x2160",
-    scale         = 1,
-    vrr           = 0,
-    bitdepth      = 10,
-    cm            = "srgb",
-    reserved_area = { top=0, right=32, bottom=0, left=32 },
+  output        = "HDMI-A-1",
+  mode          = "preferred",
+  position      = "640x2160",
+  scale         = 1,
+  vrr           = 0,
+  bitdepth      = 10,
+  cm            = "srgb",
+  reserved_area = { top=0, right=32, bottom=0, left=32 },
 })
 
 -- *** Misc / Global Config ***
 hl.config({
-    misc = {
-        vrr                    = 1,    -- 0: off, 1: on, 2: fullscreen only
-        mouse_move_enables_dpms = true,
-        key_press_enables_dpms  = true,
-        focus_on_activate       = false,
-        disable_splash_rendering = true,
-    },
-    xwayland = {
-        force_zero_scaling = true,
-    },
-    render = {
-        direct_scanout = 0,
-    },
+  misc = {
+    vrr                    = 1,    -- 0: off, 1: on, 2: fullscreen only
+    mouse_move_enables_dpms = true,
+    key_press_enables_dpms  = true,
+    focus_on_activate       = false,
+    disable_splash_rendering = true,
+  },
+  xwayland = {
+    force_zero_scaling = true,
+  },
+  render = {
+    direct_scanout = 0,
+  },
 })
 
 -- *** Autostart ***
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-    -- polkit
-    -- hl.exec_cmd("hyprctl dispatch exec " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
-    hl.exec_cmd(run .. " -s b -t service -- " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
+  -- polkit
+  -- hl.exec_cmd("hyprctl dispatch exec " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
+  hl.exec_cmd(run .. " -s b -t service -- " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
 
-    -- Status Bar
-    hl.exec_cmd(run .. " -s b -a qs -- qs -c qs-dots")
-    -- hl.exec_cmd(run .. " -s b -t service -a waybar -- waybar")
+  -- Status Bar
+  hl.exec_cmd(run .. " -s b -a qs -- qs -c qs-dots")
+  -- hl.exec_cmd(run .. " -s b -t service -a waybar -- waybar")
 
-    -- Wallpaper
-    hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
+  -- Wallpaper
+  hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
 
-    -- E-mail
-    hl.exec_cmd(run .. " -s b -t service -a tutanota -- flatpak run com.tutanota.Tutanota")
+  -- E-mail
+  hl.exec_cmd(run .. " -s b -t service -a tutanota -- flatpak run com.tutanota.Tutanota")
 
-    -- Notification
-    -- hl.exec_cmd(run .. " -s b -t service -- mako")
-    -- hl.exec_cmd(run .. " -s b -t service -- swaync")
+  -- Notification
+  -- hl.exec_cmd(run .. " -s b -t service -- mako")
+  -- hl.exec_cmd(run .. " -s b -t service -- swaync")
 
-    -- LogSeq
-    -- hl.exec_cmd(run .. " -s b -t service -a logseq -- flatpak run com.logseq.Logseq")
+  -- LogSeq
+  -- hl.exec_cmd(run .. " -s b -t service -a logseq -- flatpak run com.logseq.Logseq")
 
-    -- Obsidian
-    -- hl.exec_cmd(run .. " -s b -t service -a obsidian -- flatpak run md.obsidian.Obsidian --force-device-scale-factor=1.5 --ozone-platform=wayland")
+  -- Obsidian
+  -- hl.exec_cmd(run .. " -s b -t service -a obsidian -- flatpak run md.obsidian.Obsidian --force-device-scale-factor=1.5 --ozone-platform=wayland")
 
-    -- Capacities
-    hl.exec_cmd(run .. " -s b -t service -a capacities -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
+  -- Capacities
+  hl.exec_cmd(run .. " -s b -t service -a capacities -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
 
-    -- TickTick
-    hl.exec_cmd(run .. " -s b -t service -a ticktick -- flatpak run com.ticktick.TickTick --force-device-scale-factor=2 --ozone-platform=wayland")
+  -- TickTick
+  hl.exec_cmd(run .. " -s b -t service -a ticktick -- flatpak run com.ticktick.TickTick --force-device-scale-factor=2 --ozone-platform=wayland")
 end)
 
 -- *** Cursor Theme ***
 hl.config({
-    cursor = {
-        no_hardware_cursors  = false,
-        enable_hyprcursor    = true,
-        default_monitor      = "DP-1",
-    },
+  cursor = {
+    no_hardware_cursors  = false,
+    enable_hyprcursor    = true,
+    default_monitor      = "DP-1",
+  },
 })
 
 -- *** Keyboard / Mouse ***
 hl.config({
-    input = {
-        kb_layout    = "us",
-        kb_variant   = "",
-        kb_model     = "",
-        kb_rules     = "",
-        follow_mouse = 1,
-        repeat_delay = 240,
-        repeat_rate  = 42,
-        touchpad = {
-            natural_scroll = true,
-        },
+  input = {
+    kb_layout    = "us",
+    kb_variant   = "",
+    kb_model     = "",
+    kb_rules     = "",
+    follow_mouse = 1,
+    repeat_delay = 240,
+    repeat_rate  = 42,
+    touchpad = {
+      natural_scroll = true,
     },
-    gestures = {
-        workspace_swipe_distance   = 100,
-        workspace_swipe_create_new = false,
-    },
+  },
+  gestures = {
+    workspace_swipe_distance   = 100,
+    workspace_swipe_create_new = false,
+  },
 })
 
 -- for CoolerMaster MM720
 hl.device({
-    name           = "cooler-master-technology-inc.-mm720-gaming-mouse",
-    sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
-    accel_profile  = "flat",
-    natural_scroll = true,
+  name           = "cooler-master-technology-inc.-mm720-gaming-mouse",
+  sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
+  accel_profile  = "flat",
+  natural_scroll = true,
 })
 
 -- for CoolerMaster MM710
 hl.device({
-    name           = "cooler-master-technology-inc.-mm710-gaming-mouse",
-    sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
-    accel_profile  = "flat",
-    natural_scroll = true,
+  name           = "cooler-master-technology-inc.-mm710-gaming-mouse",
+  sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
+  accel_profile  = "flat",
+  natural_scroll = true,
 })
 
 -- For Glorious Model D
 hl.device({
-    name           = "glorious-model-d",
-    sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
-    accel_profile  = "flat",
-    natural_scroll = true,
+  name           = "glorious-model-d",
+  sensitivity    = 0.0,    -- -1.0 - 1.0, 0 means no modification.
+  accel_profile  = "flat",
+  natural_scroll = true,
 })
 
 -- For Perixx Touchpad
 hl.device({
-    name                  = "sino-wealth-peripad-506-touchpad",
-    sensitivity           = 0.4,
-    scroll_method         = "2fg",
-    disable_while_typing  = false,
-    scroll_factor         = 0.5,
+  name                  = "sino-wealth-peripad-506-touchpad",
+  sensitivity           = 0.4,
+  scroll_method         = "2fg",
+  disable_while_typing  = false,
+  scroll_factor         = 0.5,
 })
 
 -- *** Window Management ***
 hl.config({
-    general = {
-        gaps_in   = 8,
-        gaps_out  = { top=24, right=16, bottom=16, left=16 },
-        border_size = 2,
-        col = {
-            active_border   = { colors = { theme.green } },
-            inactive_border = { colors = { theme.comment } },
-        },
-        no_focus_fallback = true,
-        -- layout = "dwindle",
-        layout = "scrolling",
+  general = {
+    gaps_in   = 8,
+    gaps_out  = { top=24, right=16, bottom=16, left=16 },
+    border_size = 2,
+    col = {
+      active_border   = { colors = { theme.green } },
+      inactive_border = { colors = { theme.comment } },
     },
-    decoration = {
-        rounding = 24,
-        blur = {
-            enabled           = false,
-            size              = 3,
-            passes            = 2,
-            new_optimizations = true,
-        },
-        shadow = {
-            enabled      = true,
-            range        = 24,
-            render_power = 3,
-            color        = theme.green,
-            color_inactive = 0x80ffffff,
-        },
-        dim_inactive  = false,
-        dim_strength  = 0.1,
+    no_focus_fallback = true,
+    -- layout = "dwindle",
+    layout = "scrolling",
+  },
+  decoration = {
+    rounding = 24,
+    blur = {
+      enabled           = false,
+      size              = 3,
+      passes            = 2,
+      new_optimizations = true,
     },
-    dwindle = {
-        preserve_split = false,
-        force_split    = 2,
+    shadow = {
+      enabled      = true,
+      range        = 24,
+      render_power = 3,
+      color        = theme.green,
+      color_inactive = 0x80ffffff,
     },
-    scrolling = {
-        fullscreen_on_one_column  = true,
-        focus_fit_method          = 1,
-        column_width              = "0.5",
-        follow_focus              = true,
-        explicit_column_widths    = "0.333, 0.5, 0.667, 1.0",
-    },
+    dim_inactive  = false,
+    dim_strength  = 0.1,
+  },
+  dwindle = {
+    preserve_split = false,
+    force_split    = 2,
+  },
+  scrolling = {
+    fullscreen_on_one_column  = true,
+    focus_fit_method          = 1,
+    column_width              = "0.5",
+    follow_focus              = true,
+    explicit_column_widths    = "0.333, 0.5, 0.667, 1.0",
+  },
 })
 
 -- disable blur for all normal windows by default
@@ -294,14 +294,14 @@ hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "d" }))
 -- Switch workspaces with mainMod + [0-9]  /  mainMod + CTRL + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]  /  mainMod + SHIFT + CTRL + [0-9]
 for i = 1, 10 do
-    local key = tostring(i % 10)   -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,               hl.dsp.focus({ workspace = tostring(i) }))
-    hl.bind(mainMod .. " + SHIFT + " .. key,       hl.dsp.window.move({ workspace = tostring(i) }))
+  local key = tostring(i % 10)   -- 10 maps to key 0
+  hl.bind(mainMod .. " + " .. key,               hl.dsp.focus({ workspace = tostring(i) }))
+  hl.bind(mainMod .. " + SHIFT + " .. key,       hl.dsp.window.move({ workspace = tostring(i) }))
 end
 for i = 11, 20 do
-    local key = tostring(i % 10)   -- 20 maps to key 0
-    hl.bind(mainMod .. " + CTRL + " .. key,        hl.dsp.focus({ workspace = tostring(i) }))
-    hl.bind(mainMod .. " + SHIFT + CTRL + " .. key, hl.dsp.window.move({ workspace = tostring(i) }))
+  local key = tostring(i % 10)   -- 20 maps to key 0
+  hl.bind(mainMod .. " + CTRL + " .. key,        hl.dsp.focus({ workspace = tostring(i) }))
+  hl.bind(mainMod .. " + SHIFT + CTRL + " .. key, hl.dsp.window.move({ workspace = tostring(i) }))
 end
 
 -- Switch workspace (previous / next on same monitor)
@@ -371,11 +371,11 @@ hl.workspace_rule({ workspace = "m[HDMI-A-3]", gaps_out = { top=12, right=12, bo
 -- *** Application Rules ***
 -- Launcher
 hl.window_rule({
-    name  = "launcher-float",
-    match = { class = ".*sklauncher" },
-    float = true,
-    center = true,
-    size  = { 800, 920 },
+  name  = "launcher-float",
+  match = { class = ".*sklauncher" },
+  float = true,
+  center = true,
+  size  = { 800, 920 },
 })
 
 -- Tutanota

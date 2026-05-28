@@ -10,6 +10,11 @@ size = 15.0
 
 [font.normal]
 family = "Google Sans Code"
+style = "Light"
+
+[font.bold]
+family = "Google Sans Code"
+style = "Medium"
 
 [[hints.enabled]]
 action = "Copy"

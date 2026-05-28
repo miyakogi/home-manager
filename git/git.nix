@@ -43,7 +43,6 @@
 
       # Environment
       ".env"
-      ".envrc"
 
       # Temporary
       "*.bak"

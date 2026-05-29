@@ -1,0 +1,11 @@
+[Unit]
+Description=Taskwarrior Due Task Notifier
+
+[Timer]
+OnCalendar=*:0/10
+# OnBootSec=2min
+# OnUnitActiveSec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

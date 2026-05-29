@@ -24,4 +24,10 @@
   home.file.".local/share/systemd/user/waybar-niri.service" = {
     source = ./services/waybar-niri.service;
   };
+  home.file.".local/share/systemd/user/taskwarrior-notify.service" = {
+    source = ./services/taskwarrior-notify.service;
+  };
+  home.file.".local/share/systemd/user/taskwarrior-notify.timer" = {
+    source = ./services/taskwarrior-notify.timer;
+  };
 }

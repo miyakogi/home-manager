@@ -237,6 +237,8 @@ in
 
     ### PKM
     capacities
+    taskwarrior3
+    taskwarrior-tui
   ];
 
   imports = [

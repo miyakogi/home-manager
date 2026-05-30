@@ -18,8 +18,8 @@
   --border-radius: 12px;
   --notification-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
     0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
-  --font-size-body: 18px;
-  --font-size-summary: 24px;
+  --font-size-body: 22px;
+  --font-size-summary: 28px;
   /* Deprecated variables (because of their typos). Keeeping them around for backwards compatibility. */
   --hover-tranistion: background 0.15s ease-in-out;
   --group-collapse-tranistion: opacity 400ms ease-in-out;
@@ -135,6 +135,9 @@ notificationwindow, blankwindow {
   background: transparent;
   border-radius: var(--border-radius);
   padding: 0;
+  padding-left: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .image {
@@ -166,6 +169,7 @@ notificationwindow, blankwindow {
   background: transparent;
   color: var(--text-color);
   text-shadow: none;
+  padding-left: 12px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
@@ -185,6 +189,7 @@ notificationwindow, blankwindow {
   background: transparent;
   color: var(--text-color);
   text-shadow: none;
+  padding-left: 12px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content progressbar {
@@ -361,6 +366,8 @@ notificationwindow, blankwindow {
 
 .floating-notifications {
   background: transparent;
+  margin-bottom: 24px;
+  margin-right: 12px;
 }
 
 .floating-notifications .notification {

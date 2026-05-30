@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-due_now=$(task due.after:now-10min due.by:now count)
+due_now=$(task due.after:now-10min due.by:now status:pending count)
 if [ "$due_now" -gt 0 ]; then
-  notify-send -u normal -i capacities "Taskwarrior" "TASK!!! - $(task due.after:now-10min due.by:now export | jq -r '.[].description')"
+  notify-send -u normal -i capacities "Taskwarrior" "TASK!!! - $(task due.after:now-10min due.by:now status:pending export | jq -r '.[].description')"
 fi

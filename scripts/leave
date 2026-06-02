@@ -64,7 +64,7 @@ _reboot() {
 
 _shutdown() {
   if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-    hyprshutdown --top-label 'Restarting' --post-cmd 'systemctl poweroff -i'
+    hyprshutdown --top-label 'Shutting Down' --post-cmd 'systemctl poweroff -i'
   else
     systemctl poweroff -i
   fi

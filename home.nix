@@ -181,7 +181,9 @@ in
     # AI
     claude-code
     codex
+    opencode
     ollama-vulkan
+    rtk
     radeontop
 
     # HW accel

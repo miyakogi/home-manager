@@ -41,6 +41,14 @@
     };
   };
   xdg.desktopEntries = {
+    "ai.lmstudio.lm-studio" = {
+      name = "LM-Studio";
+      type = "Application";
+      icon = "ai.lmstudio.lm-studio";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=lmstudio --file-forwarding ai.lmstudio.lm-studio --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
+    };
+  };
+  xdg.desktopEntries = {
     "capacities" = {
       name = "Capacities";
       type = "Application";

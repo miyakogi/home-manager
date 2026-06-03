@@ -13,6 +13,9 @@
       "com.brave.Browser"             # Brave
       "com.vivaldi.Vivaldi"           # Vivaldi
 
+      # AI
+      "ai.lmstudio.lm-studio"         # LM-Studio
+
       ### Tools
       # Flatpak Management
       "com.github.tchx84.Flatseal"    # Flatseal

@@ -76,6 +76,9 @@ hl.on("hyprland.start", function()
   -- Wallpaper
   hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
 
+  -- LM Studio (AI)
+  hl.exec_cmd(run .. " -s b -t service -a lmstudio -- flatpak run ai.lmstudio.lm-studio --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
+
   -- E-mail
   hl.exec_cmd(run .. " -s b -t service -a tutanota -- flatpak run com.tutanota.Tutanota")
 
@@ -231,6 +234,9 @@ hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + C",             hl.dsp.layout("togglefit"))
 
+-- AI (LM-Studio)
+hl.bind(mainMod .. " + B", hl.dsp.workspace.toggle_special("lmstudio"))
+
 -- E-mail (Tuta)
 hl.bind(mainMod .. " + M", hl.dsp.workspace.toggle_special("tutanota"))
 
@@ -377,6 +383,10 @@ hl.window_rule({
   center = true,
   size  = { 800, 920 },
 })
+
+-- LM-Studio
+hl.workspace_rule({ workspace = "special:lmstudio", gaps_out = { top=120, right=360, bottom=120, left=360 } })
+hl.window_rule({ match = { class = "^LM-Studio$" }, workspace = "special:lmstudio" })
 
 -- Tutanota
 hl.workspace_rule({ workspace = "special:tutanota", gaps_out = { top=120, right=360, bottom=120, left=360 } })

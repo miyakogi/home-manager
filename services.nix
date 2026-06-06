@@ -30,4 +30,10 @@
   home.file.".local/share/systemd/user/taskwarrior-notify.timer" = {
     source = ./services/taskwarrior-notify.timer;
   };
+  home.file.".local/share/systemd/user/taskwarrior-notify-daily.service" = {
+    source = ./services/taskwarrior-notify-daily.service;
+  };
+  home.file.".local/share/systemd/user/taskwarrior-notify-daily.timer" = {
+    source = ./services/taskwarrior-notify-daily.timer;
+  };
 }

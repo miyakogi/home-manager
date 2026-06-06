@@ -179,10 +179,7 @@ in
     vscode-css-languageserver
 
     # AI
-    claude-code
-    codex
     opencode
-    ollama-vulkan
     rtk
     radeontop
 

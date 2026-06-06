@@ -10,7 +10,7 @@ local down     = "J"
 local theme = require("kanagawa-dragon")
 
 -- *** Environment ***
-hl.env("TERMINAL", "wezterm")
+hl.env("TERMINAL", "ghostty")
 
 -- *** Monitors ***
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/

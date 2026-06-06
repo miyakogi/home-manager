@@ -21,8 +21,8 @@
       # font-style-italic = "Light";
       font-style-bold-italic = "Medium";
 
-      theme = "mikado";
-      background-opacity = 0.87;
+      theme = "opencode";
+      background-opacity = 0.98;
 
       command = "fish";
 

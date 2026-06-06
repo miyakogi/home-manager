@@ -5,7 +5,6 @@ Description=Taskwarrior Daily Task Notifier
 OnCalendar=*-*-* 07:00:00
 OnCalendar=*-*-* 19:00:00
 OnBootSec=2min
-OnUnitActiveSec=5min
 Persistent=true
 
 [Install]

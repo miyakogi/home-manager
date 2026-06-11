@@ -13,6 +13,9 @@
       "[._]s[a-w][a-z]"
       "*.un~"
 
+      # Editor / AI
+      "opencode.jsonc"
+
       # File system
       ".directory"
       ".fuse*"

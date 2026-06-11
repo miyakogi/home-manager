@@ -179,7 +179,6 @@ in
     vscode-css-languageserver
 
     # AI
-    opencode
     rtk
     radeontop
 
@@ -304,6 +303,8 @@ in
     ./swappy/swappy.nix
 
     ./mpv/mpv.nix
+
+    ./opencode/opencode.nix
 
     ./desktop/desktop.nix
   ];

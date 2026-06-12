@@ -1,4 +1,7 @@
 { pkgs, ... }: {
+  # home.packages = [
+  #   pkgs.opencode-desktop
+  # ];
   programs.opencode = {
     enable = true;
     settings = {

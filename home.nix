@@ -179,6 +179,7 @@ in
     vscode-css-languageserver
 
     # AI
+    ollama-vulkan
     rtk
     radeontop
 

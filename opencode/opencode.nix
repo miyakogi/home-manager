@@ -1,7 +1,8 @@
-{ pkgs, ... }: {
-  # home.packages = [
-  #   pkgs.opencode-desktop
-  # ];
+{ pkgs, inputs, ... }: {
+  home.packages = [
+    # pkgs.opencode-desktop
+    inputs.codegraph.packages.${pkgs.system}.default
+  ];
   programs.opencode = {
     enable = true;
     settings = {

@@ -128,6 +128,8 @@ in
 
   # Install programs
   home.packages = with pkgs; [
+    ### Default Packages
+
     uutils-coreutils-noprefix
 
     fzf
@@ -239,6 +241,10 @@ in
     capacities
     taskwarrior3
     taskwarrior-tui
+  ] ++ [
+    ### Flake Packages
+    inputs.zmx.packages.${pkgs.system}.default
+    inputs.codegraph.packages.${pkgs.system}.default
   ];
 
   imports = [
@@ -277,7 +283,6 @@ in
     ./ripgrep/ripgrep.nix
     ./starship/starship.nix
     ./yazi/yazi.nix
-    ./zmx/zmx.nix
     ./zoxide/zoxide.nix
 
     ./uwsm/uwsm.nix

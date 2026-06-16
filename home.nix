@@ -184,6 +184,7 @@ in
     ollama-vulkan
     rtk
     radeontop
+    nvtopPackages.intel
 
     # HW accel
     mesa

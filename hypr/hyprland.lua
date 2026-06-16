@@ -77,7 +77,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
 
   -- CoreCtrl
-  hl.exec_cmd(run .. " -s b -t service -a corectrl -- corectrl")
+  -- hl.exec_cmd(run .. " -s b -t service -a corectrl -- corectrl")
 
   -- LM Studio (AI)
   hl.exec_cmd(run .. " -s b -t service -a lmstudio -- flatpak run ai.lmstudio.lm-studio --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")

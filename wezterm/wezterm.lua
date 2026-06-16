@@ -68,14 +68,14 @@ local font_rules = {
 }
 local font_size = 15
 
-local gpu = {
-  name = 'AMD Radeon RX 6800 XT (RADV NAVI21)',
-  backend = 'Vulkan',
-  device_type = 'DiscreteGpu',
-  device = 29631,
-  driver = 'radv',
-  vendor = 4098,
-}
+-- local gpu = {
+--   name = 'AMD Radeon RX 6800 XT (RADV NAVI21)',
+--   backend = 'Vulkan',
+--   device_type = 'DiscreteGpu',
+--   device = 29631,
+--   driver = 'radv',
+--   vendor = 4098,
+-- }
 
 -- copy hyperlink (url) instead of opening by browser when clicked
 wezterm.on('open-uri', function(window, pane, uri)
@@ -98,7 +98,7 @@ table.insert(search_mode_keys, {
 
 return {
   webgpu_power_preference = 'HighPerformance',
-  webgpu_preferred_adapter = gpu,
+  -- webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
   default_prog = { 'fish' },

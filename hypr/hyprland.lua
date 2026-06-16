@@ -35,7 +35,7 @@ hl.monitor({
 })
 
 hl.monitor({
-  output        = "HDMI-A-1",
+  output        = "HDMI-A-2",
   mode          = "preferred",
   position      = "640x2160",
   scale         = 1,
@@ -356,20 +356,20 @@ hl.workspace_rule({ workspace = "7",  monitor = "DP-1" })
 hl.workspace_rule({ workspace = "8",  monitor = "DP-1" })
 hl.workspace_rule({ workspace = "9",  monitor = "DP-1" })
 hl.workspace_rule({ workspace = "10", monitor = "DP-1" })
--- HDMI-A-1 workspaces (11-20)
-hl.workspace_rule({ workspace = "11", monitor = "HDMI-A-1", default = true })
-hl.workspace_rule({ workspace = "12", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "13", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "14", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "15", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "16", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "17", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "18", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "19", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "20", monitor = "HDMI-A-1" })
+-- HDMI-A-2 workspaces (11-20)
+hl.workspace_rule({ workspace = "11", monitor = "HDMI-A-2", default = true })
+hl.workspace_rule({ workspace = "12", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "13", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "14", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "15", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "16", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "17", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "18", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "19", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "20", monitor = "HDMI-A-2" })
 
--- Configure gaps/borders on sub-monitor (HDMI-A-3)
-hl.workspace_rule({ workspace = "m[HDMI-A-3]", gaps_out = { top=12, right=12, bottom=20, left=12 } })
+-- Configure gaps/borders on sub-monitor (HDMI-A-2)
+hl.workspace_rule({ workspace = "m[HDMI-A-2]", gaps_out = { top=12, right=12, bottom=20, left=12 } })
 
 -- *** Application Rules ***
 -- Launcher

@@ -93,7 +93,7 @@
   },
 }, {
   "layer": "top",
-  "output": ["HDMI-A-1"],
+  "output": ["HDMI-A-2"],
   "name": "FHD",
   "position": "bottom",
   "spacing": 4,
@@ -105,7 +105,7 @@
     "on-click": "activate",
     "format": "",
     "persistent-workspaces": {
-      "HDMI-A-1": 10,
+      "HDMI-A-2": 10,
     },
   },
   "niri/workspaces": {

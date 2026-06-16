@@ -10,7 +10,7 @@ ShellRoot {
   }
 
   Desktop {
-    screenName: "HDMI-A-1"
+    screenName: "HDMI-A-2"
     desktopColor: color
   }
 }

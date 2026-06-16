@@ -66,7 +66,7 @@ output "DP-1" {
     background-color "#000000"
 }
 
-output "HDMI-A-1" {
+output "HDMI-A-2" {
     mode "2560x1600@60"
     scale 1.0
     position x=640 y=2160
@@ -273,7 +273,7 @@ animations {
 }
 
 workspace "music" {
-    open-on-output "HDMI-A-1"
+    open-on-output "HDMI-A-2"
 }
 
 workspace "main" {
@@ -281,7 +281,7 @@ workspace "main" {
 }
 
 workspace "sub" {
-    open-on-output "HDMI-A-1"
+    open-on-output "HDMI-A-2"
 }
 
 // Rounded corner for all windows

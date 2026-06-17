@@ -24,8 +24,8 @@
       "com.tutanota.Tutanota"         # Tuta Mail
 
       # Note Taking
-      "com.logseq.Logseq"             # Logseq
-      "md.obsidian.Obsidian"          # Obsidian
+      # "com.logseq.Logseq"             # Logseq
+      # "md.obsidian.Obsidian"          # Obsidian
 
       # Task Management
       "com.ticktick.TickTick"         # TickTick

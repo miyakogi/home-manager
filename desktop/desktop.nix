@@ -33,14 +33,6 @@
     };
   };
   xdg.desktopEntries = {
-    "md.obsidian.Obsidian" = {
-      name = "Obsidian";
-      type = "Application";
-      icon = "md.obsidian.Obsidian";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
-    };
-  };
-  xdg.desktopEntries = {
     "ai.lmstudio.lm-studio" = {
       name = "LM-Studio";
       type = "Application";

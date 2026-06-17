@@ -183,6 +183,7 @@ in
     vscode-css-languageserver
 
     # AI
+    pi-coding-agent
     ollama-vulkan
     rtk
     radeontop

@@ -168,6 +168,7 @@ in
     pkgconf
     rustup
     mold
+    cargo-llvm-cov
 
     # LSP
     uv

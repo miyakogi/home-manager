@@ -11,6 +11,7 @@ local theme = require("kanagawa-dragon")
 
 -- *** Environment ***
 hl.env("TERMINAL", "ghostty")
+hl.env("DRI_PRIME", "1")
 
 -- *** Monitors ***
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/

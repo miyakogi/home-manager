@@ -67,7 +67,6 @@ hl.config({
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
   -- polkit
-  -- hl.exec_cmd("hyprctl dispatch exec " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
   hl.exec_cmd(run .. " -s b -t service -- " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
 
   -- Status Bar
@@ -77,24 +76,8 @@ hl.on("hyprland.start", function()
   -- Wallpaper
   hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
 
-  -- CoreCtrl
-  -- hl.exec_cmd(run .. " -s b -t service -a corectrl -- corectrl")
-
-  -- LM Studio (AI)
-  hl.exec_cmd(run .. " -s b -t service -a lmstudio -- flatpak run ai.lmstudio.lm-studio --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
-
-  -- E-mail
-  hl.exec_cmd(run .. " -s b -t service -a tutanota -- flatpak run com.tutanota.Tutanota --force-device-scale-factor=1.5 --ozone-platform=wayland")
-
-  -- Notification
-  -- hl.exec_cmd(run .. " -s b -t service -- mako")
-  -- hl.exec_cmd(run .. " -s b -t service -- swaync")
-
   -- Capacities
   hl.exec_cmd(run .. " -s b -t service -a capacities -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
-
-  -- TickTick
-  hl.exec_cmd(run .. " -s b -t service -a ticktick -- flatpak run com.ticktick.TickTick --force-device-scale-factor=2 --ozone-platform=wayland")
 end)
 
 -- *** Cursor Theme ***
@@ -232,20 +215,8 @@ hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + C",             hl.dsp.layout("togglefit"))
 
--- AI (LM-Studio)
-hl.bind(mainMod .. " + B", hl.dsp.workspace.toggle_special("lmstudio"))
-
--- E-mail (Tuta)
-hl.bind(mainMod .. " + M", hl.dsp.workspace.toggle_special("tutanota"))
-
--- Logseq
--- hl.bind(mainMod .. " + E", hl.dsp.workspace.toggle_special("logseq"))
--- Obsidian
--- hl.bind(mainMod .. " + E", hl.dsp.workspace.toggle_special("obsidian"))
 -- Capacities
 hl.bind(mainMod .. " + E", hl.dsp.workspace.toggle_special("capacities"))
--- TickTick
-hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special("ticktick"))
 -- Scratchpad Terminal
 hl.bind("F2", hl.dsp.exec_cmd("hypr-scratchterm"))
 
@@ -382,30 +353,9 @@ hl.window_rule({
   size  = { 800, 920 },
 })
 
--- LM-Studio
-hl.workspace_rule({ workspace = "special:lmstudio", gaps_out = { top=120, right=360, bottom=120, left=360 } })
-hl.window_rule({ match = { class = "^LM-Studio$" }, workspace = "special:lmstudio" })
-
--- Tutanota
-hl.workspace_rule({ workspace = "special:tutanota", gaps_out = { top=120, right=360, bottom=120, left=360 } })
-hl.window_rule({ match = { class = "^tutanota-desktop$" }, workspace = "special:tutanota" })
-
--- Logseq
--- hl.workspace_rule({ workspace = "special:logseq", gaps_out = "120 360 120 360" })
--- hl.window_rule({ match = { class = "^Logseq$" }, workspace = "special:logseq" })
--- hl.window_rule({ match = { class = "^Logseq$" }, opacity = 0.88 })
-
--- Obsidian
--- hl.workspace_rule({ workspace = "special:obsidian", gaps_out = "120 360 120 360" })
--- hl.window_rule({ match = { class = "^obsidian$" }, workspace = "special:obsidian" })
-
 -- Capacities
 hl.workspace_rule({ workspace = "special:capacities", gaps_out = { top=120, right=360, bottom=120, left=360 } })
 hl.window_rule({ match = { class = "^Capacities$" }, workspace = "special:capacities" })
-
--- TickTick
-hl.workspace_rule({ workspace = "special:ticktick", gaps_out = { top=120, right=360, bottom=120, left=360 } })
-hl.window_rule({ match = { class = "^ticktick$" }, workspace = "special:ticktick" })
 
 -- ScratchTerm
 hl.workspace_rule({ workspace = "special:scratchterm-dp1", gaps_out = { top=120, right=360, bottom=120, left=360 } })

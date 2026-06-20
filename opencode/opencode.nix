@@ -8,7 +8,7 @@
       default_agent = "plan";
     };
     tui = {
-      theme = "opencode";
+      theme = "system";
       mouse = true;
       attention = {
         enabled = true;

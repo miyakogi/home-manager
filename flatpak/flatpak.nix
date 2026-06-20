@@ -14,21 +14,21 @@
       "com.vivaldi.Vivaldi"           # Vivaldi
 
       # AI
-      "ai.lmstudio.lm-studio"         # LM-Studio
+      # "ai.lmstudio.lm-studio"         # LM-Studio
 
       ### Tools
       # Flatpak Management
       "com.github.tchx84.Flatseal"    # Flatseal
 
       # E-mail
-      "com.tutanota.Tutanota"         # Tuta Mail
+      # "com.tutanota.Tutanota"         # Tuta Mail
 
       # Note Taking
       # "com.logseq.Logseq"             # Logseq
       # "md.obsidian.Obsidian"          # Obsidian
 
       # Task Management
-      "com.ticktick.TickTick"         # TickTick
+      # "com.ticktick.TickTick"         # TickTick
 
       ### Multimedia
       # Music Player

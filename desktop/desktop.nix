@@ -25,35 +25,11 @@
     };
   };
   xdg.desktopEntries = {
-    "com.tutanota.Tutanota" = {
-      name = "Tuta (Mail)";
-      type = "Application";
-      icon = "com.tutanota.Tutanota";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=tutanota-desktop --file-forwarding com.tutanota.Tutanota --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
-    };
-  };
-  xdg.desktopEntries = {
-    "ai.lmstudio.lm-studio" = {
-      name = "LM-Studio";
-      type = "Application";
-      icon = "ai.lmstudio.lm-studio";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=lmstudio --file-forwarding ai.lmstudio.lm-studio --force-device-scale-factor=1.5 --ozone-platform=wayland @@u %U @@";
-    };
-  };
-  xdg.desktopEntries = {
     "capacities" = {
       name = "Capacities";
       type = "Application";
       icon = "capacities";
       exec = "capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland";
-    };
-  };
-  xdg.desktopEntries = {
-    "com.ticktick.TickTick" = {
-      name = "TickTick";
-      type = "Application";
-      icon = "com.ticktick.TickTick";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=ticktick --file-forwarding com.ticktick.TickTick --force-device-scale-factor=2 --ozone-platform=wayland @@u %U @@";
     };
   };
   xdg.desktopEntries = {

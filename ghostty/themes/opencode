@@ -2,8 +2,8 @@ background = #0a0a0a
 foreground = #eeeeee
 cursor-color = #fab283
 
-selection-background = #202020
-selection-foreground = #eeeeee
+selection-background = #505050
+selection-foreground = cell-foreground
 
 palette = 0=#0a0a0a
 palette = 1=#e06c75

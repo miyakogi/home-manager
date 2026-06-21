@@ -15,4 +15,7 @@
   home.file.".config/kitty/hybrid.conf" = {
     source = ./hybrid.conf;
   };
+  home.file.".config/kitty/opencode.conf" = {
+    source = ./opencode.conf;
+  };
 }

@@ -15,8 +15,7 @@
 #
 # Example:
 # theme = "dracula"
-#theme = "mikado"
-theme = "hybrid"
+theme = "opencode"
 
 # Use fork
 #
@@ -129,7 +128,7 @@ blinking-interval = 500
 # decorations = "Enabled"
 [window]
 mode = "Maximized"
-opacity = 0.95
+opacity = 0.98
 decorations = "Disabled"
 
 # Renderer

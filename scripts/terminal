@@ -123,4 +123,5 @@ fi
 # Test
 # notify-send "Terminal Test" "${cmd[*]} $*"
 
+export DRI_PRIME=1
 exec "${cmd[@]}" "$@"

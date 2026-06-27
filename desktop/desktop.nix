@@ -25,6 +25,14 @@
     };
   };
   xdg.desktopEntries = {
+    "org.chromium.Chromium" = {
+      name = "Chromium";
+      type = "Application";
+      icon = "org.chromium.Chromium";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding org.chromium.Chromium --ozone-platform=wayland --enable-features=VaapiVideoDecoder,VaapiIgnoreDriverChecks,Vulkan,UseOzonePlatform --use-angle=vulkan @@u %U @@";
+    };
+  };
+  xdg.desktopEntries = {
     "capacities" = {
       name = "Capacities";
       type = "Application";

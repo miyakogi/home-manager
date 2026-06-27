@@ -129,7 +129,7 @@ blinking-interval = 500
 # decorations = "Enabled"
 [window]
 mode = "Maximized"
-opacity = 0.82
+opacity = 0.95
 decorations = "Disabled"
 
 # Renderer

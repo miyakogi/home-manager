@@ -139,6 +139,7 @@ in
     dua
     tokei
     just
+    trashy
 
     man-db
     man-pages

@@ -4,7 +4,8 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
 environment {
-    TERMINAL "kitty"
+  TERMINAL "kitty"
+  DRI_PRIME "1"
 }
 
 // Input device configuration.

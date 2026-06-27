@@ -155,7 +155,7 @@ decorations = "Disabled"
 [renderer]
 backend = "Vulkan"
 # max-fps = 120
-strategy = "Game"
+strategy = "Events"
 
 # Keyboard
 #

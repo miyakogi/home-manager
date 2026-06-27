@@ -17,7 +17,7 @@ hl.env("DRI_PRIME", "1")
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
   output               = "DP-1",
-  mode                 = "3840x2160@144",
+  mode                 = "3840x2160@120",
   position             = "0x0",
   scale                = 1,
   bitdepth             = 10,

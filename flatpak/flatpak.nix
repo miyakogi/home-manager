@@ -39,6 +39,7 @@
       "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"  # Proton-GE
 
       # Others
+      "com.obsproject.Studio"           # OBS
       "org.gnome.gitlab.dqpb.GMetronome"  # GMetronome
       "org.kde.krita"                 # Krita
     ];

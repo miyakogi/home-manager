@@ -36,6 +36,7 @@
     shellAliases = {
       cp = "cp -i";
       mv = "mv -i";
+      rm = "trash put";
       mkdir = "mkdir -p";
     };
 

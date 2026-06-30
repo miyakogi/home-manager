@@ -16,6 +16,7 @@
     rio.url = "github:raphamorim/rio/main";
     zmx.url = "github:neurosnap/zmx";
     codegraph.url = "path:./flakes/codegraph";
+    karukan.url = "path:./flakes/karukan";
   };
 
 

@@ -10,8 +10,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-hazkey = {
-      # url = "github:aster-void/nix-hazkey";
-      url = "github:miyakogi/nix-hazkey";
+      url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio.url = "github:raphamorim/rio/main";

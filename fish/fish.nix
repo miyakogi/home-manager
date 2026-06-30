@@ -16,6 +16,8 @@
 
       c = "cd";
 
+      rm = "trash put";
+
       l = "ls";
       lsa = "ls --all";
       lsl = "ls -l -h";
@@ -36,7 +38,6 @@
     shellAliases = {
       cp = "cp -i";
       mv = "mv -i";
-      rm = "trash put";
       mkdir = "mkdir -p";
     };
 

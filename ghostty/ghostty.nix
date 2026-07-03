@@ -10,7 +10,10 @@
         "IBM Plex Sans JP"
       ];
       font-size = 15.0;
-      font-feature = "+cv08, +cv15";
+      font-feature = [
+        "+cv08"
+        "+cv15"
+      ];
 
       font-variation = "wght=300";
       font-variation-bold = "wght=600";

@@ -251,6 +251,7 @@ in
     ### Flake Packages
     inputs.zmx.packages.${pkgs.system}.default
     inputs.codegraph.packages.${pkgs.system}.default
+    inputs.maki.packages.${pkgs.system}.default
   ];
 
   imports = [

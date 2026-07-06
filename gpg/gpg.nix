@@ -1,12 +1,17 @@
 { pkgs, ... }: {
+  home.packages = [
+    pkgs.gcr  # better for pinentry-gnome3
+  ];
+
   programs.gpg = {
     enable = true;
   };
+
   services.gpg-agent = {
     enable = true;
     pinentry = {
-      package = pkgs.pinentry-curses;
-      program = "pinentry-curses";
+      package = pkgs.pinentry-gnome3;
+      program = "pinentry-gnome3";
     };
   };
 }

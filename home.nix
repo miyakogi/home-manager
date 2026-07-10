@@ -141,6 +141,7 @@ in
     tokei
     just
     trashy
+    zmx
 
     man-db
     man-pages
@@ -249,7 +250,6 @@ in
     taskwarrior-tui
   ] ++ [
     ### Flake Packages
-    inputs.zmx.packages.${pkgs.system}.default
     inputs.codegraph.packages.${pkgs.system}.default
     inputs.maki.packages.${pkgs.system}.default
   ];

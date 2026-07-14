@@ -106,6 +106,24 @@
       },
       "parent": []
     },
+    "maki": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1783955919,
+        "narHash": "sha256-nnLGOt8knpTm/nhQpXXXC02CVIO8LXqkNCmz2h6RtEM=",
+        "owner": "tontinton",
+        "repo": "maki",
+        "rev": "9fc754fe08d05babafb384c6bf1c3cf56a4818cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tontinton",
+        "repo": "maki",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1783368811,
@@ -191,6 +209,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1783776592,
         "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
         "owner": "nixos",
@@ -205,7 +239,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1782959384,
         "narHash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM=",
@@ -224,7 +258,7 @@
     "rio": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "rust-overlay": "rust-overlay",
         "systems": "systems_2"
       },
@@ -248,9 +282,10 @@
         "codegraph": "codegraph",
         "home-manager": "home-manager",
         "karukan": "karukan",
+        "maki": "maki",
         "nix-flatpak": "nix-flatpak",
         "nix-hazkey": "nix-hazkey",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "rio": "rio"
       }
     },

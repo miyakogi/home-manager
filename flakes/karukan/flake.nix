@@ -18,7 +18,7 @@
           repo = "karukan";
           rev = "main";
           # 1回目の `nix build` で実際のハッシュが提示されるので、それに置き換えてください。
-          hash = "sha256-h0DO5FvXSIdcq+ALACyqyESUZrkNvHxPMEqTowVtkoU=";
+          hash = "sha256-pWXIqK0HwFgVfSUCDFruHdqUOMIEI1eLlDzGMLIZwfg=";
         };
 
         # --- Step 1: karukan-fcitx5 crate を cdylib (libkarukan_fcitx5.so) としてビルド ---

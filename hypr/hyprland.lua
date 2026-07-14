@@ -10,7 +10,7 @@ local down     = "J"
 local theme = require("kanagawa-dragon")
 
 -- *** Environment ***
-hl.env("TERMINAL", "ghostty")
+hl.env("TERMINAL", "rio")
 hl.env("DRI_PRIME", "1")
 
 -- *** Monitors ***

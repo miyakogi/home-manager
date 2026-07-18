@@ -14,9 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio.url = "github:raphamorim/rio/main";
-    codegraph.url = "path:./flakes/codegraph";
     karukan.url = "path:./flakes/karukan";
-    maki.url = "github:tontinton/maki";
   };
 
 

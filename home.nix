@@ -188,7 +188,6 @@ in
     # AI
     pi-coding-agent
     ollama-vulkan
-    rtk
     radeontop
     nvtopPackages.full
 

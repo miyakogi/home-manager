@@ -172,6 +172,7 @@ in
     rustup
     mold
     cargo-llvm-cov
+    hyperfine
 
     # LSP
     uv

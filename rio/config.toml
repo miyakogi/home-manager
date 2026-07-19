@@ -6,7 +6,7 @@ theme = "opencode"
 # Defaults for POSIX-based systems (Windows is not configurable):
 # MacOS: spawn processes
 # Linux/BSD: fork processes
-use-fork = false
+use-fork = true
 
 confirm-before-quit = false
 

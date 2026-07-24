@@ -15,6 +15,7 @@
 
       # Editor / AI
       "opencode.jsonc"
+      ".opencode/"
 
       # File system
       ".directory"

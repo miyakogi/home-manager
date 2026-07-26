@@ -7,7 +7,7 @@
   "height": 32,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "custom/swaync", "tray", "systemd-failed-units"],
+  "modules-right": ["custom/idle", "custom/mic", "clock", "custom/swaync", "tray", "systemd-failed-units"],
   "custom/os": {
     "exec": "echo \" NixOS\"",
     "format": "{}",
@@ -67,13 +67,6 @@
     "interval": "once",  // need anyway
     "signal": 8,  // -SIGRTMIN+8
   },
-  "custom/ff-volume": {
-    "return-type": "json",
-    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
-    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
-    "format": "{}",
-    "tooltip": false,
-  },
   "custom/media": {
     "format": "{}",
     "return-type": "json",
@@ -100,7 +93,7 @@
   "height": 30,  // 1 + tray icon + 1
   "modules-left": ["hyprland/workspaces", "niri/workspaces"],
   "modules-center": [],
-  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "tray"],
+  "modules-right": ["custom/idle", "custom/mic", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "",
@@ -125,13 +118,6 @@
     "on-click": "$HOME/bin/mic-mute-toggle",
     "interval": "once",  // need anyway
     "signal": 8,  // -SIGRTMIN+8
-  },
-  "custom/ff-volume": {
-    "return-type": "json",
-    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
-    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
-    "format": "{}",
-    "tooltip": false,
   },
   "custom/clock": {
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",

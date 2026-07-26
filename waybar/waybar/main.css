@@ -160,24 +160,6 @@ window#waybar.4K #custom-mic.Info {
   padding: 0rem 1.8rem;
 }
 
-window#waybar.4K #custom-ff-volume {
-  color: @background;
-  font-family: "Symbols Nerd Font";
-  border-radius: 1rem;
-  margin: 0rem 0.1rem;
-  padding: 0px;
-} 
-
-window#waybar.4K #custom-ff-volume.Idle {
-  background-color: @muted;
-  padding: 0rem 1.2rem;
-}
-
-window#waybar.4K #custom-ff-volume.Info {
-  background-color: @red;
-  padding: 0rem 2.0rem;
-}
-
 window#waybar.FHD #custom-idle {
   color: @background;
   font-family: "Symbols Nerd Font";
@@ -208,23 +190,6 @@ window#waybar.FHD #custom-mic.Idle {
 }
 
 window#waybar.FHD #custom-mic.Info {
-  color: @red;
-  border-bottom-color: @red;
-}
-
-window#waybar.FHD #custom-ff-volume {
-  color: @background;
-  font-family: "Symbols Nerd Font";
-  margin: 0rem 0.1rem;
-  padding: 0px 6px;
-  border-bottom: solid 4px @muted;
-} 
-
-window#waybar.FHD #custom-ff-volume.Idle {
-  color: @muted;
-}
-
-window#waybar.FHD #custom-ff-volume.Info {
   color: @red;
   border-bottom-color: @red;
 }

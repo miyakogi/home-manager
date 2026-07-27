@@ -9,11 +9,11 @@ draw_bold_text_with_bright_colors = false
 size = 15.0
 
 [font.normal]
-family = "Google Sans Code"
+family = "Lilex"
 style = "Light"
 
 [font.bold]
-family = "Google Sans Code"
+family = "Lilex"
 style = "Medium"
 
 [[hints.enabled]]

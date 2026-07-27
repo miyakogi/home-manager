@@ -10,11 +10,6 @@ size = 15.0
 
 [font.normal]
 family = "Lilex"
-style = "Light"
-
-[font.bold]
-family = "Lilex"
-style = "Medium"
 
 [[hints.enabled]]
 action = "Copy"

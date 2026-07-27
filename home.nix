@@ -65,6 +65,7 @@ in
   # Bash
   programs.bash = {
     enable = true;
+    enableCompletion = true;
   };
 
   # Input Methods

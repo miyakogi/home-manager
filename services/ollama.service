@@ -10,7 +10,6 @@ Environment="OLLAMA_MAX_LOADED_MODELS=2"
 Environment="OLLAMA_MAX_QUEUE=1"
 Environment="OLLAMA_NUM_PARALLEL=1"
 Environment="OLLAMA_CONTEXT_LENGTH=32768"
-Environment="OLLAMA_KV_CACHE_TYPE=vulkan"
 Environment="GGML_VK_CMD_THREADS=8"
 Environment="GGML_VK_MEMORY_POOL_SIZE=8192"
 ExecStart=%h/.nix-profile/bin/ollama serve

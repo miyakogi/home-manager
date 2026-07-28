@@ -74,6 +74,7 @@ local plugins = {
       end
       vim.keymap.set('n', '[e', goto_error_prev, opts)
       vim.keymap.set('n', ']e', goto_error_next, opts)
+      vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, opts)
 
       local on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -102,7 +103,7 @@ local plugins = {
       end
 
       -- bash
-      -- requires `shellcheck` command to enable diagnostic
+      -- requires `shellcheck` ro `shellharden` command to enable diagnostic
       if vim.fn.executable('bash-language-server') > 0 then
         vim.lsp.enable('bashls')
         vim.lsp.config('bashls', {

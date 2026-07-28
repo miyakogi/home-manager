@@ -183,7 +183,7 @@ in
     bash-language-server
     lua-language-server
     pyright
-    shellcheck
+    shellharden
     typescript-language-server
     vscode-css-languageserver
 

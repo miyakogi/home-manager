@@ -17,6 +17,7 @@
         mpris
         uosc
         thumbfast
+        manga-reader
       ];
     };
     config = {

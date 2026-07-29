@@ -50,9 +50,10 @@
 
   home.file.".config/mpv/input.conf".source = ./input.conf;
   # home.file.".config/mpv/interpolation.vpy".source = ./interpolation.vpy;
-  home.file.".config/mpv/uosc.conf".source = ./uosc.conf;
   home.file.".config/mpv/shaders" = {
     source = ./shaders;
     recursive = true;
   };
+  home.file.".config/mpv/script-opts/uosc.conf".source = ./uosc.conf;
+  home.file.".config/mpv/script-opts/thumbfast.conf".source = ./thumbfast.conf;
 }

@@ -22,6 +22,7 @@
     };
     config = {
       msg-level = "all=info";
+      save-watch-history = true;
 
       vo = "gpu-next";
       hwdec = "vulkan";

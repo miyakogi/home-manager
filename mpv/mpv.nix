@@ -13,6 +13,11 @@
           vapoursynth-mvtools
         ]);
       };
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        uosc
+        thumbfast
+      ];
     };
     config = {
       msg-level = "all=info";
@@ -44,6 +49,7 @@
 
   home.file.".config/mpv/input.conf".source = ./input.conf;
   # home.file.".config/mpv/interpolation.vpy".source = ./interpolation.vpy;
+  home.file.".config/mpv/uosc.conf".source = ./uosc.conf;
   home.file.".config/mpv/shaders" = {
     source = ./shaders;
     recursive = true;

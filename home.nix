@@ -165,7 +165,7 @@ in
     nodejs
     pnpm
     cmake
-    # poetry
+    poetry
     openssl
     #extra-cmake-modules
     libxkbcommon.dev

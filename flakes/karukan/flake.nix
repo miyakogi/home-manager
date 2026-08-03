@@ -11,19 +11,20 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        version = "0.1.0-unstable-2026-08-01";
+        version = "0.1.0-unstable-2026-08-04";
 
         src = pkgs.fetchFromGitHub {
           owner = "togatoga";
           repo = "karukan";
           rev = "main";
           # 1回目の `nix build` で実際のハッシュが提示されるので、それに置き換えてください。
-          hash = "sha256-oH+06eJQzyo2xSVDoBHMuvmIEr0sOUH8FSPMnimHmZk=";
+          hash = "sha256-bmyz1TylJ9yOTHhQ0tbFf3pish3xuvU1+O4v7VSjtwA=";
         };
 
         # --- Step 1: karukan-fcitx5 crate を cdylib (libkarukan_fcitx5.so) としてビルド ---
         # workspace全体をビルド対象に含めると llama-cpp-2 (C++コンパイル含む) も
         # 一緒にビルドされるため、cmake/clang を nativeBuildInputs に入れる。
+        # ディレクトリ構成変更後: karukan-im/fcitx5 (crate: karukan-fcitx5)
         karukan-fcitx5-lib = pkgs.rustPlatform.buildRustPackage {
           pname = "karukan-fcitx5-lib";
           inherit version src;
@@ -91,11 +92,12 @@
         # CMakeLists.txt はデフォルトで `cargo build` をカスタムターゲットとして
         # 走らせる構成になっているため、Nixのサンドボックス(ネットワーク遮断)と
         # 衝突する。事前ビルド済みの .so を直接使うようパッチする。
+        # ディレクトリ構成変更後: karukan-im/fcitx5/fcitx5-addon
         karukan-fcitx5-addon = pkgs.stdenv.mkDerivation {
           pname = "karukan-fcitx5-addon";
           inherit version src;
 
-          sourceRoot = "${src.name}/karukan-fcitx5/fcitx5-addon";
+          sourceRoot = "${src.name}/karukan-im/fcitx5/fcitx5-addon";
 
           nativeBuildInputs = with pkgs; [
             cmake
@@ -109,33 +111,15 @@
           ];
 
           postPatch = ''
-            # cargo を直接呼び出す custom_target を無効化し、
-            # Step 1 で事前ビルドした .so のパスを直接指定する。
-            substituteInPlace CMakeLists.txt \
-              --replace-fail \
-                'set(KARUKAN_RUST_LIB "''${CMAKE_CURRENT_SOURCE_DIR}/../../target/release/libkarukan_fcitx5.so")' \
-                'set(KARUKAN_RUST_LIB "${karukan-fcitx5-lib}/lib/libkarukan_fcitx5.so")'
-
-            substituteInPlace CMakeLists.txt \
-              --replace-fail \
-                'find_program(CARGO cargo REQUIRED)
-add_custom_target(karukan_rust_lib ALL
-    COMMAND ''${CARGO} build --release -p karukan-fcitx5
-    WORKING_DIRECTORY "''${CMAKE_CURRENT_SOURCE_DIR}/../.."
-    COMMENT "Building karukan-fcitx5 Rust library"
-    BYPRODUCTS "''${KARUKAN_RUST_LIB}"
-)' \
-                '# cargo build skipped: using prebuilt ${karukan-fcitx5-lib}'
-
-            substituteInPlace CMakeLists.txt \
-              --replace-fail \
-                'add_dependencies(karukan karukan_rust_lib)' \
-                '# add_dependencies(karukan karukan_rust_lib) skipped'
-
-            substituteInPlace CMakeLists.txt \
-              --replace-fail \
-                'BUILD_RPATH "''${CMAKE_CURRENT_SOURCE_DIR}/../../target/release"' \
-                'BUILD_RPATH "${karukan-fcitx5-lib}/lib"'
+            # Prebuilt .so path (Nix sandbox cannot run cargo).
+            # Match by unique substrings so we avoid embedding CMake ''${...} vars in Nix strings.
+            # cargo custom_target block ends with a lone ")" line — include it in the range.
+            sed -i \
+              -e 's|set(KARUKAN_RUST_LIB ".*libkarukan_fcitx5\.so")|set(KARUKAN_RUST_LIB "${karukan-fcitx5-lib}/lib/libkarukan_fcitx5.so")|' \
+              -e '/find_program(CARGO cargo REQUIRED)/,/^)$/c\# cargo build skipped: using prebuilt ${karukan-fcitx5-lib}' \
+              -e 's|add_dependencies(karukan karukan_rust_lib)|# add_dependencies(karukan karukan_rust_lib) skipped|' \
+              -e 's|BUILD_RPATH ".*target/release"|BUILD_RPATH "${karukan-fcitx5-lib}/lib"|' \
+              CMakeLists.txt
           '';
 
           meta = with pkgs.lib; {

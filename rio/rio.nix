@@ -12,7 +12,7 @@ in {
 
   programs.rio = {
     enable = true;
-    package = rio;
+    # package = rio;
   };
 
   home.file.".config/rio/config.toml" = {

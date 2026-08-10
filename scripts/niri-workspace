@@ -64,6 +64,14 @@ focus_last() {
   fi
 }
 
+focus_first() {
+  local target
+  target=$(jq -r 'min // empty' <<< "$(eligible_idx)")
+  if [[ -n "$target" ]]; then
+    niri msg action focus-workspace "$target"
+  fi
+}
+
 toggle_scratchpad() {
   local name="$1"
   if [[ ! "$name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
@@ -130,8 +138,9 @@ case "$action" in
       next) focus_cycle next ;;
       prev) focus_cycle prev ;;
       last) focus_last ;;
+      first) focus_first ;;
       *)
-        echo "usage: niri-workspace focus {next|prev|last}" >&2
+        echo "usage: niri-workspace focus {next|prev|last|first}" >&2
         exit 1
         ;;
     esac
@@ -140,7 +149,7 @@ case "$action" in
     toggle_scratchpad "${2:-main}"
     ;;
   *)
-    echo "usage: niri-workspace {focus {next|prev|last}|toggle <name>}" >&2
+    echo "usage: niri-workspace {focus {next|prev|last|first}|toggle <name>}" >&2
     exit 1
     ;;
 esac

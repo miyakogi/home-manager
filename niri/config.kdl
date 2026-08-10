@@ -374,6 +374,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^rio$"
+    open-maximized-to-edges false
+}
+
+window-rule {
     match is-floating=true
 
     border {

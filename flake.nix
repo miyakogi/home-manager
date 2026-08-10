@@ -15,6 +15,7 @@
     };
     rio.url = "github:raphamorim/rio/main";
     karukan.url = "path:./flakes/karukan";
+    waybar.url = "github:Alexays/Waybar";
   };
 
 

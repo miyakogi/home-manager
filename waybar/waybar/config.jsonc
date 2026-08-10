@@ -21,6 +21,10 @@
   },
   "niri/workspaces": {
     "format": "",
+    "ignore-workspaces": [
+      "memo",
+      "ai",
+    ],
   },
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",

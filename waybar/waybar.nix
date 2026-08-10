@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    waybar
+{ pkgs, inputs, ... }: {
+  home.packages =  [
+    # pkgs.waybar
+    inputs.waybar.packages.${pkgs.system}.default
   ];
 
   home.file.".config/waybar" = {

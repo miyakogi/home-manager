@@ -25,6 +25,7 @@ eligible_idx() {
     [ .[] | select(.output == $output)
     | select((.name // "") as $n | $names | index($n) | not)
     | .idx ]
+    | sort
   ' <<< "$workspaces"
 }
 
@@ -66,6 +67,14 @@ workspace_action() {
     next|prev) target=$(cycle_target "$direction") ;;
     last)      target=$(extreme_target last) ;;
     first)     target=$(extreme_target first) ;;
+    *)         # numeric N (1-based; 0 = no-op; N > count = clamp to last)
+      if [[ "$direction" == "0" ]]; then
+        return 0
+      fi
+      target=$(jq -r --argjson n "$((direction - 1))" '
+        if $n >= length then .[-1] // empty else .[$n] // empty end
+      ' <<< "$(eligible_idx)")
+      ;;
   esac
   if [[ -n "$target" ]]; then
     if [[ "$mode" == "focus" ]]; then
@@ -138,28 +147,26 @@ toggle_scratchpad() {
 
 case "$action" in
   focus)
-    case "${2:-}" in
-      next|prev|last|first) workspace_action focus "$2" ;;
-      *)
-        echo "usage: niri-workspace focus {next|prev|last|first}" >&2
-        exit 1
-        ;;
-    esac
+    if [[ "${2:-}" =~ ^[0-9]+$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
+      workspace_action focus "$2"
+    else
+      echo "usage: niri-workspace focus {next|prev|last|first|<n>}" >&2
+      exit 1
+    fi
     ;;
   move)
-    case "${2:-}" in
-      next|prev|last|first) workspace_action move "$2" ;;
-      *)
-        echo "usage: niri-workspace move {next|prev|last|first}" >&2
-        exit 1
-        ;;
-    esac
+    if [[ "${2:-}" =~ ^[0-9]+$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
+      workspace_action move "$2"
+    else
+      echo "usage: niri-workspace move {next|prev|last|first|<n>}" >&2
+      exit 1
+    fi
     ;;
   toggle)
     toggle_scratchpad "${2:-main}"
     ;;
   *)
-    echo "usage: niri-workspace {focus|move {next|prev|last|first}|toggle <name>}" >&2
+    echo "usage: niri-workspace {focus|move {next|prev|last|first|<n>}|toggle <name>}" >&2
     exit 1
     ;;
 esac

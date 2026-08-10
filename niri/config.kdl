@@ -346,7 +346,9 @@ window-rule {
     match app-id="^Vivaldi"
     match app-id="^discord$"
     match app-id="^steam$"
+    match app-id="brave-browser"
     open-maximized true
+    open-maximized-to-edges false
 }
 
 window-rule {

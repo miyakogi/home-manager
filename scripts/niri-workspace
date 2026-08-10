@@ -11,6 +11,8 @@ scratchpad_names=(
 monitor1="DP-1"
 monitor2="HDMI-A-2"
 
+runtime_dir="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}"
+
 action="${1:-}"
 scratchpad_name="${1:-main}"
 
@@ -36,18 +38,19 @@ focused_id() {
 }
 
 focus_cycle() {
-  local direction="$1" current target
+  local direction="$1" current candidates target
   current=$(focused_idx)
+  candidates=$(eligible_idx)
   target=$(jq -r --argjson c "$current" --arg dir "$direction" '
     if $dir == "next"
       then ([ .[] | select(. > $c) ] | min // empty)
       else ([ .[] | select(. < $c) ] | max // empty)
     end
-  ' <<< "$(eligible_idx)")
+  ' <<< "$candidates")
   if [[ -z "$target" ]]; then
     target=$(jq -r --arg dir "$direction" '
       if $dir == "next" then min // empty else max // empty end
-    ' <<< "$(eligible_idx)")
+    ' <<< "$candidates")
   fi
   if [[ -n "$target" ]]; then
     niri msg action focus-workspace "$target"
@@ -64,31 +67,21 @@ focus_last() {
 
 toggle_scratchpad() {
   local name="$1"
-  local state_file1="${XDG_RUNTIME_DIR}/niri-$name-workspace-output1"
-  local state_file2="${XDG_RUNTIME_DIR}/niri-$name-workspace-output2"
-  local output_file="${XDG_RUNTIME_DIR}/niri-$name-output"
+  if [[ ! "$name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+    echo "invalid workspace name: $name" >&2
+    exit 1
+  fi
+  local state_file1="${runtime_dir}/niri-$name-workspace-output1"
+  local state_file2="${runtime_dir}/niri-$name-workspace-output2"
+  local output_file="${runtime_dir}/niri-$name-output"
 
-  local scratchpad_id current_id idx1 idx2
+  local scratchpad_id current_id
   scratchpad_id=$(jq -r --arg name "$name" '
     .[]
     | select(.name == $name)
     | .id
   ' <<< "$workspaces")
   current_id=$(focused_id)
-
-  idx1=$(jq -r --arg output "$monitor1" '
-    .[]
-    | select(.output == $output)
-    | select(.is_active == true)
-    | .idx
-  ' <<< "$workspaces")
-
-  idx2=$(jq -r --arg output "$monitor2" '
-    .[]
-    | select(.output == $output)
-    | select(.is_active == true)
-    | .idx
-  ' <<< "$workspaces")
 
   if [[ "$current_id" == "$scratchpad_id" ]]; then
     if [[ -s "$state_file1" ]]; then
@@ -110,6 +103,21 @@ toggle_scratchpad() {
     fi
     exit 0
   fi
+
+  local idx1 idx2
+  idx1=$(jq -r --arg output "$monitor1" '
+    .[]
+    | select(.output == $output)
+    | select(.is_active == true)
+    | .idx
+  ' <<< "$workspaces")
+
+  idx2=$(jq -r --arg output "$monitor2" '
+    .[]
+    | select(.output == $output)
+    | select(.is_active == true)
+    | .idx
+  ' <<< "$workspaces")
 
   printf '%s\n' "$output" > "$output_file"
   printf '%s\n' "$idx1" > "$state_file1"

@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-memo_name="memo"
-ai_name="ai"
+# Workspace names to exclude. Add, remove, or modify them here.
+scratchpad_names=("memo" "ai")
 
 monitor1="DP-1"
 monitor2="HDMI-A-2"
@@ -14,10 +14,13 @@ scratchpad_name="${1:-main}"
 workspaces=$(niri msg --json workspaces)
 output=$(niri msg --json focused-output | jq -r '.name')
 
+names_json=$(printf '%s\n' "${scratchpad_names[@]}" | jq -Rs 'split("\n") | map(select(length > 0))')
+
 eligible_idx() {
-    jq -c --arg output "$output" --arg name1 "$memo_name" --arg name2 "$ai_name" '
-        [ .[] | select(.output == $output) | select(.name != $name1)
-        | select(.name != $name2) | .idx ]
+    jq -c --arg output "$output" --argjson names "$names_json" '
+        [ .[] | select(.output == $output)
+        | select((.name // "") as $n | $names | index($n) | not)
+        | .idx ]
     ' <<< "$workspaces"
 }
 

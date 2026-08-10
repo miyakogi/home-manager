@@ -55,6 +55,15 @@
       - Do not refactor or modify unrelated code while working on a specific task, even if you notice potential improvements. Mention them separately instead.
       - When unsure whether an action is safe or reversible, ask before proceeding rather than assuming it's fine.
 
+      - Do not preserve backward compatibility unless do so. Remove obsolete paths instead of adding compatibility layers, or migrations.
+      - Choose the simplest implementation that fully meets the current requirements. Avoid speculative abstractions, configurations, and indirections.
+      - Grow the system in layers. Start from the smallest version that works end to end, and add each new capability on top of a production that already works. Never trade a working product for unfinished complexity.
+      - Keep components modular and concerns clearly separated.
+      - Prefer established, well-maintained libraries when the reduce overall complexity or improve reliability. Do not reimplement common functionality without a clear reason.
+      - Lean on the dependencies already in the product before writing your own implementation or adding packages. Do not assume a library lacks a capability without checking its documentation and types.
+      - Make architectural decisions for the long term. Do not accept a stopgap than only works for now and is meant to be replaced later.
+
+
       ## Tone
 
       - Respond in polite Japanese です・ます調, in a friendly and natural style.

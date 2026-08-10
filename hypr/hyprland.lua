@@ -78,6 +78,9 @@ hl.on("hyprland.start", function()
 
   -- Capacities
   hl.exec_cmd(run .. " -s b -t service -a capacities -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
+
+  -- OpenCode Desktop (AI)
+  hl.exec_cmd(run .. " -s b -t service -- opencode-desktop")
 end)
 
 -- *** Cursor Theme ***
@@ -217,6 +220,10 @@ hl.bind(mainMod .. " + C",             hl.dsp.layout("togglefit"))
 
 -- Capacities
 hl.bind(mainMod .. " + E", hl.dsp.workspace.toggle_special("capacities"))
+
+-- OpenCode Desktop (AI)
+hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special("opencode"))
+
 -- Scratchpad Terminal
 hl.bind("F2", hl.dsp.exec_cmd("hypr-scratchterm"))
 
@@ -356,6 +363,10 @@ hl.window_rule({
 -- Capacities
 hl.workspace_rule({ workspace = "special:capacities", gaps_out = { top=120, right=360, bottom=120, left=360 } })
 hl.window_rule({ match = { class = "^Capacities$" }, workspace = "special:capacities" })
+
+-- OpenCode Desktop (AI)
+hl.workspace_rule({ workspace = "special:opencode", gaps_out = { top=120, right=360, bottom=120, left=360 } })
+hl.window_rule({ match = { class = "^ai.opencode.desktop$" }, workspace = "special:opencode" })
 
 -- ScratchTerm
 hl.workspace_rule({ workspace = "special:scratchterm-dp1", gaps_out = { top=120, right=360, bottom=120, left=360 } })

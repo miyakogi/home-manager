@@ -15,6 +15,7 @@
 
       # AI
       # "ai.lmstudio.lm-studio"         # LM-Studio
+      # "ai.opencode.opencode"          # OpenCode Desktop
 
       ### Tools
       # Flatpak Management

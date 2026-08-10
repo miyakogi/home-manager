@@ -273,11 +273,15 @@ animations {
     // block-out-from "screencast"
 }
 
-workspace "music" {
-    open-on-output "HDMI-A-2"
+workspace "main" {
+    open-on-output "DP-1"
 }
 
-workspace "main" {
+workspace "memo" {
+    open-on-output "DP-1"
+}
+
+workspace "ai" {
     open-on-output "DP-1"
 }
 
@@ -321,8 +325,19 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^Capacities$"
+    open-on-workspace "memo"
+    default-column-width { proportion 0.8; }
+}
+
+window-rule {
+    match app-id="^ai.opencode.desktop$"
+    open-on-workspace "ai"
+    default-column-width { proportion 0.8; }
+}
+
+window-rule {
     match app-id="^Vivaldi"
-    match app-id="^[Cc]hromium$"
     match app-id="^discord$"
     match app-id="^steam$"
     open-maximized true
@@ -336,12 +351,12 @@ window-rule {
 window-rule {
     match app-id="^[Ss]potify$"
     match app-id="^spotify-player$"
-    open-on-workspace "music"
     open-maximized true
     opacity 0.87
 }
 
 window-rule {
+    match app-id="^[Cc]hromium$"
     match app-id="^Chromium-browser$"
     match app-id="^org.chromium.Chromium$"
     default-column-width { proportion 0.3333; }
@@ -349,20 +364,7 @@ window-rule {
 
 window-rule {
     match app-id="^[Ss]potify$" is-focused=true
-    match app-id="^Chromium-browser$" is-focused=true
     opacity 1.0
-}
-
-window-rule {
-    match app-id="^rio$"
-    open-maximized-to-edges false
-}
-
-window-rule {
-    match app-id="^dropdown$"
-    open-floating true
-    default-window-height { proportion 0.8; }
-    default-column-width { proportion 0.8; }
 }
 
 window-rule {
@@ -467,17 +469,17 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+P              { focus-workspace-down; }
-    Mod+O              { focus-workspace-up; }
-    Mod+G              { focus-workspace 99; }
+    Mod+P              { spawn "niri-workspace" "next"; }
+    Mod+O              { spawn "niri-workspace" "prev"; }
+    Mod+G              { spawn "niri-workspace" "last"; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+P         { move-column-to-workspace-down; }
     Mod+Ctrl+O         { move-column-to-workspace-up; }
 
     // Mouse side button
-    MouseBack { focus-workspace-down; }
-    MouseForward { focus-workspace-up; }
+    MouseBack { spawn "niri-workspace" "next"; }
+    MouseForward { spawn "niri-workspace" "prev"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -546,6 +548,10 @@ binds {
     Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // focus on special workspaces
+    Mod+E { spawn "niri-workspace" "memo"; }
+    Mod+T { spawn "niri-workspace" "ai"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

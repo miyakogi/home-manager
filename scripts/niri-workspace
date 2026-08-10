@@ -1,0 +1,119 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+memo_name="memo"
+ai_name="ai"
+
+monitor1="DP-1"
+monitor2="HDMI-A-2"
+
+action="${1:-}"
+scratchpad_name="${1:-main}"
+
+workspaces=$(niri msg --json workspaces)
+output=$(niri msg --json focused-output | jq -r '.name')
+
+eligible_idx() {
+    jq -c --arg output "$output" --arg name1 "$memo_name" --arg name2 "$ai_name" '
+        [ .[] | select(.output == $output) | select(.name != $name1)
+        | select(.name != $name2) | .idx ]
+    ' <<< "$workspaces"
+}
+
+focused_idx() {
+    jq -r '.[] | select(.is_focused == true) | .idx' <<< "$workspaces"
+}
+
+focused_id() {
+    jq -r '.[] | select(.is_focused == true) | .id' <<< "$workspaces"
+}
+
+focus_cycle() {
+    local direction="$1" current target
+    current=$(focused_idx)
+    target=$(jq -r --argjson c "$current" --arg dir "$direction" '
+        if $dir == "next"
+            then ([ .[] | select(. > $c) ] | min // empty)
+            else ([ .[] | select(. < $c) ] | max // empty)
+        end
+    ' <<< "$(eligible_idx)")
+    if [[ -z "$target" ]]; then
+        target=$(jq -r --arg dir "$direction" '
+            if $dir == "next" then min // empty else max // empty end
+        ' <<< "$(eligible_idx)")
+    fi
+    if [[ -n "$target" ]]; then
+        niri msg action focus-workspace "$target"
+    fi
+}
+
+focus_last() {
+    local target
+    target=$(jq -r 'max // empty' <<< "$(eligible_idx)")
+    if [[ -n "$target" ]]; then
+        niri msg action focus-workspace "$target"
+    fi
+}
+
+toggle_scratchpad() {
+    local name="$1"
+    local state_file1="${XDG_RUNTIME_DIR}/niri-$name-workspace-output1"
+    local state_file2="${XDG_RUNTIME_DIR}/niri-$name-workspace-output2"
+    local output_file="${XDG_RUNTIME_DIR}/niri-$name-output"
+
+    local scratchpad_id current_id idx1 idx2
+    scratchpad_id=$(jq -r --arg name "$name" '
+        .[]
+        | select(.name == $name)
+        | .id
+    ' <<< "$workspaces")
+    current_id=$(focused_id)
+
+    idx1=$(jq -r --arg output "$monitor1" '
+        .[]
+        | select(.output == $output)
+        | select(.is_active == true)
+        | .idx
+    ' <<< "$workspaces")
+
+    idx2=$(jq -r --arg output "$monitor2" '
+        .[]
+        | select(.output == $output)
+        | select(.is_active == true)
+        | .idx
+    ' <<< "$workspaces")
+
+    if [[ "$current_id" == "$scratchpad_id" ]]; then
+        if [[ -s "$state_file1" ]]; then
+            previous_idx1=$(<"$state_file1")
+            rm -f "$state_file1"
+            niri msg action focus-monitor "$monitor1"
+            niri msg action focus-workspace "$previous_idx1"
+        fi
+        if [[ -s "$state_file2" ]]; then
+            previous_idx2=$(<"$state_file2")
+            rm -f "$state_file2"
+            niri msg action focus-monitor "$monitor2"
+            niri msg action focus-workspace "$previous_idx2"
+        fi
+        if [[ -s "$output_file" ]]; then
+            previous_output=$(<"$output_file")
+            rm -f "$output_file"
+            niri msg action focus-monitor "$previous_output"
+        fi
+        exit 0
+    fi
+
+    printf '%s\n' "$output" > "$output_file"
+    printf '%s\n' "$idx1" > "$state_file1"
+    printf '%s\n' "$idx2" > "$state_file2"
+    niri msg action focus-workspace "$name"
+}
+
+case "$action" in
+    next) focus_cycle next ;;
+    prev) focus_cycle prev ;;
+    last) focus_last ;;
+    *)    toggle_scratchpad "$scratchpad_name" ;;
+esac

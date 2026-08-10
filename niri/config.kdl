@@ -279,15 +279,15 @@ animations {
     // block-out-from "screencast"
 }
 
-workspace "main" {
-    open-on-output "DP-1"
-}
-
 workspace "memo" {
     open-on-output "DP-1"
 }
 
 workspace "ai" {
+    open-on-output "DP-1"
+}
+
+workspace "main" {
     open-on-output "DP-1"
 }
 

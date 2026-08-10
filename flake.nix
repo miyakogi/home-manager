@@ -13,7 +13,8 @@
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rio.url = "github:raphamorim/rio/main";
+    # rio.url = "github:raphamorim/rio/main";
+    rio.url = "github:raphamorim/rio/preedit-v2";
     karukan.url = "path:./flakes/karukan";
     waybar.url = "github:Alexays/Waybar";
   };

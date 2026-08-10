@@ -6,6 +6,7 @@
 environment {
   TERMINAL "rio"
   DRI_PRIME "1"
+  NIRI_SCRATCHPAD_NAMES "memo,ai"
 }
 
 // Input device configuration.

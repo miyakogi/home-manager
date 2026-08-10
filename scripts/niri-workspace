@@ -2,11 +2,19 @@
 
 set -euo pipefail
 
-# Workspace names to exclude. Add, remove, or modify them here.
-scratchpad_names=(
-  "memo"
-  "ai"
-)
+# Workspace names to exclude, comma-separated in NIRI_SCRATCHPAD_NAMES.
+# Unset or empty = no exclusions.
+scratchpad_names=()
+if [[ -n "${NIRI_SCRATCHPAD_NAMES:-}" ]]; then
+  IFS=',' read -ra parsed <<< "$NIRI_SCRATCHPAD_NAMES"
+  for name in "${parsed[@]}"; do
+    name="${name#"${name%%[![:space:]]*}"}"   # trim leading whitespace
+    name="${name%"${name##*[![:space:]]}"}"   # trim trailing whitespace
+    if [[ -n "$name" ]]; then
+      scratchpad_names+=("$name")
+    fi
+  done
+fi
 
 monitor1="DP-1"
 monitor2="HDMI-A-2"

@@ -36,7 +36,7 @@ focused_id() {
   jq -r '.[] | select(.is_focused == true) | .id' <<< "$workspaces"
 }
 
-focus_cycle() {
+cycle_target() {
   local direction="$1" current candidates target
   current=$(focused_idx)
   candidates=$(eligible_idx)
@@ -51,24 +51,28 @@ focus_cycle() {
       if $dir == "next" then min // empty else max // empty end
     ' <<< "$candidates")
   fi
-  if [[ -n "$target" ]]; then
-    niri msg action focus-workspace "$target"
-  fi
+  printf '%s\n' "$target"
 }
 
-focus_last() {
-  local target
-  target=$(jq -r 'max // empty' <<< "$(eligible_idx)")
-  if [[ -n "$target" ]]; then
-    niri msg action focus-workspace "$target"
-  fi
+extreme_target() {
+  jq -r --arg mode "$1" '
+    if $mode == "first" then min // empty else max // empty end
+  ' <<< "$(eligible_idx)"
 }
 
-focus_first() {
-  local target
-  target=$(jq -r 'min // empty' <<< "$(eligible_idx)")
+workspace_action() {
+  local mode="$1" direction="$2" target
+  case "$direction" in
+    next|prev) target=$(cycle_target "$direction") ;;
+    last)      target=$(extreme_target last) ;;
+    first)     target=$(extreme_target first) ;;
+  esac
   if [[ -n "$target" ]]; then
-    niri msg action focus-workspace "$target"
+    if [[ "$mode" == "focus" ]]; then
+      niri msg action focus-workspace "$target"
+    else
+      niri msg action move-window-to-workspace "$target"
+    fi
   fi
 }
 
@@ -135,12 +139,18 @@ toggle_scratchpad() {
 case "$action" in
   focus)
     case "${2:-}" in
-      next) focus_cycle next ;;
-      prev) focus_cycle prev ;;
-      last) focus_last ;;
-      first) focus_first ;;
+      next|prev|last|first) workspace_action focus "$2" ;;
       *)
         echo "usage: niri-workspace focus {next|prev|last|first}" >&2
+        exit 1
+        ;;
+    esac
+    ;;
+  move)
+    case "${2:-}" in
+      next|prev|last|first) workspace_action move "$2" ;;
+      *)
+        echo "usage: niri-workspace move {next|prev|last|first}" >&2
         exit 1
         ;;
     esac
@@ -149,7 +159,7 @@ case "$action" in
     toggle_scratchpad "${2:-main}"
     ;;
   *)
-    echo "usage: niri-workspace {focus {next|prev|last|first}|toggle <name>}" >&2
+    echo "usage: niri-workspace {focus|move {next|prev|last|first}|toggle <name>}" >&2
     exit 1
     ;;
 esac

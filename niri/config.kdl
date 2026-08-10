@@ -499,10 +499,12 @@ binds {
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+P         { move-workspace-down; }
-    Mod+Shift+O         { move-workspace-up; }
+    Mod+Shift+Page_Down { spawn "niri-workspace" "move" "next"; }
+    Mod+Shift+Page_Up   { spawn "niri-workspace" "move" "prev"; }
+    Mod+Shift+P         { spawn "niri-workspace" "move" "next"; }
+    Mod+Shift+O         { spawn "niri-workspace" "move" "prev"; }
+    Mod+Shift+G         { spawn "niri-workspace" "move" "last"; }
+    Mod+Shift+A         { spawn "niri-workspace" "move" "first"; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.

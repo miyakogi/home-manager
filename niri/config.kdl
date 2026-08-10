@@ -482,17 +482,17 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+P              { spawn "niri-workspace" "next"; }
-    Mod+O              { spawn "niri-workspace" "prev"; }
-    Mod+G              { spawn "niri-workspace" "last"; }
+    Mod+P              { spawn "niri-workspace" "focus" "next"; }
+    Mod+O              { spawn "niri-workspace" "focus" "prev"; }
+    Mod+G              { spawn "niri-workspace" "focus" "last"; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+P         { move-column-to-workspace-down; }
     Mod+Ctrl+O         { move-column-to-workspace-up; }
 
     // Mouse side button
-    MouseBack { spawn "niri-workspace" "next"; }
-    MouseForward { spawn "niri-workspace" "prev"; }
+    MouseBack { spawn "niri-workspace" "focus" "next"; }
+    MouseForward { spawn "niri-workspace" "focus" "prev"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -563,8 +563,8 @@ binds {
     Mod+Shift+9 { move-column-to-workspace 9; }
 
     // focus on special workspaces
-    Mod+E { spawn "niri-workspace" "memo"; }
-    Mod+T { spawn "niri-workspace" "ai"; }
+    Mod+E { spawn "niri-workspace" "toggle" "memo"; }
+    Mod+T { spawn "niri-workspace" "toggle" "ai"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

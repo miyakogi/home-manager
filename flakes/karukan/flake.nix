@@ -11,14 +11,14 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        version = "0.1.0-unstable-2026-08-04";
+        version = "0.1.0-unstable-2026-08-10";
 
         src = pkgs.fetchFromGitHub {
           owner = "togatoga";
           repo = "karukan";
           rev = "main";
           # 1回目の `nix build` で実際のハッシュが提示されるので、それに置き換えてください。
-          hash = "sha256-YqRinj4HuEof/EyL/PUD+VfzCZVaM0Ju9/CF+5RMf8k=";
+          hash = "sha256-cRX294JaLsO1D42JV6DSe7altCvp9twXVLx4M64Ycfk=";
         };
 
         # --- Step 1: karukan-fcitx5 crate を cdylib (libkarukan_fcitx5.so) としてビルド ---

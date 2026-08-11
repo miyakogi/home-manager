@@ -7,7 +7,7 @@
   "height": 32,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/idle", "custom/mic", "clock", "custom/swaync", "tray", "systemd-failed-units"],
+  "modules-right": ["inhibitor", "wireplumber#source", "clock", "custom/swaync", "tray", "systemd-failed-units"],
   "custom/os": {
     "exec": "echo \" NixOS\"",
     "format": "{}",
@@ -56,20 +56,20 @@
     "format": " {nr_failed}",
     "format-ok": "󰸞",
   },
-  "custom/idle": {
-    "return-type": "json",
-    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
-    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
-    "interval": "once",  // don't know why, but necessary
-    "signal": 6,  // -SIGRTMIN+6
-    "format": "{}",
+  "inhibitor": {
+    "what": "idle",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
   },
-  "custom/mic": {
-    "return-type": "json",
-    "exec": "$HOME/bin/mic-mute-watch",
-    "on-click": "$HOME/bin/mic-mute-toggle",
-    "interval": "once",  // need anyway
-    "signal": 8,  // -SIGRTMIN+8
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": " {volume}%",
+    "format-muted": " ",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "scroll-step": 10,
   },
   "custom/media": {
     "format": "{}",
@@ -97,7 +97,7 @@
   "height": 30,  // 1 + tray icon + 1
   "modules-left": ["hyprland/workspaces", "niri/workspaces"],
   "modules-center": [],
-  "modules-right": ["custom/idle", "custom/mic", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "tray"],
+  "modules-right": ["cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "",
@@ -107,21 +107,6 @@
   },
   "niri/workspaces": {
     "format": "",
-  },
-  "custom/idle": {
-    "return-type": "json",
-    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
-    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
-    "interval": "once",  // don't know why, but necessary
-    "signal": 6,  // -SIGRTMIN+6
-    "format": "{}",
-  },
-  "custom/mic": {
-    "return-type": "json",
-    "exec": "$HOME/bin/mic-mute-watch",
-    "on-click": "$HOME/bin/mic-mute-toggle",
-    "interval": "once",  // need anyway
-    "signal": 8,  // -SIGRTMIN+8
   },
   "custom/clock": {
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",

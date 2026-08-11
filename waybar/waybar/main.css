@@ -125,73 +125,36 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px 20px;
 }
 
-window#waybar.4K #custom-idle {
+window#waybar.4K #inhibitor {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0rem 1rem;
-} 
+}
 
-window#waybar.4K #custom-idle.Idle {
+window#waybar.4K #inhibitor.deactivated {
   background-color: @muted;
 }
 
-window#waybar.4K #custom-idle.Info {
+window#waybar.4K #inhibitor.activated {
   background-color: @red;
   padding: 0rem 1.5rem;
 }
 
-window#waybar.4K #custom-mic {
+window#waybar.4K #wireplumber {
   color: @background;
-  font-family: "Symbols Nerd Font";
+  background-color: @red;
+  font-family: "Symbols Nerd Font", monospace;
+  font-weight: bold;
   border-radius: 1rem;
   margin: 0rem 0.1rem;
-  padding: 0px;
-} 
-
-window#waybar.4K #custom-mic.Idle {
-  background-color: @muted;
-  padding: 0rem 1.2rem;
-}
-
-window#waybar.4K #custom-mic.Info {
-  background-color: @red;
   padding: 0rem 1.8rem;
 }
 
-window#waybar.FHD #custom-idle {
-  color: @background;
-  font-family: "Symbols Nerd Font";
-  margin: 0rem 0.1rem;
-  padding: 0rem 6px;
-  border-bottom: solid 4px @muted;
-} 
-
-window#waybar.FHD #custom-idle.Idle {
-  color: @muted;
-}
-
-window#waybar.FHD #custom-idle.Info {
-  color: @red;
-  border-bottom-color: @red;
-}
-
-window#waybar.FHD #custom-mic {
-  color: @background;
-  font-family: "Symbols Nerd Font";
-  margin: 0rem 0.1rem;
-  padding: 0px 6px;
-  border-bottom: solid 4px @muted;
-} 
-
-window#waybar.FHD #custom-mic.Idle {
-  color: @muted;
-}
-
-window#waybar.FHD #custom-mic.Info {
-  color: @red;
-  border-bottom-color: @red;
+window#waybar.4K #wireplumber.source-muted {
+  background-color: @muted;
+  padding: 0rem 1.2rem;
 }
 
 #custom-swaync {

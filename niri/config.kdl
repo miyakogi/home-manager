@@ -617,7 +617,7 @@ binds {
     Ctrl+Print { spawn "screenshot" "region"; }
 
     // Reload waybar
-    Mod+Shift+R { spawn "systemctl" "--user" "reload" "waybar-niri.service"; }
+    Mod+Shift+R { spawn "systemctl" "--user" "restart" "waybar-niri.service"; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { spawn "leave"; }

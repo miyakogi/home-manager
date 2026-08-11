@@ -66,6 +66,7 @@
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
+    "only-physical": true,
     "format": " {volume}%",
     "format-muted": " ",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",

@@ -107,7 +107,7 @@ restore_scratchpad() {
     idx=$(jq -r '.idx' <<< "$entry")
     if jq -e --arg o "$output_name" --argjson i "$idx" '
       any(.[]; .output == $o and .is_active == true and .idx != $i)
-      and any(.[]; .idx == $i)
+      and any(.[]; .output == $o and .idx == $i)
     ' <<< "$workspaces" >/dev/null; then
       niri msg action focus-monitor "$output_name" || true
       niri msg action focus-workspace "$idx" || true

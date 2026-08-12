@@ -2,36 +2,40 @@
 
 set -euo pipefail
 
-# Workspace names to exclude, comma-separated in NIRI_SCRATCHPAD_NAMES.
-# Unset or empty = no exclusions.
-scratchpad_names=()
-if [[ -n "${NIRI_SCRATCHPAD_NAMES:-}" ]]; then
-  IFS=',' read -ra parsed <<< "$NIRI_SCRATCHPAD_NAMES"
-  for name in "${parsed[@]}"; do
-    name="${name#"${name%%[![:space:]]*}"}"   # trim leading whitespace
-    name="${name%"${name##*[![:space:]]}"}"   # trim trailing whitespace
-    if [[ -n "$name" ]]; then
-      scratchpad_names+=("$name")
-    fi
-  done
-fi
+usage() {
+  echo "usage: niri-workspace {focus|move {next|prev|last|first|<n>}|toggle <name>}" >&2
+}
 
-monitor1="DP-1"
-monitor2="HDMI-A-2"
-
-if [[ -n "${XDG_RUNTIME_DIR:-}" ]]; then
-  runtime_dir="$XDG_RUNTIME_DIR"
-else
-  runtime_dir="${XDG_STATE_HOME:-$HOME/.local/state}/niri-workspace"
-  mkdir -p -m 700 "$runtime_dir"
-fi
+# Workspace names to exclude from focus/move, comma-separated in NIRI_SCRATCHPAD_NAMES.
+names_json=$(jq -Rn --arg e "${NIRI_SCRATCHPAD_NAMES:-}" \
+  '$e | split(",") | map(gsub("^\\s+|\\s+$"; "")) | map(select(length > 0))')
 
 action="${1:-}"
 
+case "$action" in
+  focus|move)
+    if [[ ! "${2:-}" =~ ^([0-9]{1,18}|next|prev|last|first)$ ]]; then
+      usage
+      exit 1
+    fi
+    ;;
+  toggle)
+    if [[ -n "${2:-}" && ! "${2:-}" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+      echo "invalid workspace name: ${2:-}" >&2
+      exit 1
+    fi
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+
+runtime_dir="${XDG_RUNTIME_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}}/niri-workspace"
+mkdir -p -m 700 "$runtime_dir"
+
 workspaces=$(niri msg --json workspaces)
 output=$(niri msg --json focused-output | jq -r '.name')
-
-names_json=$(printf '%s\n' "${scratchpad_names[@]}" | jq -Rs 'split("\n") | map(select(length > 0))')
 
 eligible_idx() {
   jq -c --arg output "$output" --argjson names "$names_json" '
@@ -94,96 +98,53 @@ workspace_action() {
   fi
 }
 
-output_exists() {
-  jq -e --arg o "$1" 'any(.[]; .output == $o)' <<< "$workspaces" >/dev/null
+restore_scratchpad() {
+  local state_file="$1" prev_output entry output_name idx
+  prev_output=$(jq -r '.output' "$state_file")
+  mapfile -t entries < <(jq -c '.workspaces[]' "$state_file")
+  for entry in "${entries[@]}"; do
+    output_name=$(jq -r '.output' <<< "$entry")
+    idx=$(jq -r '.idx' <<< "$entry")
+    if jq -e --arg o "$output_name" --argjson i "$idx" '
+      any(.[]; .output == $o and .is_active == true and .idx != $i)
+      and any(.[]; .idx == $i)
+    ' <<< "$workspaces" >/dev/null; then
+      niri msg action focus-monitor "$output_name" || true
+      niri msg action focus-workspace "$idx" || true
+    fi
+  done
+  if [[ -n "$prev_output" ]] && jq -e --arg o "$prev_output" \
+      'any(.[]; .output == $o)' <<< "$workspaces" >/dev/null; then
+    niri msg action focus-monitor "$prev_output" || true
+  fi
 }
 
 toggle_scratchpad() {
-  local name="$1"
-  if [[ ! "$name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-    echo "invalid workspace name: $name" >&2
-    exit 1
-  fi
-  local state_file1="${runtime_dir}/niri-$name-workspace-output1"
-  local state_file2="${runtime_dir}/niri-$name-workspace-output2"
-  local output_file="${runtime_dir}/niri-$name-output"
-
-  local visible
+  local name="$1" state_file visible
+  state_file="${runtime_dir}/niri-${name}.json"
   visible=$(jq -r --arg name "$name" '
     any(.[]; .name == $name and .is_active == true)
   ' <<< "$workspaces")
-
-  if [[ "$visible" == "true" && ( -s "$state_file1" || -s "$state_file2" || -s "$output_file" ) ]]; then
-    local previous_idx1 previous_idx2 previous_output
-    if [[ -s "$state_file1" ]]; then
-      previous_idx1=$(<"$state_file1")
-      rm -f "$state_file1"
-      if [[ "$previous_idx1" =~ ^[0-9]+$ ]] && output_exists "$monitor1"; then
-        niri msg action focus-monitor "$monitor1" || true
-        niri msg action focus-workspace "$previous_idx1" || true
-      fi
-    fi
-    if [[ -s "$state_file2" ]]; then
-      previous_idx2=$(<"$state_file2")
-      rm -f "$state_file2"
-      if [[ "$previous_idx2" =~ ^[0-9]+$ ]] && output_exists "$monitor2"; then
-        niri msg action focus-monitor "$monitor2" || true
-        niri msg action focus-workspace "$previous_idx2" || true
-      fi
-    fi
-    if [[ -s "$output_file" ]]; then
-      previous_output=$(<"$output_file")
-      rm -f "$output_file"
-      if [[ -n "$previous_output" ]] && output_exists "$previous_output"; then
-        niri msg action focus-monitor "$previous_output" || true
-      fi
+  if [[ "$visible" == "true" ]]; then
+    if [[ -s "$state_file" ]]; then
+      restore_scratchpad "$state_file"
+      rm -f "$state_file"
     fi
     exit 0
   fi
-
-  local idx1 idx2
-  idx1=$(jq -r --arg output "$monitor1" '
-    .[]
-    | select(.output == $output)
-    | select(.is_active == true)
-    | .idx
-  ' <<< "$workspaces")
-
-  idx2=$(jq -r --arg output "$monitor2" '
-    .[]
-    | select(.output == $output)
-    | select(.is_active == true)
-    | .idx
-  ' <<< "$workspaces")
-
-  printf '%s\n' "$output" > "$output_file"
-  printf '%s\n' "$idx1" > "$state_file1"
-  printf '%s\n' "$idx2" > "$state_file2"
+  jq -c --arg output "$output" --arg name "$name" '
+    {
+      output: $output,
+      workspaces: [ .[] | select(.is_active == true)
+      | select((.name // "") != $name)
+      | {output, idx} ]
+    }
+  ' <<< "$workspaces" > "${state_file}.tmp"
+  mv "${state_file}.tmp" "$state_file"
   niri msg action focus-workspace "$name"
 }
 
 case "$action" in
-  focus)
-    if [[ "${2:-}" =~ ^[0-9]{1,18}$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
-      workspace_action focus "$2"
-    else
-      echo "usage: niri-workspace focus {next|prev|last|first|<n>}" >&2
-      exit 1
-    fi
-    ;;
-  move)
-    if [[ "${2:-}" =~ ^[0-9]{1,18}$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
-      workspace_action move "$2"
-    else
-      echo "usage: niri-workspace move {next|prev|last|first|<n>}" >&2
-      exit 1
-    fi
-    ;;
-  toggle)
-    toggle_scratchpad "${2:-main}"
-    ;;
-  *)
-    echo "usage: niri-workspace {focus|move {next|prev|last|first|<n>}|toggle <name>}" >&2
-    exit 1
-    ;;
+  focus|move) workspace_action "$action" "${2:-}" ;;
+  toggle)     toggle_scratchpad "${2:-main}" ;;
 esac

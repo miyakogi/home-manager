@@ -19,7 +19,12 @@ fi
 monitor1="DP-1"
 monitor2="HDMI-A-2"
 
-runtime_dir="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}"
+if [[ -n "${XDG_RUNTIME_DIR:-}" ]]; then
+  runtime_dir="$XDG_RUNTIME_DIR"
+else
+  runtime_dir="${XDG_STATE_HOME:-$HOME/.local/state}/niri-workspace"
+  mkdir -p -m 700 "$runtime_dir"
+fi
 
 action="${1:-}"
 
@@ -39,10 +44,6 @@ eligible_idx() {
 
 focused_idx() {
   jq -r '.[] | select(.is_focused == true) | .idx' <<< "$workspaces"
-}
-
-focused_id() {
-  jq -r '.[] | select(.is_focused == true) | .id' <<< "$workspaces"
 }
 
 cycle_target() {
@@ -76,10 +77,10 @@ workspace_action() {
     last)      target=$(extreme_target last) ;;
     first)     target=$(extreme_target first) ;;
     *)         # numeric N (1-based; 0 = no-op; N > count = clamp to last)
-      if [[ "$direction" == "0" ]]; then
+      if (( 10#$direction == 0 )); then
         return 0
       fi
-      target=$(jq -r --argjson n "$((direction - 1))" '
+      target=$(jq -r --argjson n "$((10#$direction - 1))" '
         if $n >= length then .[-1] // empty else .[$n] // empty end
       ' <<< "$(eligible_idx)")
       ;;
@@ -93,6 +94,10 @@ workspace_action() {
   fi
 }
 
+output_exists() {
+  jq -e --arg o "$1" 'any(.[]; .output == $o)' <<< "$workspaces" >/dev/null
+}
+
 toggle_scratchpad() {
   local name="$1"
   if [[ ! "$name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
@@ -103,31 +108,35 @@ toggle_scratchpad() {
   local state_file2="${runtime_dir}/niri-$name-workspace-output2"
   local output_file="${runtime_dir}/niri-$name-output"
 
-  local scratchpad_id current_id
-  scratchpad_id=$(jq -r --arg name "$name" '
-    .[]
-    | select(.name == $name)
-    | .id
+  local visible
+  visible=$(jq -r --arg name "$name" '
+    any(.[]; .name == $name and .is_active == true)
   ' <<< "$workspaces")
-  current_id=$(focused_id)
 
-  if [[ "$current_id" == "$scratchpad_id" ]]; then
+  if [[ "$visible" == "true" && ( -s "$state_file1" || -s "$state_file2" || -s "$output_file" ) ]]; then
+    local previous_idx1 previous_idx2 previous_output
     if [[ -s "$state_file1" ]]; then
       previous_idx1=$(<"$state_file1")
       rm -f "$state_file1"
-      niri msg action focus-monitor "$monitor1"
-      niri msg action focus-workspace "$previous_idx1"
+      if [[ "$previous_idx1" =~ ^[0-9]+$ ]] && output_exists "$monitor1"; then
+        niri msg action focus-monitor "$monitor1" || true
+        niri msg action focus-workspace "$previous_idx1" || true
+      fi
     fi
     if [[ -s "$state_file2" ]]; then
       previous_idx2=$(<"$state_file2")
       rm -f "$state_file2"
-      niri msg action focus-monitor "$monitor2"
-      niri msg action focus-workspace "$previous_idx2"
+      if [[ "$previous_idx2" =~ ^[0-9]+$ ]] && output_exists "$monitor2"; then
+        niri msg action focus-monitor "$monitor2" || true
+        niri msg action focus-workspace "$previous_idx2" || true
+      fi
     fi
     if [[ -s "$output_file" ]]; then
       previous_output=$(<"$output_file")
       rm -f "$output_file"
-      niri msg action focus-monitor "$previous_output"
+      if [[ -n "$previous_output" ]] && output_exists "$previous_output"; then
+        niri msg action focus-monitor "$previous_output" || true
+      fi
     fi
     exit 0
   fi
@@ -155,7 +164,7 @@ toggle_scratchpad() {
 
 case "$action" in
   focus)
-    if [[ "${2:-}" =~ ^[0-9]+$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
+    if [[ "${2:-}" =~ ^[0-9]{1,18}$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
       workspace_action focus "$2"
     else
       echo "usage: niri-workspace focus {next|prev|last|first|<n>}" >&2
@@ -163,7 +172,7 @@ case "$action" in
     fi
     ;;
   move)
-    if [[ "${2:-}" =~ ^[0-9]+$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
+    if [[ "${2:-}" =~ ^[0-9]{1,18}$ ]] || [[ "${2:-}" =~ ^(next|prev|last|first)$ ]]; then
       workspace_action move "$2"
     else
       echo "usage: niri-workspace move {next|prev|last|first|<n>}" >&2

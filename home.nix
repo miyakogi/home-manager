@@ -164,6 +164,7 @@ in
     clang
     nodejs
     pnpm
+    lua
     cmake
     poetry
     openssl

@@ -17,7 +17,7 @@ Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IM
 ```sh
 git clone https://github.com/miyakogi/home-manager.git
 
-home-manager switch --flake .#miyaco --impure
+home-manager switch --flake .#miyaco
 ```
 
 > **Warning:** this configuration is optimized for my specific hardware and environment. It is not intended to be used as-is on a different machine, and I do not recommend doing so. Please do not copy it wholesale — treat it only as a reference and build your own setup from scratch.

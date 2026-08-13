@@ -423,7 +423,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "app2unit" "terminal"; }
-    Mod+Space { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit"; }
+    // Mod+Space { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit"; }
+    Mod+Space { spawn "swaync-client" "--toggle-panel"; }
     Mod+D { spawn "fuzzel" "--launch-prefix" "app2unit --fuzzel-compat --"; }
     Mod+S { spawn "launch-menu"; }
 

@@ -53,7 +53,7 @@ home-manager switch --flake .#miyaco
 | `Mod+Return` | Open terminal |
 | `Mod+D` | App launcher (fuzzel) |
 | `Mod+S` | Launch menu |
-| `Mod+Space` | Notifications panel (swaync, Hyprland) / launcher (tofi, Niri) |
+| `Mod+Space` | Notifications panel (swaync) |
 | `F2` | Scratchpad terminal |
 | `Mod+Q` / `Mod+W` | Close window (Hyprland) |
 | `Mod+F` | Toggle fullscreen (Hyprland) |

@@ -6,6 +6,16 @@
     enable = true;
     settings = {
       default_agent = "plan";
+      mcp = {
+        context7 = {
+          type = "remote";
+          url = "https://mcp.context7.com/mcp";
+          headers = {
+            CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
+          };
+          enabled = true;
+        };
+      };
     };
     tui = {
       theme = "system";
@@ -62,7 +72,6 @@
       - Prefer established, well-maintained libraries when the reduce overall complexity or improve reliability. Do not reimplement common functionality without a clear reason.
       - Lean on the dependencies already in the product before writing your own implementation or adding packages. Do not assume a library lacks a capability without checking its documentation and types.
       - Make architectural decisions for the long term. Do not accept a stopgap than only works for now and is meant to be replaced later.
-
 
       ## Tone
 

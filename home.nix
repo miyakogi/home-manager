@@ -58,7 +58,6 @@ in
   # Environment Variables
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
-    MANPATH = "${config.home.profileDirectory}/share/man:/usr/share/man";
     DRI_PRIME = "1";
   };
 

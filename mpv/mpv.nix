@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = [
     pkgs.vapoursynth
     pkgs.vapoursynth-mvtools
@@ -52,7 +52,7 @@
   home.file.".config/mpv/input.conf".source = ./input.conf;
   # home.file.".config/mpv/interpolation.vpy".source = ./interpolation.vpy;
   home.file.".config/mpv/shaders" = {
-    source = ./shaders;
+    source = inputs.shaders;
     recursive = true;
   };
   home.file.".config/mpv/script-opts/uosc.conf".source = ./uosc.conf;

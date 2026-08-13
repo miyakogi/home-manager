@@ -1,3 +1,0 @@
-[submodule "mpv/shaders"]
-	path = mpv/shaders
-	url = https://github.com/miyakogi/Anime4K-mpv-glsl/

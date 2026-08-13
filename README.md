@@ -15,14 +15,10 @@ Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IM
 ## Applying
 
 ```sh
-git clone --recurse-submodules https://github.com/miyakogi/home-manager.git
-# or, for an existing clone:
-git submodule update --init --recursive
+git clone https://github.com/miyakogi/home-manager.git
 
-home-manager switch --flake .#miyaco
+home-manager switch --flake .#miyaco --impure
 ```
-
-The mpv shaders (`mpv/shaders`, an Anime4K fork) are a git submodule — `home-manager switch` needs them checked out to install them into `~/.config/mpv/shaders`.
 
 > **Warning:** this configuration is optimized for my specific hardware and environment. It is not intended to be used as-is on a different machine, and I do not recommend doing so. Please do not copy it wholesale — treat it only as a reference and build your own setup from scratch.
 

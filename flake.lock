@@ -253,6 +253,7 @@
         "nix-hazkey": "nix-hazkey",
         "nixpkgs": "nixpkgs_2",
         "rio": "rio",
+        "shaders": "shaders",
         "waybar": "waybar"
       }
     },
@@ -274,6 +275,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "shaders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786593869,
+        "narHash": "sha256-JuyWfp298omieWovkSiuWsDAqf7ErQsiqRnCjbduVAc=",
+        "owner": "miyakogi",
+        "repo": "Anime4K-mpv-glsl",
+        "rev": "521e712062d9920c1cd8dd8a3c14ec6cf3ec7f81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "miyakogi",
+        "repo": "Anime4K-mpv-glsl",
         "type": "github"
       }
     },

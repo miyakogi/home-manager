@@ -5,6 +5,7 @@ local left     = "H"
 local right    = "L"
 local up       = "K"
 local down     = "J"
+local colWidth = "0.5"
 
 -- *** Source Colors ***
 local theme = require("kanagawa-dragon")
@@ -184,7 +185,7 @@ hl.config({
   scrolling = {
     fullscreen_on_one_column  = true,
     focus_fit_method          = 1,
-    column_width              = "0.5",
+    column_width              = colWidth,
     follow_focus              = true,
     explicit_column_widths    = "0.333, 0.5, 0.667, 1.0",
   },
@@ -216,7 +217,15 @@ hl.bind(mainMod .. " + SHIFT + E",     hl.dsp.exec_cmd("leave"))
 hl.bind(mainMod .. " + SHIFT + R",     hl.dsp.exec_cmd("systemctl --user restart waybar-hyprland.service"))
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + C",             hl.dsp.layout("togglefit"))
+local colFitted = false
+hl.bind(mainMod .. " + C", function()
+  colFitted = not colFitted
+  if colFitted then
+    hl.dispatch(hl.dsp.layout("fit active"))
+  else
+    hl.dispatch(hl.dsp.layout("colresize " .. colWidth))
+  end
+end)
 
 -- Capacities
 hl.bind(mainMod .. " + E", hl.dsp.workspace.toggle_special("capacities"))

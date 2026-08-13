@@ -53,37 +53,6 @@ features = ["cv08", "cv15"]
 hinting = false
 use-drawable-chars = true
 
-# Codepoint-based fallback (bypasses fontconfig fallback)
-# Japanese -> IBM Plex Sans JP
-symbol-map = [
-  # CJK symbols and punctuation: 、。「」etc.
-  { start = "3000", end = "303F", font-family = "IBM Plex Sans JP" },
-  # Hiragana + Katakana
-  { start = "3040", end = "30FF", font-family = "IBM Plex Sans JP" },
-  # Katakana phonetic extensions
-  { start = "31F0", end = "31FF", font-family = "IBM Plex Sans JP" },
-  # CJK unified ideographs extension A
-  { start = "3400", end = "4DBF", font-family = "IBM Plex Sans JP" },
-  # CJK unified ideographs
-  { start = "4E00", end = "9FFF", font-family = "IBM Plex Sans JP" },
-  # CJK compatibility ideographs
-  { start = "F900", end = "FAFF", font-family = "IBM Plex Sans JP" },
-  # Halfwidth and fullwidth forms: ！？etc.
-  { start = "FF00", end = "FFEF", font-family = "IBM Plex Sans JP" },
-  # Nerd Font icons -> Symbols Nerd Font
-  { start = "E000", end = "E0D7", font-family = "Symbols Nerd Font" },
-  { start = "E200", end = "E2A9", font-family = "Symbols Nerd Font" },
-  { start = "E300", end = "E3E3", font-family = "Symbols Nerd Font" },
-  { start = "E5FA", end = "E6BB", font-family = "Symbols Nerd Font" },
-  { start = "E700", end = "E8EF", font-family = "Symbols Nerd Font" },
-  { start = "EA60", end = "EC84", font-family = "Symbols Nerd Font" },
-  { start = "ED00", end = "EFCF", font-family = "Symbols Nerd Font" },
-  { start = "F000", end = "F385", font-family = "Symbols Nerd Font" },
-  { start = "F400", end = "F533", font-family = "Symbols Nerd Font" },
-  # Material Design Icons (supplementary private use area A)
-  { start = "F0001", end = "F1AF0", font-family = "Symbols Nerd Font" },
-]
-
 [fonts.regular]
 # family = "cascadiamono"
 # style = "normal"

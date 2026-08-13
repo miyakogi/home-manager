@@ -188,7 +188,6 @@ in
     vscode-css-languageserver
 
     # AI
-    pi-coding-agent
     ollama-vulkan
     radeontop
     nvtopPackages.full

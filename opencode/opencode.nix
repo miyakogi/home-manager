@@ -16,6 +16,9 @@
           enabled = true;
         };
       };
+      plugin = [
+        "superpowers@git+https://github.com/obra/superpowers.git"
+      ];
     };
     tui = {
       theme = "system";

@@ -335,12 +335,14 @@ window-rule {
     match app-id="^Capacities$"
     open-on-workspace "memo"
     default-column-width { proportion 0.8; }
+    open-maximized-to-edges false
 }
 
 window-rule {
     match app-id="^ai.opencode.desktop$"
     open-on-workspace "ai"
-    default-column-width { proportion 0.8; }
+    open-maximized true
+    open-maximized-to-edges false
 }
 
 window-rule {

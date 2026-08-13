@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 let
-  rio = inputs.rio.packages.${pkgs.system}.rio.overrideAttrs (old: {
+  rio = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.rio.overrideAttrs (old: {
       doCheck = false;
       withX11 = false;
       withWayland = true;

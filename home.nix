@@ -215,7 +215,7 @@ in
     alsa-utils
     playerctl
     mpc
-    ncmpc
+    # ncmpc
     mpdris2-rs
     yt-dlp
     ffmpegthumbnailer

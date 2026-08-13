@@ -6,6 +6,14 @@
     enable = true;
     settings = {
       default_agent = "plan";
+      mode = {
+        build = {
+          model = "opencode/deepseek-v4-flash-free";
+        };
+        plan = {
+          model = "opencode-go/deepseek-v4-pro";
+        };
+      };
       mcp = {
         context7 = {
           type = "remote";

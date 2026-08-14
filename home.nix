@@ -61,12 +61,6 @@ in
     DRI_PRIME = "1";
   };
 
-  # Bash
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-  };
-
   # Input Methods
   services.hazkey = {
     enable = true;
@@ -262,6 +256,7 @@ in
     ./scripts.nix
     ./flatpak/flatpak.nix
 
+    ./bash/bash.nix
     ./fish/fish.nix
     ./brush/brush.nix
     ./man/man.nix

@@ -182,6 +182,7 @@ in
     vscode-css-languageserver
 
     # AI
+    herdr
     ollama-vulkan
     radeontop
     nvtopPackages.full

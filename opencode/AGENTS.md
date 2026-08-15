@@ -24,12 +24,6 @@ Always respond in the same language the user used in their message.
   3. `cargo clippy` — confirm there are no errors or warnings.
   4. `cargo test` — confirm all tests pass.
 
-## File Deletion
-
-- Never use `rm` to delete files. Always use `trash put` (trashy) instead, so deleted files can be recovered if needed.
-  - Example: `trash put path/to/file` instead of `rm path/to/file`.
-- This applies to directories as well: use `trash put path/to/dir` instead of `rm -rf path/to/dir`.
-
 ## Destructive / Irreversible Actions
 
 - Before any destructive or hard-to-reverse operation (force-push, overwriting existing files/configs, dropping databases, bulk renames, etc.), explain what will happen and ask for confirmation first.

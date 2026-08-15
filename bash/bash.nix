@@ -12,5 +12,6 @@
         ${builtins.readFile ./interactive-shell.bash}
       fi
     '';
+    initExtra = builtins.readFile ./init-extra.bash;
   };
 }

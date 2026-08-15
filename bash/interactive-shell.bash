@@ -40,3 +40,7 @@
       ((pos<comp_index))
     }
   }
+
+  # ble-bind -c instead of bind -x: bind -x runs the command outside the exec
+  # cycle, so the prompt is not refreshed and PRECMD hooks (_auto_ls) don't fire.
+  ble-bind -c 'C-y' 'cd ../'

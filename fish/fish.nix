@@ -8,6 +8,13 @@
     recursive = true;
   };
 
+  # improved completion
+  programs.carapace = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = false;  # conflict with brush and blesh
+  };
+
   programs.fish = {
     enable = true;
 

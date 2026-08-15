@@ -182,7 +182,6 @@ in
     vscode-css-languageserver
 
     # AI
-    herdr
     ollama-vulkan
     radeontop
     nvtopPackages.full
@@ -312,6 +311,7 @@ in
     ./mpv/mpv.nix
 
     ./opencode/opencode.nix
+    ./herdr/herdr.nix
 
     ./desktop/desktop.nix
   ];

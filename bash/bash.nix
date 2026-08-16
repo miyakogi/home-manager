@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   home.packages = [
     pkgs.blesh
-    inputs.seasalt.packages.${pkgs.system}.default
+    inputs.seasalt.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.bash = {

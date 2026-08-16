@@ -66,7 +66,7 @@ local font_rules = {
     })
   },
 }
-local font_size = 15
+local font_size = 16.5
 
 -- local gpu = {
 --   name = 'AMD Radeon RX 6800 XT (RADV NAVI21)',
@@ -101,7 +101,7 @@ return {
   -- webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
-  default_prog = { 'fish' },
+  default_prog = { 'bash' },
 
   term = 'wezterm',
 
@@ -128,9 +128,9 @@ return {
   use_fancy_tab_bar = false,
   -- color_scheme = 'Kanagawa Dragon (Gogh)',
   -- color_scheme = 'Black Metal (base16)',
-  color_scheme = 'Hemisu Dark (Gogh)',
+  -- color_scheme = 'Hemisu Dark (Gogh)',
   -- color_scheme = 'Hybrid (terminal.sexy)',
-  -- color_scheme = 'Mikado (terminal.sexy)',
+  color_scheme = 'Mikado (terminal.sexy)',
 
   hide_tab_bar_if_only_one_tab = true,
 

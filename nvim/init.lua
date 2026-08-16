@@ -242,7 +242,7 @@ vim .keymap.set('n', '<Space>P', '"+P')  -- from helix-editor
 vim.keymap.set('n', '<C-q>', '<C-v>')
 
 -- ======== Keyd Fixup ========
-vim.keymap.set('i', '<C-backspace>', '<C-w>')
+vim.keymap.set('i', '<C-BS>', '<C-w>')
 
 -- ======== Command Mapping ========
 

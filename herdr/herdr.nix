@@ -4,7 +4,7 @@
     settings = {
       onboarding = false;
       theme = {
-        name = "catppuccin";
+        name = "terminal";
         auto_switch = false;
       };
       ui = {

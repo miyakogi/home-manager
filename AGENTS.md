@@ -21,5 +21,5 @@ Nix home-manager flake for user `miyaco` (NixOS, x86_64-linux). No CI, no tests 
 ## Conventions
 
 - Commit messages: `[area] lowercase imperative` in English, e.g. `[script] find next free workspace with jq`; `area` matches the app dir (script, hyprland, niri, waybar, rio, mpv, opencode, ...)
-- Shell scripts: clean shellcheck warnings before committing; `is-4k` (in `~/bin`) reports whether the focused monitor is DP-1 for monitor-specific behavior
+- Shell scripts: clean shellharden warnings before committing; `is-4k` (in `~/bin`) reports whether the focused monitor is DP-1 for monitor-specific behavior
 - Global preferences (language, commit approval, no `nix flake update`) are in `~/.config/opencode/AGENTS.md` — already loaded, not duplicated here

@@ -103,7 +103,7 @@ local plugins = {
       end
 
       -- bash
-      -- requires `shellcheck` ro `shellharden` command to enable diagnostic
+      -- requires `shellcheck` or `shellharden` command to enable diagnostic
       if vim.fn.executable('bash-language-server') > 0 then
         vim.lsp.enable('bashls')
         vim.lsp.config('bashls', {

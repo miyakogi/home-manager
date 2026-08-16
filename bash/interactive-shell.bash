@@ -19,6 +19,11 @@
   ble-sabbrev t='btop'
   ble-sabbrev b='btm'
 
+  # Enable seasalt
+  if command -v seasalt &>/dev/null; then
+    eval "$(seasalt init bash)"
+  fi
+
   # Limit sabbrev expansion to command position (fish abbr semantics)
   # by overriding the internal word locator. Only the `command` syntax
   # source is matched; argument/rhs/suffix positions stay untouched.

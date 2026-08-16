@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    blesh
+{ pkgs, inputs, ... }: {
+  home.packages = [
+    pkgs.blesh
+    inputs.seasalt.packages.${pkgs.system}.default
   ];
 
   programs.bash = {

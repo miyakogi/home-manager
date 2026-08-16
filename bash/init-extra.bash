@@ -3,6 +3,11 @@
 # to the eza alias at definition time (bash), or is resolved at runtime from
 # the current alias (brush, which has no chained-alias support).
 
+### Keybind
+stty werase undef
+bind '"\C-w": unix-filename-rubout'
+bind '"\C-h": unix-filename-rubout'  # ctrl+backspace
+
 # Functions (from brushrc)
 function edit() {
   "$EDITOR" "$@"

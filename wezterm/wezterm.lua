@@ -148,13 +148,16 @@ return {
       mods = 'CTRL|SHIFT',
       action = act.CloseCurrentTab({ confirm = true }),
     },
-    {
-      -- map Ctrl+Backspace to Ctrl+W
-      key = 'Backspace',
-      mods = 'CTRL',
-      action = act.SendKey({ key = 'w', mods = 'CTRL' }),
-    }
+    -- {
+    --   -- map Ctrl+Backspace to Ctrl+W
+    --   key = 'Backspace',
+    --   mods = 'CTRL',
+    --   action = act.SendKey({ key = 'w', mods = 'CTRL' }),
+    -- },
   },
+
+  -- fix escape sequence
+  enable_kitty_keyboard = true,
 
   key_tables = {
     search_mode = search_mode_keys,

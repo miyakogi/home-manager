@@ -6,8 +6,8 @@ local act = wezterm.action
 local font_default = 'Lilex'
 local font_jp = 'IBM Plex Sans JP'
 local font_nerd = 'Symbols Nerd Font'
-local weight_normal = 'Light'
-local weight_bold = 'Medium'
+local weight_normal = 'ExtraLight'
+local weight_bold = 'Regular'
 local harfbuzz_features = {
   'cv08',  -- alt equality
   'cv11',  -- connected bar / triangle

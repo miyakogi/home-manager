@@ -5,7 +5,12 @@
 
 ### Keybind
 stty werase undef
-bind '"\C-w": unix-filename-rubout'
+if [ -n "$BLE_VERSION" ]; then
+  # Fish-style backward deletion
+  ble-bind -m emacs -f 'C-w' kill-backward-eword
+else
+  bind '"\C-w": unix-filename-rubout'
+fi
 
 # Functions (from brushrc)
 function edit() {

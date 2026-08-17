@@ -3,16 +3,7 @@
 # to the eza alias at definition time (bash), or is resolved at runtime from
 # the current alias (brush, which has no chained-alias support).
 
-### Keybind
-stty werase undef
-if [ -n "$BLE_VERSION" ]; then
-  # Fish-style backward deletion
-  ble-bind -m emacs -f 'C-w' kill-backward-eword
-else
-  bind '"\C-w": unix-filename-rubout'
-fi
-
-# Functions (from brushrc)
+# Functions used by both ble and non-ble shells
 function edit() {
   "$EDITOR" "$@"
 }
@@ -38,9 +29,12 @@ function _auto_ls() {
     _LAST_PWD="$PWD"
   fi
 }
-if [[ ${BLE_VERSION-} ]]; then
-  blehook PRECMD+=_auto_ls
-else
+
+# ble.sh handles keys and hooks via ~/.blerc; plain bash / brush use
+# readline bindings and PROMPT_COMMAND here instead.
+if [[ -z ${BLE_VERSION-} ]]; then
+  stty werase undef
+  bind '"\C-w": unix-filename-rubout'
   PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 fi
 

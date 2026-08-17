@@ -6,7 +6,6 @@
 ### Keybind
 stty werase undef
 bind '"\C-w": unix-filename-rubout'
-bind '"\C-h": unix-filename-rubout'  # ctrl+backspace
 
 # Functions (from brushrc)
 function edit() {

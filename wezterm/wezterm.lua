@@ -148,12 +148,12 @@ return {
       mods = 'CTRL|SHIFT',
       action = act.CloseCurrentTab({ confirm = true }),
     },
-    -- {
-    --   -- map Ctrl+Backspace to Ctrl+W
-    --   key = 'Backspace',
-    --   mods = 'CTRL',
-    --   action = act.SendKey({ key = 'w', mods = 'CTRL' }),
-    -- },
+    {
+      -- Ctrl+Backspace -> Ctrl+W
+      key = 'Backspace',
+      mods = 'CTRL',
+      action = act.SendString("\x17"),
+    },
   },
 
   -- fix escape sequence

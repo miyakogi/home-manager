@@ -48,6 +48,8 @@
       notify-on-command-finish-after = "3s";
 
       quit-after-last-window-closed = false;
+
+      keybind = "ctrl+backspace=text:\\x17";
     };
   };
   home.file.".config/ghostty/themes" = {

@@ -319,16 +319,16 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1786844362,
-        "narHash": "sha256-HM0vWaaJiMR7D0b/MJxIIzmtREtJO34dIYwhEtAxAws=",
+        "lastModified": 1786984836,
+        "narHash": "sha256-01XhEAlWETT9zDQmcjRdhYRvnSue/XNkAn+Z4+1Hk7k=",
         "owner": "miyakogi",
         "repo": "seasalt",
-        "rev": "d5d31bd119c493dc38c43f2b99df58423bf9b438",
+        "rev": "1d14ae68bdc00974eceb81612dd3c939bc2084f0",
         "type": "github"
       },
       "original": {
         "owner": "miyakogi",
-        "ref": "v0.1.0",
+        "ref": "v0.1.1",
         "repo": "seasalt",
         "type": "github"
       }

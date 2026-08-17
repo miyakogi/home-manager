@@ -90,22 +90,6 @@ in
     ];
   };
 
-  # Fonts
-  fonts.fontconfig.enable = true;
-  gtk = {
-    gtk3.font = {
-      name = "monospace";
-      packages = with pkgs; [ googlesans-code ];
-    };
-    gtk4.font = {
-      name = "monospace";
-      packages = with pkgs; [ googlesans-code ];
-    };
-  };
-  xdg.userDirs.extraConfig = {
-    "FONT_DIRS" = "${config.home.homeDirectory}/.local/share/fonts:${config.home.homeDirectory}/.nix-profile/share/fonts";
-  };
-
   # Theme
   qt.kvantum = {
     enable = true;

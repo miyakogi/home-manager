@@ -1,14 +1,28 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
-    fontconfig
-
     # font
     googlesans-code
     lilex
     ibm-plex
     noto-fonts
     noto-fonts-cjk-sans
+    nerd-fonts.symbols-only
   ];
+
+  fonts.fontconfig.enable = true;
+  gtk = {
+    gtk3.font = {
+      name = "monospace";
+      packages = with pkgs; [ lilex ];
+    };
+    gtk4.font = {
+      name = "monospace";
+      packages = with pkgs; [ lilex ];
+    };
+  };
+  xdg.userDirs.extraConfig = {
+    "FONT_DIRS" = "${config.home.homeDirectory}/.local/share/fonts:${config.home.homeDirectory}/.nix-profile/share/fonts";
+  };
 
   home.file.".config/fontconfig/conf.d" = {
     source = ./conf.d;

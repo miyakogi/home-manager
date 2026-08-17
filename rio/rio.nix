@@ -8,7 +8,6 @@ let
 in {
   home.packages = with pkgs; [
     unifont
-    nerd-fonts.symbols-only
   ];
 
   programs.rio = {

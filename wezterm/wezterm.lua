@@ -9,9 +9,9 @@ local font_nerd = 'Symbols Nerd Font'
 local weight_normal = 'ExtraLight'
 local weight_bold = 'Regular'
 local harfbuzz_features = {
-  'cv08',  -- alt equality
-  'cv11',  -- connected bar / triangle
-  'cv15',  -- # with crossbars
+  'cv08=1',  -- alt equality
+  -- 'cv11',  -- connected bar / triangle
+  'cv15=1',  -- # with crossbars
 }
 
 local font = wezterm.font_with_fallback({

@@ -3,6 +3,6 @@
     brush
   ];
 
-  home.file.".brushrc".source = ./brushrc;
+  home.file.".brushrc".source = ./brushrc.bash;
   home.file.".config/brush/config.toml".source = ./config.toml;
 }

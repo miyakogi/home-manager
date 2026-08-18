@@ -45,6 +45,7 @@ Always respond in the same language the user used in their message.
 - Prefer established, well-maintained libraries when the reduce overall complexity or improve reliability. Do not reimplement common functionality without a clear reason.
 - Lean on the dependencies already in the product before writing your own implementation or adding packages. Do not assume a library lacks a capability without checking its documentation and types.
 - Make architectural decisions for the long term. Do not accept a stopgap than only works for now and is meant to be replaced later.
+- When researching documentation, API references, or usage examples for a library or framework, start with the context7 MCP: resolve the library ID, then query its docs. Only fall back to other sources (web search, source code, etc.) when context7 has no relevant entry or cannot answer the question.
 
 ## Tone
 

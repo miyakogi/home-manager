@@ -11,7 +11,7 @@
           model = "opencode/deepseek-v4-flash-free";
         };
         plan = {
-          model = "opencode-go/deepseek-v4-pro";
+          model = "opencode/deepseek-v4-flash-free";
         };
       };
       mcp = {

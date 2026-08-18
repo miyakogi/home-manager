@@ -1,3 +1,7 @@
+if [ "$XDG_CURRENT_DESKTOP" = niri ]
+  exec bash
+end
+
 set -x GPG_TTY (tty)
 
 # need to activate auto ls function

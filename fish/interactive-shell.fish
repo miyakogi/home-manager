@@ -1,4 +1,4 @@
-if [ "$XDG_CURRENT_DESKTOP" = niri ]
+if [ "$XDG_CURRENT_DESKTOP" = niri ] && [ "$TERM" != xterm-ghostty ]
   exec bash
 end
 

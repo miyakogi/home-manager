@@ -59,7 +59,11 @@ in
   home.sessionVariables = {
     PATH = "$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH";
     DRI_PRIME = "1";
+    NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";  # global npm install
   };
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.npm-global/bin"  # global npm install
+  ];
 
   # Input Methods
   services.hazkey = {

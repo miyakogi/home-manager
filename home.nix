@@ -299,6 +299,7 @@ in
     ./mpv/mpv.nix
 
     ./opencode/opencode.nix
+    ./pi/pi.nix
     ./herdr/herdr.nix
 
     ./desktop/desktop.nix

@@ -16,6 +16,8 @@
       # Editor / AI
       "opencode.jsonc"
       ".opencode/"
+      ".commandcode/"
+      ".cline/"
 
       # File system
       ".directory"

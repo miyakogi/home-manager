@@ -69,7 +69,6 @@
       "ctrl-backspace".command = "backward-kill-word";
       "ctrl-y".command = [ "commandline \"cd ../\"" "commandline -f execute" ];
       "ctrl-j".command = "myjump";
-      "ctrl-f".command = "nextd-or-forward-word";
     };
 
     plugins = [

@@ -298,6 +298,7 @@ in
 
     ./mpv/mpv.nix
 
+    ./agents/agents.nix
     ./opencode/opencode.nix
     ./pi/pi.nix
     ./herdr/herdr.nix

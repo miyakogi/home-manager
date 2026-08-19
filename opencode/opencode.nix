@@ -36,6 +36,6 @@
         notifications = true;
       };
     };
-    context = ./AGENTS.md;
+    context = ../agents/AGENTS.md;
   };
 }

@@ -8,10 +8,10 @@
       default_agent = "plan";
       mode = {
         build = {
-          model = "opencode/deepseek-v4-flash-free";
+          model = "cline-pass/cline-pass/deepseek-v4-flash";
         };
         plan = {
-          model = "opencode/deepseek-v4-flash-free";
+          model = "cline-pass/cline-pass/deepseek-v4-flash";
         };
       };
       mcp = {

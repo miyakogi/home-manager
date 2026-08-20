@@ -248,6 +248,7 @@ in
 
     ./bash/bash.nix
     ./fish/fish.nix
+    ./zsh/zsh.nix
     ./brush/brush.nix
     ./man/man.nix
     ./git/git.nix

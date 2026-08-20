@@ -140,6 +140,7 @@ in
 
     distrobox
     appimage-run
+    bubblewrap
 
     # Dev tools
     clang
@@ -232,6 +233,8 @@ in
     taskwarrior-tui
   ] ++ [
     ### Flake Packages
+    inputs.maki.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.dirge.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   imports = [

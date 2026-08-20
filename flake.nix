@@ -17,6 +17,8 @@
     rio.url = "github:raphamorim/rio/preedit-v2";
     karukan.url = "path:./flakes/karukan";
     waybar.url = "github:Alexays/Waybar";
+    dirge.url = "github:dirge-code/dirge";
+    maki.url = "github:tontinton/maki";
     shaders = {
       url = "github:miyakogi/Anime4K-mpv-glsl";
       flake = false;

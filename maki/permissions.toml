@@ -1,0 +1,11 @@
+[websearch]
+default = "allow"
+# または
+# allow = ["*"]
+
+[webfetch]
+default = "allow"
+
+[mcp.context7]
+default = "allow"
+

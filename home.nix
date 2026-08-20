@@ -233,7 +233,6 @@ in
     taskwarrior-tui
   ] ++ [
     ### Flake Packages
-    inputs.maki.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.dirge.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
@@ -304,6 +303,7 @@ in
     ./agents/agents.nix
     ./opencode/opencode.nix
     ./pi/pi.nix
+    ./maki/maki.nix
     ./herdr/herdr.nix
 
     ./desktop/desktop.nix

@@ -45,6 +45,11 @@ function _auto_ls() {
   fi
 }
 
+# use eza for ls
+function tree() {
+  ls --tree 2>/dev/null || command tree
+}
+
 # ble.sh handles keys and hooks via ~/.blerc; plain bash / brush use
 # readline bindings and PROMPT_COMMAND here instead.
 if [[ -z ${BLE_VERSION-} ]]; then

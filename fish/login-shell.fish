@@ -1,4 +1,5 @@
 fish_add_path --global "$HOME/.nix-profile/bin"
+fish_add_path --global "$HOME/.npm-global/bin"
 fish_add_path --global "$HOME/.cargo/bin"
 fish_add_path --global "$HOME/.local/bin"
 fish_add_path --global --move "$HOME/bin"

@@ -46,6 +46,7 @@ function my/sabbrev-command-only {
 # ble-bind -c instead of bind -x: bind -x runs the command outside the exec
 # cycle, so the prompt is not refreshed and PRECMD hooks (_auto_ls) don't fire.
 ble-bind -c 'C-y' 'cd ../'
+ble-bind -c 'C-j' '__zoxide_zi "" || true'
 
 ble-bind -m emacs -f 'C-w' kill-backward-eword
 

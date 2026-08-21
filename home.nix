@@ -91,6 +91,20 @@ in
     ];
   };
 
+  # Portal
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gnome  # for niri dark theme, see: https://github.com/niri-wm/niri/issues/2878#issuecomment-3573812112
+    ];
+    config.niri = {
+      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+    };
+  };
+
   # Theme
   qt.kvantum = {
     enable = true;
@@ -170,12 +184,6 @@ in
     # HW accel
     mesa
     libva
-
-    # XDG Desktop Portals
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gnome  # for niri dark theme, see: https://github.com/niri-wm/niri/issues/2878#issuecomment-3573812112
 
     # Utilities
     xdg-utils

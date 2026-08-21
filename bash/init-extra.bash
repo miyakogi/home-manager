@@ -8,6 +8,13 @@ function edit() {
   "$EDITOR" "$@"
 }
 
+# fix helix cursor shape
+function hx() {
+  command hx "$@"
+  printf '\033[0 q'
+}
+
+# go to git root
 function gg() {
   if git rev-parse --is-inside-work-tree &>/dev/null; then
     cd "$(pwd)"/"$(git rev-parse --show-cdup)" || return

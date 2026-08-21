@@ -333,6 +333,7 @@ window-rule {
 
 window-rule {
     match app-id="^Capacities$"
+    match app-id="^io.capacities.app$"
     open-on-workspace "memo"
     default-column-width { proportion 0.8; }
     open-maximized-to-edges false

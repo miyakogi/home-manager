@@ -23,7 +23,7 @@
       url = "github:miyakogi/Anime4K-mpv-glsl";
       flake = false;
     };
-    seasalt.url = "github:miyakogi/seasalt/v0.2.1";
+    seasalt.url = "github:miyakogi/seasalt/v0.2.2";
   };
 
 

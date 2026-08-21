@@ -11,7 +11,7 @@
           model = "cline-pass/cline-pass/deepseek-v4-flash";
         };
         plan = {
-          model = "cline-pass/cline-pass/deepseek-v4-flash";
+          model = "opencode/muse-spark-1.2-contributor-free";
         };
       };
       mcp = {

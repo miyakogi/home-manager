@@ -228,12 +228,11 @@ in
     picotool
 
     ### PKM
-    capacities
+    # capacities
     taskwarrior3
     taskwarrior-tui
   ] ++ [
     ### Flake Packages
-    inputs.dirge.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   imports = [

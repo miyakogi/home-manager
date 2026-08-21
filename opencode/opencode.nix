@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = [
     pkgs.opencode-desktop
   ];
   programs.opencode = {
     enable = true;
+    package = inputs.opencode2.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       default_agent = "plan";
       mode = {

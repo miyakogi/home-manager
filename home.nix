@@ -101,11 +101,6 @@ in
     };
   };
 
-  # notification
-  # services.mako = {
-  #   enable = true;
-  #   extraConfig = builtins.readFile ./mako/config;
-  # };
 
   # Install programs
   home.packages = with pkgs; [
@@ -245,7 +240,7 @@ in
     ./bash/bash.nix
     ./fish/fish.nix
     ./zsh/zsh.nix
-    ./brush/brush.nix
+    # ./brush/brush.nix
     ./man/man.nix
     ./git/git.nix
     ./gpg/gpg.nix
@@ -283,15 +278,14 @@ in
 
     ./alacritty/alacritty.nix
     ./foot/foot.nix
-    ./kitty/kitty.nix
     ./ghostty/ghostty.nix
+    ./kitty/kitty.nix
     ./rio/rio.nix
     ./wezterm/wezterm.nix
 
     ./fuzzel/fuzzel.nix
     ./tofi/tofi.nix
 
-    ./mako/mako.nix
     ./swaync/swaync.nix
     ./swappy/swappy.nix
 
@@ -299,8 +293,8 @@ in
 
     ./agents/agents.nix
     ./opencode/opencode.nix
-    ./pi/pi.nix
-    ./maki/maki.nix
+    # ./pi/pi.nix
+    # ./maki/maki.nix
     ./herdr/herdr.nix
 
     ./desktop/desktop.nix

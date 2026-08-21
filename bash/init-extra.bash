@@ -8,6 +8,14 @@ function edit() {
   "$EDITOR" "$@"
 }
 
+function gg() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    cd "$(pwd)"/"$(git rev-parse --show-cdup)" || return
+  else
+    cd || return
+  fi
+}
+
 # change terminal bg color on ssh
 function ssh() {
   # change bg color (dark red)

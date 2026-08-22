@@ -1,10 +1,19 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  opencode2 = inputs.opencode2.packages.${system}.default;
+in
+{
   home.packages = [
     pkgs.opencode-desktop
   ];
   programs.opencode = {
     enable = true;
-    package = inputs.opencode2.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = opencode2.overrideAttrs (old: {
+      node_modules = old.node_modules.override {
+        hash = "sha256-DwAW2Qt1FAD+JFsE2dixsg2utBgKLiHDmuNtoUt8Tr4=";
+      };
+    });
     settings = {
       default_agent = "plan";
       mode = {

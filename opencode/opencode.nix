@@ -24,6 +24,15 @@
           };
           enabled = true;
         };
+        github = {
+          type = "remote";
+          url = "https://api.githubcopilot.com/mcp/";
+          enabled = true;
+          oauth = false;
+          headers = {
+            Authorization = "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}";
+          };
+        };
       };
       plugin = [
         "superpowers@git+https://github.com/obra/superpowers.git"

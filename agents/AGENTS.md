@@ -30,6 +30,12 @@ Always respond in the same language the user used in their message.
 - Never run `git push --force` (or `--force-with-lease`) without explicit confirmation.
 - Never upgrade existing dependencies or run `nix flake update` unsolicited. Adding a new dependency (with its lockfile change) as part of an explicitly requested feature is expected and does not need separate approval.
 
+## GitHub
+
+- If the current harness provides GitHub MCP tools, use them for remote-hosted data — issues, pull requests, releases — instead of fetching github.com pages or guessing from memory; otherwise fall back to the `gh` CLI. Keep local `git` for local operations.
+- Verify the target repository (owner/name) from git remotes or explicit user input before operating on it.
+- Treat any GitHub write action (via MCP tools or `git push`) like a commit and get explicit approval first. Read-only lookups need no approval.
+
 ## Agent Behavior
 
 - If a request is ambiguous, ask a clarifying question before implementing, rather than guessing and proceeding.

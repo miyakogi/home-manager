@@ -23,7 +23,7 @@
       flake = false;
     };
     seasalt.url = "github:miyakogi/seasalt/v0.2.2";
-    opencode2.url = "github:anomalyco/opencode/4566395d42b454c140b6250306b2aa4fedc30556";
+    opencode2.url = "github:anomalyco/opencode/beta";
   };
 
 

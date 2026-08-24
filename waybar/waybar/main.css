@@ -97,31 +97,26 @@ window#waybar.FHD #workspaces button.active {
   padding: 0rem 1.0rem;
 }
 
-#custom-media {
+#mpris {
   min-height: 0px;
   padding: 0rem 1rem;
   margin: 0px;
   font-weight: 400;
 }
 
-#custom-media.default {
-  padding: 0rem 1rem;
-  margin: 0px;
-}
-
-#custom-media.Playing {
+#mpris.playing {
   color: @white;
   padding: 0rem 1rem;
   box-shadow: inset 0px -4px @white;
 }
 
-#custom-media.Paused {
+#mpris.paused {
   color: @comment;
   padding: 0rem 1rem;
   box-shadow: inset 0px -4px @comment;
 }
 
-#custom-media.Stopped {
+#mpris.stopped {
   padding: 0px 20px;
 }
 

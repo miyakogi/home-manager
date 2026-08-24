@@ -26,11 +26,11 @@ window#waybar {
   font-weight: 300;
 }
 
-window#waybar.4K {
+window#waybar.main {
   font-size: 13.5pt;
 }
 
-window#waybar.FHD {
+window#waybar.sub {
   font-size: 12.0pt;
 }
 
@@ -85,15 +85,15 @@ window#waybar.FHD {
   animation: ws_active 20s ease-in-out 1;
 }
 
-window#waybar.FHD #workspaces button, button {
+window#waybar.sub #workspaces button, button {
   padding: 0rem 0.45rem;
 }
 
-window#waybar.FHD #workspaces button.visible {
+window#waybar.sub #workspaces button.visible {
   padding: 0rem 1.0rem;
 }
 
-window#waybar.FHD #workspaces button.active {
+window#waybar.sub #workspaces button.active {
   padding: 0rem 1.0rem;
 }
 
@@ -120,7 +120,7 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px 20px;
 }
 
-window#waybar.4K #inhibitor {
+window#waybar.main #inhibitor {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
@@ -128,16 +128,16 @@ window#waybar.4K #inhibitor {
   padding: 0rem 1rem;
 }
 
-window#waybar.4K #inhibitor.deactivated {
+window#waybar.main #inhibitor.deactivated {
   background-color: @muted;
 }
 
-window#waybar.4K #inhibitor.activated {
+window#waybar.main #inhibitor.activated {
   background-color: @red;
   padding: 0rem 1.5rem;
 }
 
-window#waybar.4K #wireplumber {
+window#waybar.main #wireplumber {
   color: @background;
   background-color: @red;
   font-family: "Symbols Nerd Font", monospace;
@@ -147,7 +147,7 @@ window#waybar.4K #wireplumber {
   padding: 0rem 1.8rem;
 }
 
-window#waybar.4K #wireplumber.source-muted {
+window#waybar.main #wireplumber.source-muted {
   background-color: @muted;
   padding: 0rem 1.2rem;
 }

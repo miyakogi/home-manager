@@ -73,7 +73,7 @@ in
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       inputs.nix-hazkey.packages.${system}.fcitx5-hazkey
-      inputs.karukan.packages.${system}.default
+      # inputs.karukan.packages.${system}.default
       fcitx5-gtk
       libsForQt5.fcitx5-qt
       kdePackages.fcitx5-qt

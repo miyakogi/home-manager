@@ -2,7 +2,6 @@
 
 * {
   min-height: 0;
-  transition: all 0.3s;
 }
 
 window#waybar {
@@ -56,6 +55,7 @@ window#waybar.sub {
   padding: 0rem 0.55rem;
   margin: 0rem 0.35rem;
   animation: ws_normal 20s ease-in-out 1;
+  transition: all 0.3s;
 }
 
 #workspaces button.persistent {
@@ -118,6 +118,7 @@ window#waybar.main #inhibitor {
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0rem 1rem;
+  transition: all 0.3s;
 }
 
 window#waybar.main #inhibitor.deactivated {
@@ -137,6 +138,7 @@ window#waybar.main #wireplumber {
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0rem 1.8rem;
+  transition: all 0.3s;
 }
 
 window#waybar.main #wireplumber.source-muted {
@@ -149,6 +151,7 @@ window#waybar.main #wireplumber.source-muted {
   background-color: @foreground;
   padding: 0rem 1.5rem;
   border-radius: 1rem;
+  transition: all 0.3s;
 }
 
 #custom-swaync.notification {
@@ -160,6 +163,7 @@ window#waybar.main #wireplumber.source-muted {
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   padding: 0rem 1.4rem;
+  transition: all 0.3s;
 }
 
 #systemd-failed-units.ok {

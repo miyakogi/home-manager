@@ -217,6 +217,7 @@ in
     gamescope
     lsfg-vk
     lsfg-vk-ui
+    prismlauncher
 
     # Theme
     qt6Packages.qt6ct

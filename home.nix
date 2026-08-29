@@ -191,26 +191,32 @@ in
     wl-clipboard-rs
     lxqt.pcmanfm-qt
 
-    # Multimedia
+    # Audio/Music
     lxqt.pavucontrol-qt
     pulsemixer
     alsa-utils
     playerctl
     mpc
     ncmpc
+    spotify-player
+
+    # Video
+    ffmpeg
     yt-dlp
     ffmpegthumbnailer
+
+    # Image
     imv
-    gamescope
-    ffmpeg
     imagemagick
     libavif
     pngquant
-    lsfg-vk
-    lsfg-vk-ui
+
+    # Game
     vulkan-tools
     mangohud
-    spotify-player
+    gamescope
+    lsfg-vk
+    lsfg-vk-ui
 
     # Theme
     qt6Packages.qt6ct

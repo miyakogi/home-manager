@@ -137,7 +137,7 @@ in
     unzip
     zip
 
-    # ── CLI Essentials ──────────────────────────────────
+    # ── CLI Tools ──────────────────────────────────────
     dua
     fd
     fzf
@@ -252,29 +252,46 @@ in
   ];
 
   imports = [
-    # flatpak
+    # ── Flake Modules ───────────────────────────────────
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
-    # haykey flake
     inputs.nix-hazkey.homeModules.hazkey
 
+    # ── System / Base ───────────────────────────────────
     ./services.nix
     ./scripts.nix
     ./flatpak/flatpak.nix
 
+    # ── Shells ──────────────────────────────────────────
     ./bash/bash.nix
     ./fish/fish.nix
     ./zsh/zsh.nix
     # ./brush/brush.nix
+
+    # ── Docs / VCS / Keys ───────────────────────────────
     ./man/man.nix
     ./git/git.nix
     ./gpg/gpg.nix
 
+    # ── Development / Build ─────────────────────────────
     ./cargo/cargo.nix
 
+    # ── Editors ─────────────────────────────────────────
     ./nvim/neovim.nix
     ./helix/helix.nix
-    ./zellij/zellij.nix
 
+    # ── Terminal Multiplexers ───────────────────────────
+    ./zellij/zellij.nix
+    ./herdr/herdr.nix
+
+    # ── Terminals ───────────────────────────────────────
+    ./alacritty/alacritty.nix
+    ./foot/foot.nix
+    ./ghostty/ghostty.nix
+    ./kitty/kitty.nix
+    ./rio/rio.nix
+    ./wezterm/wezterm.nix
+
+    # ── CLI Tools ──────────────────────────────────────
     ./atuin/atuin.nix
     ./bat/bat.nix
     ./bottom/bottom.nix
@@ -291,36 +308,37 @@ in
     ./yazi/yazi.nix
     ./zoxide/zoxide.nix
 
+    # ── Compositors / WM ────────────────────────────────
     ./uwsm/uwsm.nix
     ./hypr/hypr.nix
     ./niri/niri.nix
 
+    # ── Desktop UI / Bars ───────────────────────────────
     ./waybar/waybar.nix
     ./quickshell/quickshell.nix
 
+    # ── Fonts ───────────────────────────────────────────
     ./fontconfig/fontconfig.nix
 
-    ./alacritty/alacritty.nix
-    ./foot/foot.nix
-    ./ghostty/ghostty.nix
-    ./kitty/kitty.nix
-    ./rio/rio.nix
-    ./wezterm/wezterm.nix
-
+    # ── Launchers ───────────────────────────────────────
     ./fuzzel/fuzzel.nix
     ./tofi/tofi.nix
 
+    # ── Notifications / Shot ────────────────────────────
+    # ./mako/mako.nix
     ./swaync/swaync.nix
     ./swappy/swappy.nix
 
+    # ── Media ───────────────────────────────────────────
     ./mpv/mpv.nix
 
+    # ── AI Agents ───────────────────────────────────────
     ./agents/agents.nix
     ./opencode/opencode.nix
     # ./pi/pi.nix
     # ./maki/maki.nix
-    ./herdr/herdr.nix
 
+    # ── Desktop / Applications ──────────────────────────
     ./desktop/desktop.nix
   ];
 }

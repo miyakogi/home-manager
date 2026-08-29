@@ -1,9 +1,3 @@
-fish_add_path --global "$HOME/.nix-profile/bin"
-fish_add_path --global "$HOME/.npm-global/bin"
-fish_add_path --global "$HOME/.cargo/bin"
-fish_add_path --global "$HOME/.local/bin"
-fish_add_path --global --move "$HOME/bin"
-
 export GOPATH="$HOME/.go"
 export RUST_SRC_PATH="(rustc --print sysroot)/lib/rustlib/src/rust/src"
 

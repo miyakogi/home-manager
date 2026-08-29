@@ -56,8 +56,13 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # Environment Variables
+  home.sessionPath = [
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.npm-global/bin"
+  ];
   home.sessionVariables = {
-    PATH = "$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.nix-profile/bin:$PATH";
     DRI_PRIME = "1";
     NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";  # global npm install
   };

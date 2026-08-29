@@ -15,7 +15,6 @@ Nix home-manager flake for user `miyaco` (NixOS, x86_64-linux). No CI, no tests 
 
 ## Gotchas
 
-- `hypr/hyprland.lua` is the live Hyprland config (hypr3 lua plugin); `hypr/hyprland.conf` is unused legacy — never edit it
 - Both Hyprland and Niri are configured, launched via uwsm, and share the same scripts
 
 ## Conventions

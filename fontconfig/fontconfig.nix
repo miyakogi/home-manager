@@ -20,10 +20,6 @@
       packages = with pkgs; [ lilex ];
     };
   };
-  xdg.userDirs.extraConfig = {
-    "FONT_DIRS" = "${config.home.homeDirectory}/.local/share/fonts:${config.home.homeDirectory}/.nix-profile/share/fonts";
-  };
-
   home.file.".config/fontconfig/conf.d" = {
     source = ./conf.d;
     recursive = true;

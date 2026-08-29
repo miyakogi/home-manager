@@ -372,6 +372,7 @@ hl.window_rule({
 -- Capacities
 hl.workspace_rule({ workspace = "special:capacities", gaps_out = { top=120, right=360, bottom=120, left=360 } })
 hl.window_rule({ match = { class = "^Capacities$" }, workspace = "special:capacities" })
+hl.window_rule({ match = { class = "^io.capacities.app$" }, workspace = "special:capacities" })
 
 -- OpenCode Desktop (AI)
 hl.workspace_rule({ workspace = "special:opencode", gaps_out = { top=120, right=360, bottom=120, left=360 } })

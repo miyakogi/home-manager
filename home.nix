@@ -118,127 +118,137 @@ in
 
   # Install programs
   home.packages = with pkgs; [
-    ### Default Packages
-
+    # ── System / Core ───────────────────────────────────
+    curl
+    less
     uutils-coreutils-noprefix
+    wget
+    which
 
-    fzf
-    fd
-    jq
-    dua
-    tokei
-    just
-    trashy
-    zmx
-
+    # ── Documentation ───────────────────────────────────
     man-db
     man-pages
     tlrc
-    less
-    which
 
-    wget
-    zip
-    unzip
+    # ── Archives & Files ────────────────────────────────
     libarchive
-    unar
     ouch
+    unar
+    unzip
+    zip
 
-    distrobox
+    # ── CLI Essentials ──────────────────────────────────
+    dua
+    fd
+    fzf
+    jq
+    just
+    tokei
+    trashy
+    zmx  # terminal session manager
+
+    # ── Container / Isolation ───────────────────────────
     appimage-run
     bubblewrap
+    distrobox
 
-    # Dev tools
+    # ── Toolchain / Runtime ─────────────────────────────
     clang
+    lua
     nodejs
     pnpm
-    lua
-    cmake
     poetry
-    openssl
-    #extra-cmake-modules
-    libxkbcommon.dev
-    pkgconf
     rustup
+    uv
+
+    # ── Build / Libs ────────────────────────────────────
+    cmake
+    libxkbcommon.dev
     mold
+    openssl
+    pkgconf
+
+    # ── Benchmark / Coverage ────────────────────────────
     cargo-llvm-cov
     hyperfine
 
-    # LSP
-    uv
+    # ── Linter / Formatter ──────────────────────────────
     ruff
+    shellharden
     typos
-    typos-lsp
+
+    # ── Language Servers ────────────────────────────────
     bash-language-server
     lua-language-server
     pyright
-    shellharden
     typescript-language-server
+    typos-lsp
     vscode-css-languageserver
 
-    # AI
+    # ── AI / Inference ──────────────────────────────────
     ollama-vulkan
-    radeontop
-    nvtopPackages.full
 
-    # HW accel
-    mesa
+    # ── Graphics / GPU ──────────────────────────────────
     libva
+    mesa
+    nvtopPackages.full
+    radeontop
+    vulkan-tools
 
-    # Utilities
-    xdg-utils
+    # ── Desktop / Wayland ───────────────────────────────
     libnotify
-    wl-clipboard-rs
     lxqt.pcmanfm-qt
+    wl-clipboard-rs
+    xdg-utils
 
-    # Audio/Music
-    lxqt.pavucontrol-qt
-    pulsemixer
+    # ── Audio / Music ───────────────────────────────────
     alsa-utils
-    playerctl
+    lxqt.pavucontrol-qt
     mpc
     ncmpc
+    playerctl
+    pulsemixer
     spotify-player
 
-    # Video
+    # ── Video ───────────────────────────────────────────
     ffmpeg
-    yt-dlp
     ffmpegthumbnailer
+    yt-dlp
 
-    # Image
-    imv
+    # ── Image ───────────────────────────────────────────
     imagemagick
+    imv
     libavif
     pngquant
 
-    # Game
-    vulkan-tools
-    mangohud
+    # ── Gaming ──────────────────────────────────────────
     gamescope
     lsfg-vk
     lsfg-vk-ui
+    mangohud
     prismlauncher
 
-    # Theme
-    qt6Packages.qt6ct
-    kdePackages.qtstyleplugin-kvantum
-    rose-pine-cursor
+    # ── Theming ─────────────────────────────────────────
     adwaita-icon-theme
+    kdePackages.qtstyleplugin-kvantum
+    qt6Packages.qt6ct
+    rose-pine-cursor
 
-    ### Software
-    # QMK
-    qmk
+    # ── Hardware / QMK ──────────────────────────────────
     avrdude
     dfu-programmer
     dfu-util
     picotool
+    qmk
 
-    ### PKM
-    # capacities
+    # ── Productivity ────────────────────────────────────
+    #capacities  # TODO: disabled due to build error -- PKM
     taskwarrior3
     taskwarrior-tui
   ] ++ [
-    ### Flake Packages
+    # ── Flake Packages ──────────────────────────────────
+    # without pkgs prefix: packages from inputs.* go here
+    # example: inputs.karukan.packages.${system}.default
   ];
 
   imports = [

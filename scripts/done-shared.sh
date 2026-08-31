@@ -1,7 +1,6 @@
 # shellcheck shell=bash
 # done-shared.sh — zsh/bash shared long-command notifier
-# Based on franciscolourenco/done (fish) window id logic, Hyprland/Niri multi-window aware.
-# Threshold 5s, focus-aware (window id compare + kitty is_self), no tmux/screen.
+# Threshold 5s, focus-aware (Hyprland address / Niri id).
 
 # Prevent double load
 if [ "${__done_shared_loaded:-}" != "" ]; then
@@ -31,41 +30,14 @@ __done_start_time=0
 __done_last_command=""
 
 __done_get_focused_window_id() {
-  # Hyprland — address is unique per OS window
-  if command -v hyprctl >/dev/null 2>&1; then
-    local _tmp
-    _tmp=$(hyprctl activewindow -j 2>/dev/null | jq -r '.address // empty' 2>/dev/null)
-    if [ "$_tmp" != "" ]; then
-      printf '%s' "$_tmp"
-      return
-    fi
+  if [ "${HYPRLAND_INSTANCE_SIGNATURE:-}" != "" ] && command -v hyprctl >/dev/null 2>&1; then
+    hyprctl activewindow -j 2>/dev/null | jq -r '.address // empty' 2>/dev/null
+    return
   fi
-  # Niri — id is unique per OS window
-  if command -v niri >/dev/null 2>&1; then
+  if [ "${NIRI_SOCKET:-}" != "" ] && command -v niri >/dev/null 2>&1; then
     niri msg --json focused-window 2>/dev/null | jq -r '.id // empty' 2>/dev/null
     return
   fi
-}
-
-__done_is_process_window_focused() {
-  # kitty: is_self + is_focused distinguishes same-PID multi-window/tab
-  if [ "${KITTY_WINDOW_ID:-}" != "" ] && command -v kitty >/dev/null 2>&1; then
-    if kitty @ ls 2>/dev/null | jq -e '.[].tabs[] | select(any(.windows[]; .is_self)) | .is_focused' >/dev/null 2>&1; then
-      return 0
-    elif kitty @ ls >/dev/null 2>&1; then
-      return 1
-    fi
-  fi
-  local current
-  current=$(__done_get_focused_window_id)
-  if [ "$current" = "" ] && [ "$__done_initial_window_id" = "" ]; then
-    # cannot determine window id (e.g., SSH, TTY) — treat as not focused to notify
-    return 1
-  fi
-  if [ "$current" != "$__done_initial_window_id" ]; then
-    return 1
-  fi
-  return 0
 }
 
 __done_humanize_duration() {
@@ -84,59 +56,44 @@ __done_humanize_duration() {
   fi
 }
 
+# preexec: record time, command, and initial focused window id
 __done_preexec() {
-  # Avoid recursion from DEBUG trap / precmd itself
   case "${1:-${BASH_COMMAND:-}}" in
     __done_*|*__done_precmd*|*__done_preexec*) return 0 ;;
   esac
-  if [ "$1" != "" ]; then
-    __done_last_command="$1"
-  elif [ "${BASH_COMMAND:-}" != "" ]; then
-    __done_last_command="$BASH_COMMAND"
-  else
-    __done_last_command=""
-  fi
-  if [ "${EPOCHSECONDS:-}" != "" ]; then
-    __done_start_time=$EPOCHSECONDS
-  else
-    __done_start_time=$SECONDS
-  fi
+  __done_last_command="${1:-${BASH_COMMAND:-}}"
+  __done_start_time="${EPOCHSECONDS:-$SECONDS}"
   __done_initial_window_id=$(__done_get_focused_window_id)
 }
 
+# precmd: threshold check first; then compare current window with initial
 __done_precmd() {
   local exit_status=$?
-  local end_time
-  if [ "${EPOCHSECONDS:-}" != "" ]; then
-    end_time=$EPOCHSECONDS
-  else
-    end_time=$SECONDS
-  fi
+  local end_time="${EPOCHSECONDS:-$SECONDS}"
   local elapsed=$(( end_time - __done_start_time ))
-  # Early return: short command, no focus check
-  if [ "$elapsed" -lt "${DONE_MIN_CMD_DURATION:-5}" ]; then
-    return 0
+  [ "$elapsed" -lt "${DONE_MIN_CMD_DURATION:-5}" ] && return 0
+
+  # --- Only here (>=threshold) do we potentially run external commands ---
+  local current
+  current=$(__done_get_focused_window_id)
+
+  # Compare with initial window id (captured at preexec)
+  if [ "$current" != "" ] && [ "$current" = "$__done_initial_window_id" ]; then
+    return 0  # same window → focused → suppress
   fi
-  if __done_is_process_window_focused; then
-    return 0
-  fi
+
+  # Not focused → notify
   local title message urgency="normal"
+  [ "$exit_status" -ne 0 ] && urgency="critical"
   if [ "$exit_status" -ne 0 ]; then
-    urgency="critical"
-  fi
-  local human
-  human=$(__done_humanize_duration "$elapsed")
-  if [ "$exit_status" -ne 0 ]; then
-    title="Failed ($exit_status) after $human"
+    title="Failed ($exit_status) after $(__done_humanize_duration "$elapsed")"
   else
-    title="Done in $human"
+    title="Done in $(__done_humanize_duration "$elapsed")"
   fi
-  # Limit message length and avoid option injection
-  message=$(printf '%s' "$__done_last_command" | head -c 300)
-  if [ "$message" = "" ]; then
-    message="Command finished"
-  fi
-  notify-send --hint=int:transient:1 --urgency="$urgency" --icon=utilities-terminal --app-name="${ZSH_NAME:-bash}" --expire-time=3000 -- "$title" "$message" 2>/dev/null || true
+  message=$(printf '%s' "${__done_last_command:-Command finished}" | head -c 300)
+  notify-send --hint=int:transient:1 --urgency="$urgency" --icon=utilities-terminal \
+    --app-name="${ZSH_NAME:-bash}" --expire-time=3000 -- "$title" "$message" 2>/dev/null || true
+
   return "$exit_status"
 }
 
@@ -150,9 +107,7 @@ elif [ "${BLE_VERSION:-}" != "" ]; then
   blehook POSTEXEC+=__done_precmd 2>/dev/null || true
 elif [ "${BASH_VERSION:-}" != "" ]; then
   # Plain bash / brush: use DEBUG trap + PROMPT_COMMAND
-  # Avoid duplicate registration
   if [[ "$PROMPT_COMMAND" != *"__done_precmd"* ]]; then
-    # DEBUG trap stores start time and command
     trap '__done_preexec "$BASH_COMMAND"' DEBUG 2>/dev/null || true
     PROMPT_COMMAND="__done_precmd${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
   fi

@@ -51,3 +51,8 @@ ble-bind -c 'C-j' '__zoxide_zi "" || true'
 ble-bind -m emacs -f 'C-w' kill-backward-eword
 
 blehook PRECMD+=_auto_ls
+
+# Long command notifier (shared with zsh, Hyprland/Niri multi-window aware)
+if [ -f "$HOME/bin/done-shared.sh" ]; then
+  source "$HOME/bin/done-shared.sh"
+fi

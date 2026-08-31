@@ -17,7 +17,7 @@ function hx() {
 # go to git root
 function gg() {
   if git rev-parse --is-inside-work-tree &>/dev/null; then
-    cd "$(pwd)"/"$(git rev-parse --show-cdup)" || return
+    cd "$PWD"/"$(git rev-parse --show-cdup)" || return
   else
     cd || return
   fi
@@ -56,6 +56,12 @@ if [[ -z ${BLE_VERSION-} ]]; then
   stty werase undef
   bind '"\C-w": unix-filename-rubout'
   PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+fi
+
+# Long command notifier (shared with zsh, Hyprland/Niri multi-window aware)
+# Loads once per shell via guard in done-shared.sh
+if [ -f "$HOME/bin/done-shared.sh" ]; then
+  source "$HOME/bin/done-shared.sh"
 fi
 
 # startup

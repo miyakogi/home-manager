@@ -52,6 +52,13 @@
     };
     initContent = let
       zshConfig = lib.mkOrder 1000 ''
+        ### Completion
+        zstyle ':completion:*' matcher-list \
+          'm:{a-zA-Z}={A-Za-z}' \
+          'r:|[._-]=* r:|=*' \
+          'l:|=* r:|=*' \
+          'r:|?=**'
+
         ### KeyBind
         # Base config
         autoload -Uz select-word-style

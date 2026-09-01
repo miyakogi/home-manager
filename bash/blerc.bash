@@ -4,6 +4,16 @@ ble-face auto_complete='fg=240,underline,italic'
 # verify-syntax keeps the default pause on syntactically incomplete lines.
 bleopt edit_magic_accept='verify-syntax:sabbrev'
 
+# Completion
+bleopt complete_ambiguous=1
+bleopt complete_allow_reduction=''
+bleopt complete_menu_filter=1
+bleopt complete_menu_complete=1
+bleopt complete_auto_complete=1
+bleopt complete_auto_delay=1
+bleopt complete_menu_style=desc
+bleopt complete_skip_matched=on
+
 # Fish-style abbreviations. ble-sabbrev itself defers registration
 # internally until the core-complete module is loaded.
 ble-sabbrev ':q'='exit'

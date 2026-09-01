@@ -26,7 +26,7 @@ if [ "${ZSH_VERSION:-}" != "" ]; then
 fi
 
 __done_initial_window_id=""
-__done_start_time=0
+__done_start_time="${EPOCHSECONDS:-$SECONDS}"
 __done_last_command=""
 
 __done_get_focused_window_id() {
@@ -69,6 +69,8 @@ __done_preexec() {
 # precmd: threshold check first; then compare current window with initial
 __done_precmd() {
   local exit_status=$?
+  # No command has run yet (startup precmd) → skip
+  [ "$__done_last_command" = "" ] && return 0
   local end_time="${EPOCHSECONDS:-$SECONDS}"
   local elapsed=$(( end_time - __done_start_time ))
   [ "$elapsed" -lt "${DONE_MIN_CMD_DURATION:-5}" ] && return 0

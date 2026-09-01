@@ -1,7 +1,20 @@
 ### autocmd
 chpwd() {
-  ls
+  [[ $PWD != $OLDPWD ]] && ls
 }
+
+# Ctrl-J
+__zoxide_zi_widget() {
+  __zoxide_zi ""
+  local success=$?
+  zle redisplay
+  (( $success != 0 )) && return
+  BUFFER="ls"
+  zle accept-line
+}
+zle -N __zoxide_zi_widget
+bindkey '^J' __zoxide_zi_widget
+
 ### function
 tree() {
   ls --tree 2>/dev/null || command tree

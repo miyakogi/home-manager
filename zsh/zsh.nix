@@ -49,6 +49,11 @@
           cd || return
         fi
       '';
+      ssh = ''
+        printf '\033]11;#140000\a'
+        command ssh "$@"
+        printf '\033]111\a'
+      '';
     };
     initContent = lib.mkMerge [
       (lib.mkOrder 1000 (builtins.readFile ./init.zsh))

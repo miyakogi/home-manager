@@ -50,55 +50,9 @@
         fi
       '';
     };
-    initContent = let
-      zshConfig = lib.mkOrder 1000 ''
-        ### Completion
-        zstyle ':completion:*' matcher-list \
-          'm:{a-zA-Z}={A-Za-z}' \
-          'r:|[._-]=* r:|=*' \
-          'l:|=* r:|=*' \
-          'r:|?=**'
-
-        ### KeyBind
-        # Base config
-        autoload -Uz select-word-style
-        select-word-style bash
-
-        # Ctrl-Y
-        cd-up() {
-          BUFFER="cd ../"
-          zle accept-line
-        }
-        zle -N cd-up
-        bindkey '^Y' cd-up
-      '';
-      zshExtra = lib.mkOrder 1500 ''
-        ### autocmd
-        chpwd() {
-          ls
-        }
-        ### function
-        tree() {
-          ls --tree 2>/dev/null || command tree
-        }
-
-        # Load Plugins
-        : "''${DONE_MIN_CMD_DURATION:=5}"
-        if [ -f "$HOME/bin/done-shared.sh" ]; then
-          source "$HOME/bin/done-shared.sh"
-        fi
-
-        if command -v seasalt &>/dev/null; then
-          eval "$(seasalt init zsh)"
-        fi
-
-        if command -v fastfetch &>/dev/null; then
-          fastfetch --config config-short.jsonc
-        elif command -v macchina &>/dev/null; then
-          macchina
-        fi
-      '';
-    in
-    lib.mkMerge [ zshConfig zshExtra ];
+    initContent = lib.mkMerge [
+      (lib.mkOrder 1000 (builtins.readFile ./init.zsh))
+      (lib.mkOrder 1500 (builtins.readFile ./extra.zsh))
+    ];
   };
 }

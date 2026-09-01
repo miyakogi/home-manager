@@ -1,5 +1,5 @@
 if [ "$XDG_CURRENT_DESKTOP" = niri ] && [ "$TERM" != xterm-ghostty ]
-  exec bash
+  exec zsh
 end
 
 set -x GPG_TTY (tty)

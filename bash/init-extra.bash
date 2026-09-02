@@ -50,6 +50,10 @@ function tree() {
   ls --tree 2>/dev/null || command tree
 }
 
+# Keybinds
+bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'
+
 # ble.sh handles keys and hooks via ~/.blerc; plain bash / brush use
 # readline bindings and PROMPT_COMMAND here instead.
 if [[ -z ${BLE_VERSION-} ]]; then

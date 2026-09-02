@@ -94,7 +94,7 @@ __done_precmd() {
   fi
   message=$(printf '%s' "${__done_last_command:-Command finished}" | head -c 300)
   notify-send --hint=int:transient:1 --urgency="$urgency" --icon=utilities-terminal \
-    --app-name="${ZSH_NAME:-bash}" --expire-time=3000 -- "$title" "$message" 2>/dev/null || true
+    --app-name="${ZSH_NAME:-bash}" --expire-time=10000 -- "$title" "$message" 2>/dev/null || true
 
   return "$exit_status"
 }

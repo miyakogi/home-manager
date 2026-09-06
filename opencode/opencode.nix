@@ -21,7 +21,7 @@ in
       default_agent = "plan";
       mode = {
         build = {
-          model = "cline-pass/cline-pass/deepseek-v4-flash";
+          model = "opencode/muse-spark-1.3-contributor-free";
         };
         plan = {
           model = "opencode/muse-spark-1.3-contributor-free";

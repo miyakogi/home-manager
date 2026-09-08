@@ -26,10 +26,6 @@ if [ -f "$HOME/bin/done-shared.sh" ]; then
   source "$HOME/bin/done-shared.sh"
 fi
 
-if command -v seasalt &>/dev/null; then
-  eval "$(seasalt init zsh)"
-fi
-
 if command -v fastfetch &>/dev/null; then
   fastfetch --config config-short.jsonc
 elif command -v macchina &>/dev/null; then

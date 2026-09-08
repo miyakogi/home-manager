@@ -1,5 +1,10 @@
-if [ "$XDG_CURRENT_DESKTOP" = niri ] && [ "$TERM" != xterm-ghostty ]
-  exec zsh
+if [ -z "$__fish_execute_once" ]
+  export __fish_execute_once=1
+  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ] && [ "$TERM" != xterm-ghostty ]
+    exec bash
+  else if [ "$XDG_CURRENT_DESKTOP" = niri ] && [ "$TERM" != xterm-ghostty ]
+    exec zsh
+  end
 end
 
 set -x GPG_TTY (tty)

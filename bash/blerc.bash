@@ -5,6 +5,7 @@ ble-face auto_complete='fg=240,underline,italic'
 bleopt edit_magic_accept='verify-syntax:sabbrev'
 
 # Completion
+bind 'set completion-ignore-case on'
 bleopt complete_ambiguous=1
 bleopt complete_allow_reduction=''
 bleopt complete_menu_filter=1

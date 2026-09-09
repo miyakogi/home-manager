@@ -1,6 +1,6 @@
 [colors]
 background = '#000000'
-foreground = '#ffffff'
+foreground = '#c2c2c2'
 cursor = '#435d75'
 black = '#393939'
 red = '#da4939'
@@ -17,4 +17,4 @@ light-yellow = '#c8bc45'
 light-blue = '#d0d0ff'
 light-magenta = '#a761c2'
 light-cyan = '#6e98a4'
-light-white = '#c2c2c2'
+light-white = '#ffffff'

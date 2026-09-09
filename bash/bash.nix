@@ -3,7 +3,7 @@
     pkgs.blesh
   ];
 
-  home.file.".blerc".source = ./blerc.bash;
+  home.file.".config/blesh/init.sh".source = ./blerc.bash;
 
   programs.bash = {
     enable = true;

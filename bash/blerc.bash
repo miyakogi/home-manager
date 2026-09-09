@@ -6,6 +6,8 @@ bleopt edit_magic_accept='verify-syntax:sabbrev'
 
 # Completion
 bind 'set completion-ignore-case on'
+bind 'set mark-directories on'
+bind 'set mark-symlinked-directories on'
 bleopt complete_ambiguous=1
 bleopt complete_allow_reduction=''
 bleopt complete_menu_filter=1

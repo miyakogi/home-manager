@@ -1,5 +1,5 @@
 # Theme
-theme = "opencode"
+theme = "wm-theme"
 
 # Use fork
 #
@@ -34,7 +34,7 @@ ignore-selection-foreground-color = false
 # Window configuration
 [window]
 mode = "Maximized"
-opacity = 0.98
+opacity = 0.92
 decorations = "Disabled"
 
 # Renderer

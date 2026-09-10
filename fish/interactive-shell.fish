@@ -1,4 +1,4 @@
-if [ -z "$__fish_execute_once" ] || [ -n "$HERDR_ENV" ]
+if [ -z "$__fish_execute_once" ] || [ "$HERDR_ENV" = 1 ]
   export __fish_execute_once=1
   if [ "$XDG_CURRENT_DESKTOP" = Hyprland ] && [ "$TERM" != xterm-ghostty ]
     exec zsh

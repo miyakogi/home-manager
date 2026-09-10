@@ -35,6 +35,6 @@ in {
     source = ./config.toml;
   };
   home.file.".config/rio-niri/themes/wm-theme.toml" = {
-    source = ./themes/hybrid.toml;
+    source = ./themes/bitmute.toml;
   };
 }

@@ -21,10 +21,10 @@ in
       default_agent = "plan";
       mode = {
         build = {
-          model = "opencode/muse-spark-1.3-contributor-free";
+          model = "cline-pass/cline-pass/deepseek-v4.1-flash";
         };
         plan = {
-          model = "opencode/muse-spark-1.3-contributor-free";
+          model = "cline-pass/cline-pass/deepseek-v4.1-flash";
         };
       };
       mcp = {

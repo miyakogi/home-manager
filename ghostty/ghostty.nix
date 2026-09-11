@@ -3,7 +3,7 @@
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
-    systemd.enable = false; # to set DRI_PRIME=1
+    systemd.enable = true;
     settings = {
       font-family = [
         "Lilex"

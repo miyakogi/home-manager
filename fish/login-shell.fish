@@ -74,9 +74,5 @@ Select Window Manager of Shell:
   end
 
   # Start wayland session
-  if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
-    wm-start $wm
-  else
-    wm-start $wm
-  end
+  wm-start $wm
 end

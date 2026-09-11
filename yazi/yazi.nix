@@ -25,7 +25,7 @@
       mgr.prepend_keymap = [
         { run = "arrow -1"; on = "<UP>"; }
         { run = "arrow 1"; on = "<DOWN>"; }
-        { run = "plegin smart-enter"; on = "<Enter>"; }
+        { run = "plugin smart-enter"; on = "<Enter>"; }
       ];
     };
   };

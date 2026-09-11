@@ -17,16 +17,8 @@
       url = "github:raphamorim/rio/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    karukan = {
-      url = "path:./flakes/karukan";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     waybar = {
       url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    maki = {
-      url = "github:tontinton/maki";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     shaders = {

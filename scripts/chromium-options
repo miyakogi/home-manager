@@ -16,7 +16,7 @@
 #   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland) --some-other-option
 #
 
-if [ -n "$WAYLAND_DISPLAY" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+if [ "$WAYLAND_DISPLAY" != "" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   session="wayland"
 else
   session="$(loginctl show-session "$(loginctl show-user "$(whoami)" -p Display --value)" -p Type --value)"

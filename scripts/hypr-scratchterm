@@ -11,7 +11,7 @@ get_term_address() {
 }
 
 is_exist() {
-  test -n "$(get_term_address)"
+  test "$(get_term_address)" != ""
 }
 
 start_term() {

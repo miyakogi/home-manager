@@ -30,7 +30,8 @@ if [ "$1" = all ]; then
     class="Critical"
     icon=""  # high
   fi
-  echo -n "{ \"text\": \"${icon} CPU ${ctemp}°C | GPU ${gtemp}°C\", \"class\": \"$class\" }"
+  jq -cn --arg text "${icon} CPU ${ctemp}°C | GPU ${gtemp}°C" --arg class "$class" \
+    '{ text: $text, class: $class }'
 else
   if [ "$temp" -lt 65 ]; then
     class="Idle"
@@ -42,5 +43,6 @@ else
     class="Critical"
     icon=""  # high
   fi
-  echo -n "{ \"text\": \"${icon}  ${temp}°C\", \"$2\": \"$class\" }"
+  jq -cn --arg text "${icon}  ${temp}°C" --arg key "${2:-}" --arg class "$class" \
+    '{ text: $text } + { ($key): $class }'
 fi

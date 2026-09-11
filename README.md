@@ -2,12 +2,12 @@
 
 Nix [home-manager](https://github.com/nix-community/home-manager) flake for user `miyaco` on NixOS (x86_64-linux).
 
-Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IME (fcitx5 + karukan), and a set of WM-agnostic shell scripts.
+Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IME (fcitx5 + hazkey), and a set of WM-agnostic shell scripts.
 
 ## Overview
 
 - **Dual window managers** — [Hyprland](https://hyprland.org/) (configured via the hypr3 Lua plugin in `hypr/hyprland.lua`) and [Niri](https://niri.dev/), both launched through [uwsm](https://github.com/Vladimir-csp/uwsm) and sharing the same scripts and services
-- **Japanese input** — fcitx5 with [hazkey](https://github.com/aster-void/nix-hazkey) and [karukan](https://github.com/togatoga/karukan), a neural kana-kanji conversion IME, packaged as a local flake (`flakes/karukan`)
+- **Japanese input** — fcitx5 with [hazkey](https://github.com/aster-void/nix-hazkey), a neural kana-kanji conversion IME. A local flake for [karukan](https://github.com/togatoga/karukan) is kept in `flakes/karukan` but is not currently wired in.
 - **WM-agnostic scripts** — `scripts/` is installed verbatim to `~/bin`; window manager keybindings call these by name
 - **Systemd user services** — per-WM Waybar and idle daemons (hypridle/swayidle), ollama, Taskwarrior notification timers
 - **Many terminals configured** — alacritty, foot, kitty, ghostty, rio, wezterm
@@ -32,7 +32,7 @@ home-manager switch --flake .#miyaco
 ├── <app>/<app>.nix     # per-app home-manager modules
 ├── scripts/            # WM-agnostic shell scripts
 ├── services/           # systemd user units
-└── flakes/karukan/     # local flake: karukan neural IME for fcitx5
+└── flakes/karukan/     # optional local flake: karukan neural IME (not wired in)
 ```
 
 `home.nix` imports each `dir/name.nix` module; per-app configuration lives in the corresponding directory.
@@ -41,7 +41,7 @@ home-manager switch --flake .#miyaco
 
 - **Scripts shared by both WMs** — `terminal`, `launch-menu`, `screenshot`, `niri-workspace`, `hypr-addws`, `hypr-scratchterm`, `is-4k`, and more are called by name from both Hyprland and Niri keybindings
 - **Taskwarrior notifications** — `tw-notify` / `tw-notify-daily` run on systemd timers and notify due tasks
-- **Home-managed IME** — karukan is built from source via a local flake and wired into fcitx5 (see `flakes/karukan/flake.nix`)
+- **Home-managed IME** — hazkey is provisioned via the `nix-hazkey` flake input and wired into fcitx5; `flakes/karukan` is an optional, currently disabled alternative
 - **Per-WM Waybar** — separate services (`waybar-hyprland.service`, `waybar-niri.service`) so the bar can restart without touching the other WM
 
 ## Keybindings
@@ -76,8 +76,8 @@ Apps with dedicated configuration modules (not just installed packages):
 - **UI** — waybar (custom build from flake input), quickshell, swaync, fuzzel, tofi, swappy
 - **Media** — mpv
 - **Development** — Rust toolchain (rustup, mold, cargo-llvm-cov), Node.js/pnpm, LSPs (ruff, pyright, lua-language-server, bash-language-server, typescript-language-server), hyperfine
-- **AI** — ollama (Vulkan), pi-coding-agent, opencode
-- **Other** — taskwarrior (with notification timers), capacities, QMK tooling
+- **AI** — ollama (Vulkan), opencode
+- **Other** — taskwarrior (with notification timers), QMK tooling
 
 ## License
 

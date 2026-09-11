@@ -6,8 +6,14 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
 
@@ -34,8 +40,14 @@
           };
 
           buildAndTestSubdir = ".";
-          cargoBuildFlags = [ "-p" "karukan-fcitx5" ];
-          cargoTestFlags = [ "-p" "karukan-fcitx5" ];
+          cargoBuildFlags = [
+            "-p"
+            "karukan-fcitx5"
+          ];
+          cargoTestFlags = [
+            "-p"
+            "karukan-fcitx5"
+          ];
 
           nativeBuildInputs = with pkgs; [
             cmake
@@ -44,11 +56,14 @@
             gcc
           ];
 
-          buildInputs = with pkgs; [
-            openssl
-          ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-            pkgs.libclang
-          ];
+          buildInputs =
+            with pkgs;
+            [
+              openssl
+            ]
+            ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.libclang
+            ];
 
           # llama-cpp-sys-2 は CMake 経由で llama.cpp 本体をネイティブビルドする。
           # cargo のビルドスクリプト内で呼ばれる CMake が、Nix サンドボックスの
@@ -125,7 +140,10 @@
           meta = with pkgs.lib; {
             description = "fcitx5 addon binary for karukan (Japanese neural kana-kanji IME)";
             homepage = "https://github.com/togatoga/karukan";
-            license = with licenses; [ mit asl20 ];
+            license = with licenses; [
+              mit
+              asl20
+            ];
             platforms = platforms.linux;
           };
         };
@@ -144,7 +162,13 @@
         # 注意: fcitx5 本体の有効化・IM一覧への追加は home-manager 単体では
         # サポートが薄いため、NixOS側 (i18n.inputMethod) で行うか、
         # ~/.config/fcitx5/profile を home.file 等で別途管理してください。
-        homeManagerModules.default = { config, lib, pkgs, ... }:
+        homeManagerModules.default =
+          {
+            config,
+            lib,
+            pkgs,
+            ...
+          }:
           let
             cfg = config.programs.karukan-fcitx5;
           in
@@ -158,9 +182,9 @@
 
               # fcitx5 がアドオンディレクトリとして $XDG_DATA_DIRS/fcitx5/addon を見るため、
               # home.sessionVariables で明示的に追加しておく。
-              home.sessionVariables.XDG_DATA_DIRS =
-                "${karukan-fcitx5-addon}/share\${XDG_DATA_DIRS:+:}$XDG_DATA_DIRS";
+              home.sessionVariables.XDG_DATA_DIRS = "${karukan-fcitx5-addon}/share\${XDG_DATA_DIRS:+:}$XDG_DATA_DIRS";
             };
           };
-      });
+      }
+    );
 }

@@ -9,9 +9,12 @@
     package = pkgs.mpv.override {
       mpv-unwrapped = pkgs.mpv-unwrapped.override {
         vapoursynthSupport = true;
-        vapoursynth = pkgs.vapoursynth.withPlugins (with pkgs; [
-          vapoursynth-mvtools
-        ]);
+        vapoursynth = pkgs.vapoursynth.withPlugins (
+          with pkgs;
+          [
+            vapoursynth-mvtools
+          ]
+        );
       };
       scripts = with pkgs.mpvScripts; [
         mpris

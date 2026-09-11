@@ -29,13 +29,15 @@ in
   ];
   home.sessionVariables = {
     DRI_PRIME = "1";
-    NPM_CONFIG_PREFIX = "$HOME/.npm-global";  # global npm install
+    NPM_CONFIG_PREFIX = "$HOME/.npm-global"; # global npm install
   };
 
   # Input Methods
   services.hazkey = {
     enable = true;
-    server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override { enableVulkan = true; };
+    server.package = inputs.nix-hazkey.packages.${system}.hazkey-server.override {
+      enableVulkan = true;
+    };
   };
   i18n.inputMethod = {
     type = "fcitx5";
@@ -66,7 +68,7 @@ in
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gnome  # for niri dark theme, see: https://github.com/niri-wm/niri/issues/2878#issuecomment-3573812112
+      xdg-desktop-portal-gnome # for niri dark theme, see: https://github.com/niri-wm/niri/issues/2878#issuecomment-3573812112
     ];
     config.niri = {
       "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
@@ -83,141 +85,143 @@ in
     };
   };
 
-
   # Install programs
-  home.packages = with pkgs; [
-    # ── System / Core ───────────────────────────────────
-    curl
-    less
-    uutils-coreutils-noprefix
-    wget
-    which
+  home.packages =
+    with pkgs;
+    [
+      # ── System / Core ───────────────────────────────────
+      curl
+      less
+      uutils-coreutils-noprefix
+      wget
+      which
 
-    # ── Documentation ───────────────────────────────────
-    man-db
-    man-pages
-    tlrc
+      # ── Documentation ───────────────────────────────────
+      man-db
+      man-pages
+      tlrc
 
-    # ── Archives & Files ────────────────────────────────
-    libarchive
-    ouch
-    unar
-    unzip
-    zip
+      # ── Archives & Files ────────────────────────────────
+      libarchive
+      ouch
+      unar
+      unzip
+      zip
 
-    # ── CLI Tools ──────────────────────────────────────
-    dua
-    fd
-    fzf
-    jq
-    just
-    tokei
-    trashy
-    zmx  # terminal session manager
+      # ── CLI Tools ──────────────────────────────────────
+      dua
+      fd
+      fzf
+      jq
+      just
+      tokei
+      trashy
+      zmx # terminal session manager
 
-    # ── Container / Isolation ───────────────────────────
-    appimage-run
-    bubblewrap
-    distrobox
+      # ── Container / Isolation ───────────────────────────
+      appimage-run
+      bubblewrap
+      distrobox
 
-    # ── Toolchain / Runtime ─────────────────────────────
-    clang
-    lua
-    nodejs
-    pnpm
-    poetry
-    rustup
-    uv
+      # ── Toolchain / Runtime ─────────────────────────────
+      clang
+      lua
+      nodejs
+      pnpm
+      poetry
+      rustup
+      uv
 
-    # ── Build / Libs ────────────────────────────────────
-    cmake
-    libxkbcommon.dev
-    mold
-    openssl
-    pkgconf
+      # ── Build / Libs ────────────────────────────────────
+      cmake
+      libxkbcommon.dev
+      mold
+      openssl
+      pkgconf
 
-    # ── Benchmark / Coverage ────────────────────────────
-    cargo-llvm-cov
-    hyperfine
+      # ── Benchmark / Coverage ────────────────────────────
+      cargo-llvm-cov
+      hyperfine
 
-    # ── Linter / Formatter ──────────────────────────────
-    ruff
-    shellharden
-    typos
+      # ── Linter / Formatter ──────────────────────────────
+      ruff
+      shellharden
+      typos
 
-    # ── Language Servers ────────────────────────────────
-    bash-language-server
-    lua-language-server
-    pyright
-    typescript-language-server
-    typos-lsp
-    vscode-css-languageserver
+      # ── Language Servers ────────────────────────────────
+      bash-language-server
+      lua-language-server
+      pyright
+      typescript-language-server
+      typos-lsp
+      vscode-css-languageserver
 
-    # ── AI / Inference ──────────────────────────────────
-    ollama-vulkan
+      # ── AI / Inference ──────────────────────────────────
+      ollama-vulkan
 
-    # ── Graphics / GPU ──────────────────────────────────
-    libva
-    mesa
-    nvtopPackages.full
-    radeontop
-    vulkan-tools
+      # ── Graphics / GPU ──────────────────────────────────
+      libva
+      mesa
+      nvtopPackages.full
+      radeontop
+      vulkan-tools
 
-    # ── Desktop / Wayland ───────────────────────────────
-    libnotify
-    lxqt.pcmanfm-qt
-    wl-clipboard-rs
-    xdg-utils
+      # ── Desktop / Wayland ───────────────────────────────
+      libnotify
+      lxqt.pcmanfm-qt
+      wl-clipboard-rs
+      xdg-utils
 
-    # ── Audio / Music ───────────────────────────────────
-    alsa-utils
-    lxqt.pavucontrol-qt
-    mpc
-    ncmpc
-    playerctl
-    pulsemixer
-    spotify-player
+      # ── Audio / Music ───────────────────────────────────
+      alsa-utils
+      lxqt.pavucontrol-qt
+      mpc
+      ncmpc
+      playerctl
+      pulsemixer
+      spotify-player
 
-    # ── Video ───────────────────────────────────────────
-    ffmpeg
-    ffmpegthumbnailer
-    yt-dlp
+      # ── Video ───────────────────────────────────────────
+      ffmpeg
+      ffmpegthumbnailer
+      yt-dlp
 
-    # ── Image ───────────────────────────────────────────
-    imagemagick
-    imv
-    libavif
-    pngquant
+      # ── Image ───────────────────────────────────────────
+      imagemagick
+      imv
+      libavif
+      pngquant
 
-    # ── Gaming ──────────────────────────────────────────
-    gamescope
-    lsfg-vk
-    lsfg-vk-ui
-    mangohud
-    prismlauncher
+      # ── Gaming ──────────────────────────────────────────
+      gamescope
+      lsfg-vk
+      lsfg-vk-ui
+      mangohud
+      prismlauncher
 
-    # ── Theming ─────────────────────────────────────────
-    adwaita-icon-theme
-    kdePackages.qtstyleplugin-kvantum
-    qt6Packages.qt6ct
-    rose-pine-cursor
+      # ── Theming ─────────────────────────────────────────
+      adwaita-icon-theme
+      kdePackages.qtstyleplugin-kvantum
+      qt6Packages.qt6ct
+      rose-pine-cursor
 
-    # ── Hardware / QMK ──────────────────────────────────
-    avrdude
-    dfu-programmer
-    dfu-util
-    picotool
-    qmk
+      # ── Hardware / QMK ──────────────────────────────────
+      avrdude
+      dfu-programmer
+      dfu-util
+      picotool
+      qmk
 
-    # ── Productivity ────────────────────────────────────
-    #capacities  # TODO: disabled due to build error -- PKM
-    taskwarrior3
-    taskwarrior-tui
-  ] ++ [
-    # ── Flake Packages ──────────────────────────────────
-    # without pkgs prefix: packages from inputs.* go here
-    # example: inputs.<name>.packages.${system}.default
-  ];
+      # ── Productivity ────────────────────────────────────
+      #capacities  # TODO: disabled due to build error -- PKM
+      taskwarrior3
+      taskwarrior-tui
+    ]
+    ++ [
+      # ── Flake Packages ──────────────────────────────────
+      # without pkgs prefix: packages from inputs.* go here
+      # example: inputs.<name>.packages.${system}.default
+    ];
 
   imports = [
     # ── Flake Modules ───────────────────────────────────

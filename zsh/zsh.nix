@@ -1,10 +1,16 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     defaultKeymap = "emacs";
     autosuggestion.enable = true;
-    fastSyntaxHighlighting.enable= true;
+    fastSyntaxHighlighting.enable = true;
     shellAliases = {
       cp = "cp -i";
       mv = "mv -i";

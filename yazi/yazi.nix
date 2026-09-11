@@ -10,7 +10,11 @@
     shellWrapperName = "yy";
     settings = {
       mgr = {
-        ratio = [ 0 4 4 ];
+        ratio = [
+          0
+          4
+          4
+        ];
         sort_by = "natural";
         sort_sensitive = true;
         sort_reverse = false;
@@ -23,9 +27,18 @@
     };
     keymap = {
       mgr.prepend_keymap = [
-        { run = "arrow -1"; on = "<UP>"; }
-        { run = "arrow 1"; on = "<DOWN>"; }
-        { run = "plugin smart-enter"; on = "<Enter>"; }
+        {
+          run = "arrow -1";
+          on = "<UP>";
+        }
+        {
+          run = "arrow 1";
+          on = "<DOWN>";
+        }
+        {
+          run = "plugin smart-enter";
+          on = "<Enter>";
+        }
       ];
     };
   };

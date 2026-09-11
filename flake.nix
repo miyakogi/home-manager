@@ -31,9 +31,13 @@
     };
   };
 
-
   outputs =
-    { self, nixpkgs, home-manager, ... } @ inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
 
@@ -43,6 +47,8 @@
       };
     in
     {
+      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
+
       homeConfigurations."miyaco" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };

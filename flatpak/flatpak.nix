@@ -3,21 +3,21 @@
     enable = true;
     packages = [
       # Firefox
-      "org.mozilla.firefox"            # Firefox
-      "app.zen_browser.zen"            # Zen
+      "org.mozilla.firefox" # Firefox
+      "app.zen_browser.zen" # Zen
 
       # Chromium
-      "org.chromium.Chromium"          # Chromium
-      "com.google.Chrome"              # Google Chrome
-      "com.brave.Browser"              # Brave
-      "com.vivaldi.Vivaldi"            # Vivaldi
+      "org.chromium.Chromium" # Chromium
+      "com.google.Chrome" # Google Chrome
+      "com.brave.Browser" # Brave
+      "com.vivaldi.Vivaldi" # Vivaldi
 
       # AI
       #"ai.lmstudio.lm-studio"         # LM-Studio
       #"ai.opencode.opencode"          # OpenCode Desktop
 
       # Flatpak Management
-      "com.github.tchx84.Flatseal"     # Flatseal
+      "com.github.tchx84.Flatseal" # Flatseal
 
       # E-mail
       #"com.tutanota.Tutanota"         # Tuta Mail
@@ -30,16 +30,16 @@
       #"com.ticktick.TickTick"         # TickTick
 
       # Music Player
-      "com.spotify.Client"             # Spotify
+      "com.spotify.Client" # Spotify
 
       # Game
-      "com.valvesoftware.Steam"        # Steam
-      "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"  # Proton-GE
+      "com.valvesoftware.Steam" # Steam
+      "com.valvesoftware.Steam.CompatibilityTool.Proton-GE" # Proton-GE
 
       # Others
-      "com.obsproject.Studio"          # OBS
-      "org.gnome.gitlab.dqpb.GMetronome"  # GMetronome
-      "org.kde.krita"                  # Krita
+      "com.obsproject.Studio" # OBS
+      "org.gnome.gitlab.dqpb.GMetronome" # GMetronome
+      "org.kde.krita" # Krita
     ];
   };
 }

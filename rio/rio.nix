@@ -1,11 +1,12 @@
 { pkgs, inputs, ... }:
 let
   rio = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.rio.overrideAttrs (old: {
-      doCheck = false;
-      withX11 = false;
-      withWayland = true;
-    });
-in {
+    doCheck = false;
+    withX11 = false;
+    withWayland = true;
+  });
+in
+{
   home.packages = with pkgs; [
     unifont
   ];

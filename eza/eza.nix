@@ -7,9 +7,11 @@
     git = true;
     extraOptions = [
       "--group-directories-first"
-      "--sort" "Filename"
+      "--sort"
+      "Filename"
       "--group"
-      "--time-style" "long-iso"
+      "--time-style"
+      "long-iso"
     ];
   };
 }

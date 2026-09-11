@@ -1,5 +1,5 @@
 { pkgs, inputs, ... }: {
-  home.packages =  [
+  home.packages = [
     # pkgs.waybar
     inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

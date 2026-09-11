@@ -129,7 +129,7 @@
         difftool = true;
       };
       push = {
-        defaylt = "simple";
+        default = "simple";
       };
       pull = {
         rebase = false;

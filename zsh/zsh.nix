@@ -40,7 +40,7 @@
       '';
       hx = ''
         command hx "$@"
-        pringtf '\033[0 q'
+        printf '\033[0 q'
       '';
       gg = ''
         if git rev-parse --is-inside-work-tree &>/dev/null; then

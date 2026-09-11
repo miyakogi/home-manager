@@ -13,15 +13,30 @@
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rio.url = "github:raphamorim/rio/main";
-    karukan.url = "path:./flakes/karukan";
-    waybar.url = "github:Alexays/Waybar";
-    maki.url = "github:tontinton/maki";
+    rio = {
+      url = "github:raphamorim/rio/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    karukan = {
+      url = "path:./flakes/karukan";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    maki = {
+      url = "github:tontinton/maki";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     shaders = {
       url = "github:miyakogi/Anime4K-mpv-glsl";
       flake = false;
     };
-    opencode2.url = "github:anomalyco/opencode/beta";
+    opencode2 = {
+      url = "github:anomalyco/opencode/beta";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 

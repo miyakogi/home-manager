@@ -1,6 +1,0 @@
-[Unit]
-Description=Niri Graphical Session Trigger
-BindTo=graphical-session.target
-
-[Install]
-WantedBy=graphical-session.target

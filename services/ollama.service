@@ -19,5 +19,5 @@ RestartPreventExitStatus=1
 Type=simple
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
 

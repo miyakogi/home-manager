@@ -1,7 +1,11 @@
 {
   pkgs,
+  inputs,
   ...
 }:
+let
+  waybar = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in
 {
   systemd.user.services.taskwarrior-notify = {
     Unit.Description = "Taskwarrior Due Task Notifier";
@@ -73,5 +77,71 @@
       RestartSec = 3;
       RestartPreventExitStatus = [ 1 ];
     };
+  };
+
+  systemd.user.services.hypridle-hyprland = {
+    Unit = {
+      Description = "Idle/Sleep Control for Hyprland";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      Requisite = [ "graphical-session.target" ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.hypridle}/bin/hypridle";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  systemd.user.services.swayidle-niri = {
+    Unit = {
+      Description = "Idle/Sleep Control for Niri";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      Requisite = [ "graphical-session.target" ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.swayidle}/bin/swayidle lock ${pkgs.hyprlock}/bin/hyprlock timeout 600 'loginctl lock-session' timeout 1200 'systemctl suspend'";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  systemd.user.services.waybar-hyprland = {
+    Unit = {
+      Description = "Highly customizable Wayland bar";
+      Documentation = [ "man:waybar(5)" ];
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      Requisite = [ "graphical-session.target" ];
+      ConditionEnvironment = "HYPRLAND_INSTANCE_SIGNATURE";
+    };
+    Service = {
+      ExecStart = "${waybar}/bin/waybar";
+      ExecReload = "kill -SIGUSR2 $MAINPID";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  systemd.user.services.waybar-niri = {
+    Unit = {
+      Description = "Highly customizable Wayland bar for Niri";
+      Documentation = [ "man:waybar(5)" ];
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      Requisite = [ "graphical-session.target" ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
+    };
+    Service = {
+      ExecStart = "${waybar}/bin/waybar --style %h/.config/waybar/style-niri.css";
+      ExecReload = "kill -SIGUSR2 $MAINPID";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }

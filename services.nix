@@ -5,16 +5,4 @@
   home.file.".local/share/systemd/user/niri-graphical-session.target" = {
     source = ./services/niri-graphical-session.target;
   };
-  home.file.".local/share/systemd/user/hypridle-hyprland.service" = {
-    source = ./services/hypridle-hyprland.service;
-  };
-  home.file.".local/share/systemd/user/swayidle-niri.service" = {
-    source = ./services/swayidle-niri.service;
-  };
-  home.file.".local/share/systemd/user/waybar-hyprland.service" = {
-    source = ./services/waybar-hyprland.service;
-  };
-  home.file.".local/share/systemd/user/waybar-niri.service" = {
-    source = ./services/waybar-niri.service;
-  };
 }

@@ -4,7 +4,8 @@ Nix home-manager flake for user `miyaco` (NixOS, x86_64-linux). No CI, no tests 
 
 ## Apply changes
 
-- `home-manager switch --flake .#miyaco` from the repo root (creates the gitignored `result` symlink)
+- `home-manager switch --flake .#miyaco` from the repo root (registers the generation under `~/.local/state/home-manager`; it does not create a `result` symlink)
+- `home-manager build --flake .#miyaco` creates the gitignored `result` out-link when a stable path to the built generation is needed
 
 ## Layout
 

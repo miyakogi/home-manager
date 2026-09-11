@@ -6,7 +6,7 @@ Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IM
 
 ## Overview
 
-- **Dual window managers** — [Hyprland](https://hyprland.org/) (configured via the hypr3 Lua plugin in `hypr/hyprland.lua`) and [Niri](https://niri.dev/), both launched through [uwsm](https://github.com/Vladimir-csp/uwsm) and sharing the same scripts and services
+- **Dual window managers** — [Hyprland](https://hyprland.org/) (Lua config in `hypr/hyprland.lua`) and [Niri](https://niri.dev/), both launched through [uwsm](https://github.com/Vladimir-csp/uwsm) and sharing the same scripts and services
 - **Japanese input** — fcitx5 with [hazkey](https://github.com/aster-void/nix-hazkey), a neural kana-kanji conversion IME. A local flake for [karukan](https://github.com/togatoga/karukan) is kept in `flakes/karukan` but is not currently wired in.
 - **WM-agnostic scripts** — `scripts/` is installed verbatim to `~/bin`; window manager keybindings call these by name
 - **Systemd user services** — per-WM Waybar and idle daemons (hypridle/swayidle), ollama, Taskwarrior notification timers

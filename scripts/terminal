@@ -23,7 +23,7 @@ case "$XDG_CURRENT_DESKTOP" in
     _term_fallback=kitty
     ;;
   niri)
-    # Sway default terminal
+    # Niri default terminal
     _term_fallback=foot
     ;;
   sway*)

@@ -15,18 +15,15 @@ function menu() {
   done
 }
 
-case $XDG_CURRENT_DESKTOP in
-  niri)
-    dmenu_cmd=(fuzzel --dmenu)
-    ;;
-  Hyprland)
+case "$XDG_CURRENT_DESKTOP" in
+  niri | Hyprland)
     dmenu_cmd=(fuzzel --dmenu)
     ;;
   *)
     dmenu_cmd=(tofi)
     ;;
 esac
-    
+
 
 RET=$(menu | "${dmenu_cmd[@]}" | tr -d '[:space:]')
 

@@ -25,14 +25,13 @@ home-manager switch --flake .#miyaco
 ## Structure
 
 ```
-├── flake.nix           # flake entrypoint
-├── home.nix            # root module (packages, imports)
-├── scripts.nix         # installs scripts/ to ~/bin
-├── services.nix        # systemd user services & timers
-├── <app>/<app>.nix     # per-app home-manager modules
-├── scripts/            # WM-agnostic shell scripts
-├── services/           # systemd user units
-└── flakes/karukan/     # optional local flake: karukan neural IME (not wired in)
+├── flake.nix                    # flake entrypoint
+├── home.nix                     # root module (packages, imports)
+├── scripts.nix                  # installs scripts/ to ~/bin
+├── <app>/<app>.nix              # per-app home-manager modules
+├── scripts/                     # WM-agnostic shell scripts
+├── services/services.nix        # systemd user units via systemd.user.*
+└── flakes/karukan/              # optional local flake: karukan neural IME (not wired in)
 ```
 
 `home.nix` imports each `dir/name.nix` module; per-app configuration lives in the corresponding directory.

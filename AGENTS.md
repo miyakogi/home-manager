@@ -10,12 +10,13 @@ Nix home-manager flake for user `miyaco` (NixOS, x86_64-linux). No CI, no tests 
 
 - `home.nix` is the root module; each app has `dir/name.nix` listed in its `imports`
 - `scripts/` is copied verbatim to `~/bin` (recursive, all executable) by `scripts.nix` — WM keybindings call these scripts by name
-- `services/` holds systemd user services/timers deployed via `services.nix`
+- `services/services.nix` declares systemd user units (services/timers) via `systemd.user.*`
 - `flakes/karukan/` is a local path flake input
 
 ## Gotchas
 
 - Both Hyprland and Niri are configured, launched via uwsm, and share the same scripts
+- Systemd user units are enabled declaratively (`.wants` live in the HM generation). `home-manager switch` runs sd-switch, so changed units are started/restarted/stopped automatically. `ollama.service` has no `Install` and is intentionally never auto-started.
 
 ## Conventions
 

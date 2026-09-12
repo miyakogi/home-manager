@@ -229,6 +229,7 @@ in
     inputs.nix-hazkey.homeModules.hazkey
 
     # ── System / Base ───────────────────────────────────
+    ./services.nix
     ./services/services.nix
     ./scripts.nix
     ./flatpak/flatpak.nix

@@ -86,11 +86,7 @@ in
       Description = "Idle/Sleep Control for Hyprland";
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session.target" ];
-      ExecCondition = [
-        "/bin/sh"
-        "-c"
-        "[ \"$XDG_CURRENT_DESKTOP\" = Hyprland ]"
-      ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
     };
     Service = {
       Type = "simple";
@@ -105,11 +101,7 @@ in
       Description = "Idle/Sleep Control for Niri";
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session.target" ];
-      ExecCondition = [
-        "/bin/sh"
-        "-c"
-        "[ \"$XDG_CURRENT_DESKTOP\" = niri ]"
-      ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
     };
     Service = {
       Type = "simple";
@@ -125,11 +117,7 @@ in
       Documentation = [ "man:waybar(5)" ];
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session.target" ];
-      ExecCondition = [
-        "/bin/sh"
-        "-c"
-        "[ -n \"$HYPRLAND_INSTANCE_SIGNATURE\" ]"
-      ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
     };
     Service = {
       ExecStart = "${waybar}/bin/waybar";
@@ -145,11 +133,7 @@ in
       Documentation = [ "man:waybar(5)" ];
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session.target" ];
-      ExecCondition = [
-        "/bin/sh"
-        "-c"
-        "[ \"$XDG_CURRENT_DESKTOP\" = niri ]"
-      ];
+      ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
     };
     Service = {
       ExecStart = "${waybar}/bin/waybar --style %h/.config/waybar/style-niri.css";

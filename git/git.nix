@@ -50,6 +50,8 @@
 
       # Environment
       ".env"
+      ".envrc"
+      ".direnv/"
 
       # Temporary
       "*.bak"

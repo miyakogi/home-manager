@@ -121,7 +121,7 @@ in
     };
     Service = {
       ExecStart = "${waybar}/bin/waybar";
-      ExecReload = "kill -SIGUSR2 $MAINPID";
+      ExecReload = "${pkgs.procps}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];
@@ -137,7 +137,7 @@ in
     };
     Service = {
       ExecStart = "${waybar}/bin/waybar --style %h/.config/waybar/style-niri.css";
-      ExecReload = "kill -SIGUSR2 $MAINPID";
+      ExecReload = "${pkgs.procps}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];

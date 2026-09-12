@@ -3,6 +3,7 @@
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    enableZshIntegration = true;
     icons = "auto";
     git = true;
     extraOptions = [

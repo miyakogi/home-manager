@@ -3,6 +3,7 @@
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    enableZshIntegration = true;
     systemd.enable = true;
     settings = {
       font-family = [

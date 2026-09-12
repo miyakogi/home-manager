@@ -7,6 +7,7 @@
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    enableZshIntegration = true;
     shellWrapperName = "yy";
     settings = {
       mgr = {

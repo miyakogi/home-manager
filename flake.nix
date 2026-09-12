@@ -33,7 +33,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
@@ -42,19 +41,17 @@
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
-        localSystem = { inherit system; };
+        inherit system;
         config.allowUnfree = true;
       };
     in
     {
-      formatter.x86_64-linux = pkgs.nixfmt;
+      formatter.${system} = pkgs.nixfmt;
 
       homeConfigurations."miyaco" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [
           ./home.nix
         ];

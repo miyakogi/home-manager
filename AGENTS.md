@@ -12,7 +12,7 @@ Nix home-manager flake for user `miyaco` (NixOS, x86_64-linux). No CI, no tests 
 - `home.nix` is the root module; each app has `dir/name.nix` listed in its `imports`
 - `scripts/` is copied verbatim to `~/bin` (recursive, all executable) by `scripts.nix` — WM keybindings call these scripts by name
 - `services/services.nix` declares systemd user units (services/timers) via `systemd.user.*`
-- `flakes/karukan/` is a local path flake input
+- `flakes/karukan/` is a local flake kept for reference; it is no longer a flake input
 
 ## Gotchas
 

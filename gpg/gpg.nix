@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = [
-    pkgs.gcr # better for pinentry-gnome3
+    pkgs.gcr_3 # better for pinentry-gnome3
   ];
 
   programs.gpg = {

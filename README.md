@@ -76,7 +76,7 @@ Apps with dedicated configuration modules (not just installed packages):
 - **Media** — mpv
 - **Development** — Rust toolchain (rustup, mold, cargo-llvm-cov), Node.js/pnpm, LSPs (ruff, pyright, lua-language-server, bash-language-server, typescript-language-server), hyperfine
 - **AI** — ollama (Vulkan), opencode
-- **Other** — taskwarrior (with notification timers), QMK tooling
+- **Other** — taskwarrior (with notification timers), capacities, QMK tooling
 
 ## License
 

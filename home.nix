@@ -213,7 +213,7 @@ in
       qmk
 
       # ── Productivity ────────────────────────────────────
-      #capacities  # TODO: disabled due to build error -- PKM
+      capacities
       taskwarrior3
       taskwarrior-tui
     ]

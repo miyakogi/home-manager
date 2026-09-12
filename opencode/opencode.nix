@@ -6,7 +6,7 @@ let
   # hash from a failed `nix build github:anomalyco/opencode/<rev>#node_modules_updater`.
   opencode2 = opencode2Pkgs.default.overrideAttrs (old: {
     node_modules = old.node_modules.override {
-      hash = "sha256-bWKV3fV8Yc+3ILaNRChIYajsRcvEG2OkydsD2KMUXCM=";
+      hash = "sha256-yzCk746pospz8EVakHRcDhYJkhGYGSt9dHOPbzO4OYo=";
     };
   });
 in
@@ -16,7 +16,7 @@ in
   ];
   programs.opencode = {
     enable = true;
-    package = opencode2;
+    # package = opencode2;
     settings = {
       default_agent = "plan";
       mode = {

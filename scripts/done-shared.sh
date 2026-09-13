@@ -108,7 +108,7 @@ elif [ "${BLE_VERSION:-}" != "" ]; then
   blehook PREEXEC+=__done_preexec 2>/dev/null || true
   blehook POSTEXEC+=__done_precmd 2>/dev/null || true
 elif [ "${BASH_VERSION:-}" != "" ]; then
-  # Plain bash / brush: use DEBUG trap + PROMPT_COMMAND
+  # Plain bash: use DEBUG trap + PROMPT_COMMAND
   if [[ "$PROMPT_COMMAND" != *"__done_precmd"* ]]; then
     trap '__done_preexec "$BASH_COMMAND"' DEBUG 2>/dev/null || true
     PROMPT_COMMAND="__done_precmd${PROMPT_COMMAND:+; $PROMPT_COMMAND}"

@@ -228,7 +228,6 @@ in
     ./bash/bash.nix
     ./fish/fish.nix
     ./zsh/zsh.nix
-    # ./brush/brush.nix
 
     # ── Docs / VCS / Keys ───────────────────────────────
     ./man/man.nix
@@ -288,7 +287,6 @@ in
     ./tofi/tofi.nix
 
     # ── Notifications / Shot ────────────────────────────
-    # ./mako/mako.nix
     ./swaync/swaync.nix
     ./swappy/swappy.nix
 

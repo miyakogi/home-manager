@@ -1,7 +1,5 @@
-# Shared by bash and brush (brush also processes .bashrc).
 # Runs after shellAliases (see bash.nix), so `ls` in function bodies expands
-# to the eza alias at definition time (bash), or is resolved at runtime from
-# the current alias (brush, which has no chained-alias support).
+# to the eza alias at definition time.
 
 # Functions used by both ble and non-ble shells
 function edit() {
@@ -54,8 +52,8 @@ function tree() {
 bind '"\C-p": history-search-backward'
 bind '"\C-n": history-search-forward'
 
-# ble.sh handles keys and hooks via ~/.blerc; plain bash / brush use
-# readline bindings and PROMPT_COMMAND here instead.
+# ble.sh handles keys and hooks via ~/.blerc; plain bash uses readline
+# bindings and PROMPT_COMMAND here instead.
 if [[ -z ${BLE_VERSION-} ]]; then
   stty werase undef
   bind '"\C-w": unix-filename-rubout'

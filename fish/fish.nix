@@ -11,7 +11,7 @@
   # improved completion
   programs.carapace = {
     enable = true;
-    enableBashIntegration = false; # conflict with brush and blesh
+    enableBashIntegration = false; # conflict with blesh
     enableFishIntegration = true;
     enableZshIntegration = true;
   };

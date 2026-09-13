@@ -9,7 +9,7 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
-      if [[ $- == *i* && -z ''${BRUSH_VERSION-} ]]; then
+      if [[ $- == *i* ]]; then
         source ${pkgs.blesh}/share/blesh/ble.sh
       fi
     '';

@@ -47,7 +47,9 @@ in
         };
       };
       plugin = [
-        "superpowers@git+https://github.com/obra/superpowers.git"
+        # V2-capable fork of obra/superpowers (PR #2106, unmerged). Pinned to a
+        # commit SHA; switch back to upstream once the PR is merged.
+        "superpowers@git+https://github.com/GoldJohnKing/superpowers.git#54de230d43d9277e3c397eca9104e0f86d11f5f3"
       ];
     };
     tui = {

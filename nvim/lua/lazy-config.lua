@@ -1,12 +1,6 @@
 -- ####### Lazy.nvim ######
 
 local plugins = {
-  {
-    -- Need as a library
-    'nvim-lua/plenary.nvim',
-    lazy = true,
-  },
-
   -- ### File Management ###
   -- git integration
   {

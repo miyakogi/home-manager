@@ -42,7 +42,16 @@
 
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        # The only unfree packages this configuration uses. Listed
+        # explicitly so a newly added unfree dependency fails evaluation
+        # instead of being allowed silently.
+        config.allowUnfreePredicate =
+          p:
+          builtins.elem (nixpkgs.lib.getName p) [
+            "capacities"
+            "cursor-cli"
+            "zsh-abbr"
+          ];
       };
     in
     {

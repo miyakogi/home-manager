@@ -77,27 +77,28 @@ local plugins = {
       vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, opts)
 
       local on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         -- key mapping
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-
-        -- command
-        vim.api.nvim_create_user_command('Rename', function() vim.lsp.buf.references(bufopts) end, {})
       end
 
+      -- apply the same on_attach to every language server
+      vim.lsp.config('*', { on_attach = on_attach })
+
+      vim.api.nvim_create_user_command('Rename', vim.lsp.buf.rename, {})
+
       local lsp_flags = {
-        document_text_change = 150,
+        debounce_text_changes = 150,
       }
 
       -- spell check
       if vim.fn.executable('typos-lsp') > 0 then
         vim.lsp.enable('typos_lsp')
         vim.lsp.config('typos_lsp', {
-          on_attach = on_attach,
           flags = lsp_flags,
         })
       end
@@ -107,7 +108,6 @@ local plugins = {
       if vim.fn.executable('bash-language-server') > 0 then
         vim.lsp.enable('bashls')
         vim.lsp.config('bashls', {
-          on_attach = on_attach,
           flags = lsp_flags,
           filetypes = { 'sh', 'bash' },
         })
@@ -116,9 +116,8 @@ local plugins = {
       -- fsh
       -- requires `fish-lsp` command
       if vim.fn.executable('fish-lsp') > 0 then
-        vim.lsp.enable('fish-lsp')
-        vim.lsp.config('fish-lsp', {
-          on_attach = on_attach,
+        vim.lsp.enable('fish_lsp')
+        vim.lsp.config('fish_lsp', {
           flags = lsp_flags,
           cmd = { 'fish-lsp', 'start' },
           filetypes = { 'fish' },
@@ -130,7 +129,6 @@ local plugins = {
       if vim.fn.executable('clangd') > 0 then
         vim.lsp.enable('clangd')
         vim.lsp.config('clangd', {
-          on_attach = on_attach,
           flags = lsp_flags,
         })
       end
@@ -147,7 +145,6 @@ local plugins = {
       if vim.fn.executable('lua-language-server') > 0 then
         vim.lsp.enable('lua_ls')
         vim.lsp.config('lua_ls', {
-          on_attach = on_attach,
           flags = lsp_flags,
           settings = {
             Lua = {
@@ -177,7 +174,6 @@ local plugins = {
       if vim.fn.executable('pyright') > 0 then
         vim.lsp.enable('pyright')
         vim.lsp.config('pyright', {
-          on_attach = on_attach,
           flags = lsp_flags,
         })
       end
@@ -186,7 +182,6 @@ local plugins = {
       if vim.fn.executable('rust-analyzer') > 0 then
         vim.lsp.enable('rust_analyzer')
         vim.lsp.config('rust_analyzer', {
-          on_attach = on_attach,
           flags = lsp_flags,
           settings = {
             -- server specific setting

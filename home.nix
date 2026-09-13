@@ -141,6 +141,7 @@ in
 
       # ── Language Servers ────────────────────────────────
       bash-language-server
+      fish-lsp
       lua-language-server
       pyright
       typescript-language-server

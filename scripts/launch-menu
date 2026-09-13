@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
-if ! type sklauncher &>/dev/null; then
+if ! command -v sklauncher &>/dev/null; then
   notify-send -i system-error -u critical "ERROR" "Need \`sklauncher\` to be installed for application launcher"
   exit 1
 fi
 
-declare -a cmd=()
-
-# set terminal command and options
-termcmd="terminal"
-
-cmd+=(
+cmd=(
   terminal
   --class "sklauncher"
 )
@@ -19,7 +14,7 @@ cmd+=(
 cmd+=(
   -e
   sklauncher
-  --terminal-command "$termcmd"
+  --terminal-command terminal
   --command-prefix "app2unit --"
   # --match-generic-name
   --exact

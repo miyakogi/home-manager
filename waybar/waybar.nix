@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
   home.packages = [
-    # pkgs.waybar
+    # Build from the flake input to stay ahead of the nixpkgs version
+    # (needed for newer module options used in waybar/config.jsonc).
     inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 

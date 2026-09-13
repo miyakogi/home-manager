@@ -26,5 +26,5 @@ if vim.fn.executable('zk') > 0 and require("zk.util").notebook_root(vim.fn.expan
   -- Preview a linked note.
   map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   -- Open the code actions for a visual selection.
-  map('v', '<leader>za', ':lua vim.lsp.buf.range_code_action()<CR>', opts)
+  map('v', '<leader>za', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end

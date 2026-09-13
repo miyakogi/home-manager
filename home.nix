@@ -296,7 +296,7 @@ in
     # ── AI Agents ───────────────────────────────────────
     ./agents/agents.nix
     ./opencode/opencode.nix
-    # ./pi/pi.nix
+    ./pi/pi.nix
     # ./maki/maki.nix
 
     # ── Desktop / Applications ──────────────────────────

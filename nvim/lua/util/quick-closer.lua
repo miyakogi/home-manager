@@ -1,4 +1,4 @@
--- Nvim Quick Closer Plugin
+-- Quick Closer
 -- Quickly close *tiny* buffer by pressing `q` on normal mode
 
 -- Define filetypes

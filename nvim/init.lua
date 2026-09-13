@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load plugin config
 require('lazy').setup({ { import = 'plugins' } })  -- all package settings with lazy.nvim
-require('config.autolcd')  -- automatically change local working directory for buffers
-require('config.quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
+require('util.autolcd')  -- automatically change local working directory for buffers
+require('util.quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
 
 -- vim: set sw=2 et

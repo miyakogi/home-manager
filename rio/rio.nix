@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }:
 let
+  # Build from the flake input to stay ahead of nixpkgs, with the test
+  # suite disabled and only the Wayland backend enabled.
   rio = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.rio.overrideAttrs (old: {
     doCheck = false;
     withX11 = false;

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # List up menu items
 function menu() {
@@ -47,7 +48,7 @@ _exit() {
   if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
     hyprshutdown
   else
-    uwsm stop || niri msg action quit || hyprctl dispatch 'hl.dsp.exit()'
+    uwsm stop || niri msg action quit || hyprctl dispatch 'hl.dsp.exit()' || true
   fi
 }
 

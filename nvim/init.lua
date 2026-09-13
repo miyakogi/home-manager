@@ -7,7 +7,7 @@ vim.api.nvim_create_augroup('init', {})
 
 
 -- =========================================================
--- Set Global Options
+-- Disable Default Plugins
 -- =========================================================
 
 -- Disable default plugins
@@ -88,9 +88,6 @@ vim.opt.timeout = false
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 50
 
--- Command-line completion behaviour
-vim.opt.completeopt:append({'menu', 'menuone', 'noselect', 'noinsert'})
-
 -- Visual bell
 vim.opt.visualbell = true
 vim.opt.errorbells = false
@@ -150,7 +147,6 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- Rendering setting
--- vim.opt.synmaxcol = 360
 vim.opt.lazyredraw = false
 
 -- Color setting
@@ -163,12 +159,8 @@ vim.opt.termguicolors = true
 vim.g.mapleader = ","
 
 -- ======== Normal/Visual Cursor Move ========
--- Swap colon/semicolon
--- vim.keymap.set('n', ';', ':')
--- vim.keymap.set('n', ':', ';')
-
 -- Wrap start/end of lines by cursor keys
-vim.api.nvim_set_option('whichwrap', 'b,s,<,>,[,]')
+vim.opt.whichwrap = 'b,s,<,>,[,]'
 -- Wrap start/end of lines by h and l keys
 vim.keymap.set('n', 'h', '<Left>')
 vim.keymap.set('n', 'l', '<Right>')
@@ -209,7 +201,7 @@ vim.keymap.set('c', '<Down>', '<C-n>')
 vim.keymap.set('c', '<Up>', '<C-p>')
 
 -- ======== Tab Control ========
-vim.api.nvim_set_option('showtabline', 1)
+vim.opt.showtabline = 1
 vim.keymap.set('n', '<C-j>', 'gt')
 vim.keymap.set('n', '<C-k>', 'gT')
 

@@ -216,7 +216,8 @@ local plugins = {
     },
     lazy = true,
     event = 'InsertEnter',
-    setup = function()
+    init = function()
+      -- nvim-cmp requires this; `setup` was a packer.nvim field ignored by lazy.nvim
       vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
     end,
     config = function()

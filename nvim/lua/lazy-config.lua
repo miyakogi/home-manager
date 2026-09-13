@@ -184,13 +184,6 @@ local plugins = {
         })
       end
 
-      -- zk
-      if vim.fn.executable('zk') > 0 then
-        vim.lsp.enable('zk')
-        vim.lsp.config('zk', {
-          filetypes = { 'markdown' },
-        })
-      end
     end,
   },
 
@@ -622,44 +615,6 @@ local plugins = {
     },
   },
 }
-
--- note taking
-if vim.fn.executable('zk') > 0 then
-  plugins[#plugins+1] = {
-    'mickael-menu/zk-nvim',
-    lazy = true,
-    keys = {
-      -- create a new note with title
-      { '<Leader>zn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>' },
-      -- open note
-      { '<Leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>' },
-      -- open note by tag
-      { '<Leader>zt', '<Cmd>ZkTags<CR>' },
-      -- search note by search query
-      { '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>' },
-      -- search selected word
-      { '<Leader>zf', ':ZkMatch<CR>', mode = 'x' }
-    },
-    cmd = {
-      'ZkNew',
-    },
-    config = function()
-      require('zk').setup({
-        picker = 'snacks_picker',
-        lsp = {
-          config = {
-            cmd = { 'zk', 'lsp' },
-            name = 'zk',
-          },
-          auto_attach = {
-            enabled = true,
-            filetypes = { 'markdown', },
-          },
-        },
-      })
-    end,
-  }
-end
 
 if vim.fn.executable('deno') > 0 then
   -- markdown preview

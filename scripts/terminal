@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 : << COMMENTOUT
 Run default terminal.
@@ -44,7 +45,7 @@ cmd=("$_term")
 case "$_term" in
   ghostty)
     # disable +new-window if --class is specified (currently not supported)
-    if [ "$1" != "--class" ]; then
+    if [ "${1:-}" != "--class" ]; then
       cmd+=(+new-window)
     fi
     ;;
@@ -56,7 +57,7 @@ case "$_term" in
 esac
 
 # Set class/app-id
-if [ "$1" = "--class" ]; then
+if [ "${1:-}" = "--class" ]; then
   case "$_term" in
     alacritty)
       cmd+=(--class "$2")
@@ -87,7 +88,7 @@ if [ "$1" = "--class" ]; then
 fi
 
 # Set command
-if [ "$1" = "-e" ]; then
+if [ "${1:-}" = "-e" ]; then
   case "$_term" in
     alacritty)
       # must

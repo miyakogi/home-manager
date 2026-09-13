@@ -105,7 +105,12 @@ in
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.swayidle}/bin/swayidle lock ${pkgs.hyprlock}/bin/hyprlock timeout 600 'loginctl lock-session' timeout 1200 'systemctl suspend'";
+      ExecStart = pkgs.lib.concatStringsSep " " [
+        "${pkgs.swayidle}/bin/swayidle"
+        "lock ${pkgs.hyprlock}/bin/hyprlock"
+        "timeout 600 'loginctl lock-session'"
+        "timeout 1200 'systemctl suspend'"
+      ];
       Restart = "on-failure";
     };
     Install.WantedBy = [ "graphical-session.target" ];

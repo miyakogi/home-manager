@@ -306,6 +306,7 @@ window-rule {
 window-rule {
     match app-id="sklauncher$"
     open-floating true
+    open-maximized-to-edges false
     default-column-width { fixed 800; }
     default-window-height { fixed 920; }
 }

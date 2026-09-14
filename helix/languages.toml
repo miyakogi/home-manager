@@ -24,7 +24,7 @@ name = "ini"
 file-types = [
   "desktop",
   "conf",
-  
+
   # from default setting
   "ini",
   # Systemd unit files

@@ -1,7 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    helix
-  ];
+  home.packages = [ pkgs.helix ];
 
   home.file.".config/helix/config.toml" = {
     source = ./config.toml;
@@ -11,5 +9,6 @@
   };
   home.file.".config/helix/themes" = {
     source = ./themes;
+    recursive = true;
   };
 }

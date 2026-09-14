@@ -298,7 +298,6 @@ in
     ./agents/agents.nix
     ./opencode/opencode.nix
     ./pi/pi.nix
-    # ./maki/maki.nix
 
     # ── Desktop / Applications ──────────────────────────
     ./desktop/desktop.nix

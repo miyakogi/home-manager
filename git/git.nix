@@ -18,7 +18,6 @@
       ".opencode/"
       ".commandcode/"
       ".cline/"
-      ".maki/"
 
       # File system
       ".directory"

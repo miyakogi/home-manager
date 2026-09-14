@@ -1,5 +1,8 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    lazygit
-  ];
+  programs.lazygit = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
 }

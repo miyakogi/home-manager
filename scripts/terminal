@@ -8,7 +8,6 @@ Available options:
   - alacritty
   - foot
   - ghostty
-  - havoc
   - kitty
   - rio
   - wezterm
@@ -68,9 +67,6 @@ if [ "${1:-}" = "--class" ]; then
     ghostty)
       cmd+=("--class=com.ghostty.$2")
       ;;
-    havoc)
-      cmd+=(-i "$2")
-      ;;
     kitty)
       cmd+=(--app-id "$2")
       ;;
@@ -99,10 +95,6 @@ if [ "${1:-}" = "-e" ]; then
       ;;
     ghostty)
       # must
-      ;;
-    havoc)
-      # should not exist
-      shift
       ;;
     kitty)
       # optional

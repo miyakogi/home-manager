@@ -5,6 +5,8 @@
     # generated provider setup through wrapper args instead of generating a
     # conflicting init.lua.
     sideloadInitLua = true;
+    withRuby = false;
+    withPython3 = true;
   };
 
   xdg.configFile."nvim/init.lua" = {

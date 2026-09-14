@@ -3,7 +3,7 @@
     swaynotificationcenter
   ];
 
-  home.file.".config/swaync" = {
+  xdg.configFile."swaync" = {
     source = ./swaync;
     recursive = true;
   };

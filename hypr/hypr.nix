@@ -10,20 +10,20 @@
     hyprshutdown
   ];
 
-  home.file.".config/hypr/hyprland.lua" = {
+  xdg.configFile."hypr/hyprland.lua" = {
     source = ./hyprland.lua;
   };
-  home.file.".config/hypr/kanagawa-dragon.lua" = {
+  xdg.configFile."hypr/kanagawa-dragon.lua" = {
     source = ./kanagawa-dragon.lua;
   };
 
-  home.file.".config/hypr/hyprpaper.conf" = {
+  xdg.configFile."hypr/hyprpaper.conf" = {
     source = ./hyprpaper.conf;
   };
-  home.file.".config/hypr/hypridle.conf" = {
+  xdg.configFile."hypr/hypridle.conf" = {
     source = ./hypridle.conf;
   };
-  home.file.".config/hypr/hyprlock.conf" = {
+  xdg.configFile."hypr/hyprlock.conf" = {
     source = ./hyprlock.conf;
   };
 }

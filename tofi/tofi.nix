@@ -1,7 +1,7 @@
 { ... }: {
   programs.tofi.enable = true;
 
-  home.file.".config/tofi/config" = {
+  xdg.configFile."tofi/config" = {
     source = ./config;
   };
 }

@@ -6,7 +6,7 @@
     enableZshIntegration = false;
   };
 
-  home.file.".config/zellij/config.kdl" = {
+  xdg.configFile."zellij/config.kdl" = {
     source = ./config.kdl;
   };
 }

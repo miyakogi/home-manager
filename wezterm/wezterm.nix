@@ -5,7 +5,7 @@
     enableZshIntegration = true;
   };
 
-  home.file.".config/wezterm/wezterm.lua" = {
+  xdg.configFile."wezterm/wezterm.lua" = {
     source = ./wezterm.lua;
   };
 }

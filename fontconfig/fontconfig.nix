@@ -20,7 +20,7 @@
       packages = with pkgs; [ lilex ];
     };
   };
-  home.file.".config/fontconfig/conf.d" = {
+  xdg.configFile."fontconfig/conf.d" = {
     source = ./conf.d;
     recursive = true;
   };

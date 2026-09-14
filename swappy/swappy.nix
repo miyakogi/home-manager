@@ -6,7 +6,7 @@
 
   programs.swappy.enable = true;
 
-  home.file.".config/swappy/config" = {
+  xdg.configFile."swappy/config" = {
     source = ./config;
   };
 }

@@ -1,9 +1,9 @@
 { pkgs, ... }: {
-  home.file.".config/fish/functions" = {
+  xdg.configFile."fish/functions" = {
     source = ./functions;
     recursive = true;
   };
-  home.file.".config/fish/themes" = {
+  xdg.configFile."fish/themes" = {
     source = ./themes;
     recursive = true;
   };

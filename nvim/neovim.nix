@@ -1,31 +1,31 @@
 { ... }: {
   programs.neovim = {
     enable = true;
-    # Keep managing ~/.config/nvim/init.lua via home.file (see below): load the
+    # Keep managing ~/.config/nvim/init.lua via xdg.configFile (see below): load the
     # generated provider setup through wrapper args instead of generating a
     # conflicting init.lua.
     sideloadInitLua = true;
   };
 
-  home.file.".config/nvim/init.lua" = {
+  xdg.configFile."nvim/init.lua" = {
     source = ./init.lua;
   };
-  home.file.".config/nvim/manrc" = {
+  xdg.configFile."nvim/manrc" = {
     source = ./manrc;
   };
-  home.file.".config/nvim/lua" = {
+  xdg.configFile."nvim/lua" = {
     source = ./lua;
     recursive = true;
   };
-  home.file.".config/nvim/after" = {
+  xdg.configFile."nvim/after" = {
     source = ./after;
     recursive = true;
   };
-  home.file.".config/nvim/ftplugin" = {
+  xdg.configFile."nvim/ftplugin" = {
     source = ./ftplugin;
     recursive = true;
   };
-  home.file.".config/nvim/snippets" = {
+  xdg.configFile."nvim/snippets" = {
     source = ./snippets;
     recursive = true;
   };

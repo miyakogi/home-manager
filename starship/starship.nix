@@ -5,7 +5,7 @@
     enableFishIntegration = true;
     enableZshIntegration = true;
   };
-  home.file.".config/starship.toml" = {
+  xdg.configFile."starship.toml" = {
     source = ./starship.toml;
   };
 }

@@ -1,5 +1,5 @@
 { ... }: {
-  home.file.".config/yazi/plugins" = {
+  xdg.configFile."yazi/plugins" = {
     source = ./plugins;
     recursive = true;
   };

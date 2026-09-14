@@ -6,7 +6,7 @@
     package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
-  home.file.".config/waybar" = {
+  xdg.configFile."waybar" = {
     source = ./waybar;
     recursive = true;
   };

@@ -36,11 +36,11 @@
     };
   };
 
-  home.file.".config/mpv/input.conf".source = ./input.conf;
-  home.file.".config/mpv/shaders" = {
+  xdg.configFile."mpv/input.conf".source = ./input.conf;
+  xdg.configFile."mpv/shaders" = {
     source = inputs.shaders;
     recursive = true;
   };
-  home.file.".config/mpv/script-opts/uosc.conf".source = ./uosc.conf;
-  home.file.".config/mpv/script-opts/thumbfast.conf".source = ./thumbfast.conf;
+  xdg.configFile."mpv/script-opts/uosc.conf".source = ./uosc.conf;
+  xdg.configFile."mpv/script-opts/thumbfast.conf".source = ./thumbfast.conf;
 }

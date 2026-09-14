@@ -14,10 +14,10 @@
     Type=Application
   '';
 
-  home.file.".config/niri/config.kdl" = {
+  xdg.configFile."niri/config.kdl" = {
     source = ./config.kdl;
   };
-  home.file.".config/niri/hyprpaper.conf" = {
+  xdg.configFile."niri/hyprpaper.conf" = {
     source = ./hyprpaper.conf;
   };
 }

@@ -5,13 +5,13 @@
     app2unit
     xdg-terminal-exec
   ];
-  home.file.".config/uwsm/env" = {
+  xdg.configFile."uwsm/env" = {
     source = ./env;
   };
-  home.file.".config/uwsm/env-hyprland" = {
+  xdg.configFile."uwsm/env-hyprland" = {
     source = ./env-hyprland;
   };
-  home.file.".config/uwsm/env-niri" = {
+  xdg.configFile."uwsm/env-niri" = {
     source = ./env-niri;
   };
 }

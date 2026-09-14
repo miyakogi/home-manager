@@ -1,9 +1,9 @@
 { ... }: {
   programs.macchina.enable = true;
-  home.file.".config/macchina/macchina.toml" = {
+  xdg.configFile."macchina/macchina.toml" = {
     source = ./macchina.toml;
   };
-  home.file.".config/macchina/themes" = {
+  xdg.configFile."macchina/themes" = {
     source = ./themes;
     recursive = true;
   };

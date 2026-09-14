@@ -3,22 +3,22 @@
     kitty
   ];
 
-  home.file.".config/kitty/kitty.conf" = {
+  xdg.configFile."kitty/kitty.conf" = {
     source = ./kitty.conf;
   };
-  home.file.".config/kitty/blackmetal-ash.conf" = {
+  xdg.configFile."kitty/blackmetal-ash.conf" = {
     source = ./blackmetal-ash.conf;
   };
-  home.file.".config/kitty/hybrid.conf" = {
+  xdg.configFile."kitty/hybrid.conf" = {
     source = ./hybrid.conf;
   };
-  home.file.".config/kitty/kanagawa_dragon.conf" = {
+  xdg.configFile."kitty/kanagawa_dragon.conf" = {
     source = ./kanagawa_dragon.conf;
   };
-  home.file.".config/kitty/mikado.conf" = {
+  xdg.configFile."kitty/mikado.conf" = {
     source = ./mikado.conf;
   };
-  home.file.".config/kitty/opencode.conf" = {
+  xdg.configFile."kitty/opencode.conf" = {
     source = ./opencode.conf;
   };
 }

@@ -1,7 +1,7 @@
 { ... }: {
   programs.fuzzel.enable = true;
 
-  home.file.".config/fuzzel/fuzzel.ini" = {
+  xdg.configFile."fuzzel/fuzzel.ini" = {
     source = ./fuzzel.ini;
   };
 }

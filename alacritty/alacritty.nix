@@ -1,13 +1,13 @@
 { ... }: {
   programs.alacritty.enable = true;
 
-  home.file.".config/alacritty/alacritty.toml" = {
+  xdg.configFile."alacritty/alacritty.toml" = {
     source = ./alacritty.toml;
   };
-  home.file.".config/alacritty/carbonfox-vivid-oled.toml" = {
+  xdg.configFile."alacritty/carbonfox-vivid-oled.toml" = {
     source = ./carbonfox-vivid-oled.toml;
   };
-  home.file.".config/alacritty/mikado.toml" = {
+  xdg.configFile."alacritty/mikado.toml" = {
     source = ./mikado.toml;
   };
 }

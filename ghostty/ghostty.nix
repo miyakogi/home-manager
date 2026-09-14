@@ -53,7 +53,7 @@
       keybind = "ctrl+backspace=text:\\x17";
     };
   };
-  home.file.".config/ghostty/themes" = {
+  xdg.configFile."ghostty/themes" = {
     source = ./themes;
     recursive = true;
   };

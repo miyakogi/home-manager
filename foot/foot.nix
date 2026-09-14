@@ -1,10 +1,10 @@
 { ... }: {
   programs.foot.enable = true;
 
-  home.file.".config/foot/foot.ini" = {
+  xdg.configFile."foot/foot.ini" = {
     source = ./foot.ini;
   };
-  home.file.".config/foot/mikado.ini" = {
+  xdg.configFile."foot/mikado.ini" = {
     source = ./mikado.ini;
   };
 }

@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    macchina
-  ];
+{ ... }: {
+  programs.macchina.enable = true;
   home.file.".config/macchina/macchina.toml" = {
     source = ./macchina.toml;
   };

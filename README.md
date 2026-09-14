@@ -7,7 +7,7 @@ Personal configuration: dual window manager setup (Hyprland + Niri), Japanese IM
 ## Overview
 
 - **Dual window managers** — [Hyprland](https://hyprland.org/) (Lua config in `hypr/hyprland.lua`) and [Niri](https://niri.dev/), both launched through [uwsm](https://github.com/Vladimir-csp/uwsm) and sharing the same scripts and services
-- **Japanese input** — fcitx5 with [hazkey](https://github.com/aster-void/nix-hazkey), a neural kana-kanji conversion IME. A local flake for [karukan](https://github.com/togatoga/karukan) is kept in `flakes/karukan` but is not currently wired in.
+- **Japanese input** — fcitx5 with [hazkey](https://github.com/aster-void/nix-hazkey), a neural kana-kanji conversion IME.
 - **WM-agnostic scripts** — `scripts/` is installed verbatim to `~/bin`; window manager keybindings call these by name
 - **Systemd user services** — per-WM Waybar and idle daemons (hypridle/swayidle), ollama, Taskwarrior notification timers
 - **Many terminals configured** — alacritty, foot, kitty, ghostty, rio, wezterm
@@ -30,8 +30,7 @@ home-manager switch --flake .#miyaco
 ├── scripts.nix                  # installs scripts/ to ~/bin
 ├── <app>/<app>.nix              # per-app home-manager modules
 ├── scripts/                     # WM-agnostic shell scripts
-├── services/services.nix        # systemd user units via systemd.user.*
-└── flakes/karukan/              # optional local flake: karukan neural IME (not wired in)
+└── services/services.nix        # systemd user units via systemd.user.*
 ```
 
 `home.nix` imports each `dir/name.nix` module; per-app configuration lives in the corresponding directory.
@@ -40,7 +39,7 @@ home-manager switch --flake .#miyaco
 
 - **Scripts shared by both WMs** — `terminal`, `launch-menu`, `screenshot`, `niri-workspace`, `hypr-addws`, `hypr-scratchterm`, `is-4k`, and more are called by name from both Hyprland and Niri keybindings
 - **Taskwarrior notifications** — `tw-notify` / `tw-notify-daily` run on systemd timers and notify due tasks
-- **Home-managed IME** — hazkey is provisioned via the `nix-hazkey` flake input and wired into fcitx5; `flakes/karukan` is an optional, currently disabled alternative
+- **Home-managed IME** — hazkey is provisioned via the `nix-hazkey` flake input and wired into fcitx5
 - **Per-WM Waybar** — separate services (`waybar-hyprland.service`, `waybar-niri.service`) so the bar can restart without touching the other WM
 
 ## Keybindings

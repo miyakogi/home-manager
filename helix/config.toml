@@ -7,7 +7,7 @@ true-color = true
 color-modes = true
 idle-timeout = 50
 completion-trigger-len = 0
-# rainbow-brackets = true
+rainbow-brackets = true
 
 [editor.soft-wrap]
 enable = true
@@ -38,9 +38,9 @@ character = "▏"
 render = { tab = "all" }
 characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on tab width)
 
-# [editor.word-completion]
-# enable = true
-# trigger-length = 2
+[editor.word-completion]
+enable = true
+trigger-length = 2
 
 [keys.normal]
 "[" = { "c" = "goto_prev_change", "e" = "goto_prev_diag" }

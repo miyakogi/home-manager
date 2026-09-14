@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+command -v jq >/dev/null || { echo "jq not found" >&2; exit 1; }
+
 usage() {
   echo "usage: niri-workspace {focus|move {next|prev|last|first|<n>}|toggle <name>}" >&2
 }
@@ -36,7 +38,13 @@ runtime_dir="${XDG_RUNTIME_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}}/niri-work
 mkdir -p -m 700 "$runtime_dir"
 
 workspaces=$(niri msg --json workspaces)
-output=$(niri msg --json focused-output | jq -r '.name')
+
+# Derive the output from the focused workspace to save an IPC round trip; fall
+# back to focused-output in case no workspace is focused.
+output=$(jq -r '[ .[] | select(.is_focused == true) | .output ] | first // empty' <<< "$workspaces")
+if [[ -z "$output" ]]; then
+  output=$(niri msg --json focused-output | jq -r '.name')
+fi
 
 eligible_idx() {
   jq -c --arg output "$output" --argjson names "$names_json" '
@@ -51,43 +59,38 @@ focused_idx() {
   jq -r '.[] | select(.is_focused == true) | .idx' <<< "$workspaces"
 }
 
-cycle_target() {
-  local direction="$1" current candidates target
-  current=$(focused_idx)
-  candidates=$(eligible_idx)
-  target=$(jq -r --argjson c "$current" --arg dir "$direction" '
-    if $dir == "next"
-      then ([ .[] | select(. > $c) ] | min // empty)
-      else ([ .[] | select(. < $c) ] | max // empty)
-    end
-  ' <<< "$candidates")
-  if [[ -z "$target" ]]; then
-    target=$(jq -r --arg dir "$direction" '
-      if $dir == "next" then min // empty else max // empty end
-    ' <<< "$candidates")
-  fi
-  printf '%s\n' "$target"
-}
+# Eligible workspace indices on the focused output are constant per invocation.
+eligible=$(eligible_idx)
 
-extreme_target() {
-  jq -r --arg mode "$1" '
-    if $mode == "first" then min // empty else max // empty end
-  ' <<< "$(eligible_idx)"
+# Pick a workspace index from the eligible list. Directions:
+#   next|prev  cycle relative to the current index (possibly empty), wrapping around
+#   first|last lowest/highest eligible index
+pick_index() {
+  local direction="$1" current="${2:-}"
+  jq -r --arg dir "$direction" --arg cur "$current" '
+    ($cur | if . == "" then null else tonumber end) as $c
+    | if $dir == "first" then min
+      elif $dir == "last" then max
+      elif $c == null then (if $dir == "next" then min else max end)
+      elif $dir == "next" then ([ .[] | select(. > $c) ] | min) // min
+      else ([ .[] | select(. < $c) ] | max) // max
+      end
+    | . // empty
+  ' <<< "$eligible"
 }
 
 workspace_action() {
   local mode="$1" direction="$2" target
   case "$direction" in
-    next|prev) target=$(cycle_target "$direction") ;;
-    last)      target=$(extreme_target last) ;;
-    first)     target=$(extreme_target first) ;;
-    *)         # numeric N (1-based; 0 = no-op; N > count = clamp to last)
+    next|prev)  target=$(pick_index "$direction" "$(focused_idx)") ;;
+    first|last) target=$(pick_index "$direction") ;;
+    *)          # numeric N (1-based; 0 = no-op; N > count = clamp to last)
       if (( 10#$direction == 0 )); then
         return 0
       fi
       target=$(jq -r --argjson n "$((10#$direction - 1))" '
         if $n >= length then .[-1] // empty else .[$n] // empty end
-      ' <<< "$(eligible_idx)")
+      ' <<< "$eligible")
       ;;
   esac
   if [[ -n "$target" ]]; then
@@ -121,7 +124,7 @@ restore_scratchpad() {
 }
 
 toggle_scratchpad() {
-  local name="$1" state_file visible
+  local name="$1" state_file visible state
   state_file="${runtime_dir}/niri-${name}.json"
   visible=$(jq -r --arg name "$name" '
     any(.[]; .name == $name and .is_active == true)
@@ -129,20 +132,23 @@ toggle_scratchpad() {
   if [[ "$visible" == "true" ]]; then
     if [[ -s "$state_file" ]]; then
       restore_scratchpad "$state_file"
-      rm -f "$state_file"
     fi
+    rm -f "$state_file"
     exit 0
   fi
-  jq -c --arg output "$output" --arg name "$name" '
+  # Snapshot before focusing, but only persist once the focus succeeds so a
+  # failed focus cannot leave stale state behind.
+  state=$(jq -c --arg output "$output" --arg name "$name" '
     {
       output: $output,
       workspaces: [ .[] | select(.is_active == true)
       | select((.name // "") != $name)
       | {output, idx} ]
     }
-  ' <<< "$workspaces" > "${state_file}.tmp"
-  mv "${state_file}.tmp" "$state_file"
+  ' <<< "$workspaces")
   niri msg action focus-workspace "$name"
+  printf '%s\n' "$state" > "${state_file}.tmp"
+  mv "${state_file}.tmp" "$state_file"
 }
 
 case "$action" in

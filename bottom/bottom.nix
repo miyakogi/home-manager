@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    bottom
-  ];
+{ ... }: {
+  programs.bottom.enable = true;
 
   home.file.".config/bottom/bottom.toml" = {
     source = ./bottom.toml;

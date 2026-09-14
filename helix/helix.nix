@@ -3,7 +3,10 @@ let
   inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
-  home.packages = [ inputs.helix.packages.${system}.default ];
+  programs.helix = {
+    enable = true;
+    package = inputs.helix.packages.${system}.default;
+  };
 
   home.file.".config/helix/config.toml" = {
     source = ./config.toml;

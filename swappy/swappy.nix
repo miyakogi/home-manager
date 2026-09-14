@@ -2,8 +2,9 @@
   home.packages = with pkgs; [
     grim
     slurp
-    swappy
   ];
+
+  programs.swappy.enable = true;
 
   home.file.".config/swappy/config" = {
     source = ./config;

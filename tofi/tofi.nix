@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    tofi
-  ];
+{ ... }: {
+  programs.tofi.enable = true;
 
   home.file.".config/tofi/config" = {
     source = ./config;

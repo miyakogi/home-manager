@@ -1,17 +1,11 @@
 { ... }: {
   programs.neovim = {
     enable = true;
-    # Keep managing ~/.config/nvim/init.lua via xdg.configFile (see below): load the
-    # generated provider setup through wrapper args instead of generating a
-    # conflicting init.lua.
-    sideloadInitLua = true;
     withRuby = false;
     withPython3 = true;
+    initLua = builtins.readFile ./init.lua;
   };
 
-  xdg.configFile."nvim/init.lua" = {
-    source = ./init.lua;
-  };
   xdg.configFile."nvim/manrc" = {
     source = ./manrc;
   };

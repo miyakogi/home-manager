@@ -53,12 +53,6 @@ characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on 
 "U" = "switch_to_uppercase"
 "q" = ":reflow"
 
-# Unimpaired
-"]".e = "goto_next_diag"
-"[".e = "goto_prev_diag"
-"]".c = "goto_next_change"
-"[".c = "goto_prev_change"
-
 [keys.insert]
 "C-f" = "move_char_right"
 "C-b" = "move_char_left"

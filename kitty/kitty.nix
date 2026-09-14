@@ -1,11 +1,16 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    kitty
-  ];
-
-  xdg.configFile."kitty/kitty.conf" = {
-    source = ./kitty.conf;
+{ ... }: {
+  programs.kitty = {
+    enable = true;
+    extraConfig = builtins.readFile ./kitty.conf;
+    # Keep kitty.conf's own shell_integration; do not add shell rc integration.
+    shellIntegration = {
+      mode = null;
+      enableBashIntegration = false;
+      enableFishIntegration = false;
+      enableZshIntegration = false;
+    };
   };
+
   xdg.configFile."kitty/blackmetal-ash.conf" = {
     source = ./blackmetal-ash.conf;
   };

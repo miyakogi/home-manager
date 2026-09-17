@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('bufenter', {
 
 -- Fix: back to original cursor shape on some terminal
 local term = vim.env.TERM
-if term == "foot" or term == "alacritty" or term == "wezterm" then
+if term == "foot" or term == "alacritty" or term == "wezterm" or term == "xterm-rio" then
   vim.api.nvim_create_autocmd("VimLeave", {
     callback = function ()
       vim.opt.guicursor = ""

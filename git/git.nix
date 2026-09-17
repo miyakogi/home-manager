@@ -83,11 +83,7 @@
       };
       delta = {
         navigate = true;
-        features = [
-          "side-by-side"
-          "ansi"
-          "clean-style"
-        ];
+        features = "side-by-side ansi clean-style";
         side-by-side = {
           side-by-side = true;
         };

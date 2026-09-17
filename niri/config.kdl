@@ -69,7 +69,6 @@ output "DP-1" {
 }
 
 output "HDMI-A-2" {
-    mode "2560x1600@60"
     scale 1.0
     position x=640 y=2160
     background-color "#000000"

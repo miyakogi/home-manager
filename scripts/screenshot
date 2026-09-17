@@ -15,8 +15,12 @@ case "${1:-}" in
     # screenshot-window action (see niri/config.kdl).
     case "$XDG_CURRENT_DESKTOP" in
       Hyprland)
-        grim -g "$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" -t jpeg "$grim_file"
-        notify-send -i camera "Screenshot saved to $notify_file"
+        # `activewindow` is `{}` when no window is focused; skip in that case.
+        geom=$(hyprctl -j activewindow | jq -r 'if .at and .size then "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])" else empty end')
+        if [ "$geom" != "" ]; then
+          grim -g "$geom" -t jpeg "$grim_file"
+          notify-send -i camera "Screenshot saved to $notify_file"
+        fi
         ;;
       sway*)
         grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" -t jpeg "$grim_file"

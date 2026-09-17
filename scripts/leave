@@ -26,7 +26,8 @@ case "$XDG_CURRENT_DESKTOP" in
 esac
 
 
-RET=$(menu | "${dmenu_cmd[@]}" | tr -d '[:space:]')
+# A cancelled menu (e.g. fuzzel exit 1) must not abort under `set -e`.
+RET=$(menu | "${dmenu_cmd[@]}" | tr -d '[:space:]') || RET=""
 
 _lock() {
   loginctl lock-session

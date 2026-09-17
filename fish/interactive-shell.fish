@@ -7,6 +7,11 @@ if [ -z "$__fish_execute_once" ] || [ "$HERDR_ENV" = 1 ]
   end
 end
 
+# in zellij, ctrl-d should delete a character instead of sending EOF
+if set -q ZELLIJ
+  bind ctrl-d delete-char
+end
+
 # ls color setting
 set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 

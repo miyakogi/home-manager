@@ -82,10 +82,6 @@
       }
     ];
 
-    shellInit = ''
-      if [ -n "$ZELLIJ" ]; bind ctrl-d delete-char; end
-    '';
-
     loginShellInit = builtins.readFile ./login-shell.fish;
     interactiveShellInit = builtins.readFile ./interactive-shell.fish;
   };

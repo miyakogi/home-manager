@@ -27,9 +27,6 @@
       rm = "trash put";
 
       l = "ls";
-      lsa = "ls --all";
-      lsl = "ls -l -h";
-      lsal = "ls --all -l -h";
 
       ln = "ln -s -v";
 

@@ -193,12 +193,6 @@ layout {
 
     shadow {
         off
-        softness 30
-        spread 3
-        offset x=0 y=0
-        draw-behind-window false
-        color "#90000090"
-        inactive-color "#66666690"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.

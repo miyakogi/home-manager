@@ -109,7 +109,7 @@ in
         "${pkgs.swayidle}/bin/swayidle"
         "before-sleep 'pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'"
         "lock ${pkgs.hyprlock}/bin/hyprlock"
-        "timeout 600 'loginctl lock-session'"
+        "timeout 600 'pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'"
         "timeout 1200 'systemctl suspend'"
       ];
       Restart = "on-failure";

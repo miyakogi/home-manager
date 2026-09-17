@@ -163,10 +163,7 @@ hl.config({
   decoration = {
     rounding = 24,
     blur = {
-      enabled           = false,
-      size              = 3,
-      passes            = 2,
-      new_optimizations = true,
+      enabled = false,
     },
     shadow = {
       enabled      = true,
@@ -175,12 +172,7 @@ hl.config({
       color        = theme.green,
       color_inactive = 0x80ffffff,
     },
-    dim_inactive  = false,
-    dim_strength  = 0.1,
-  },
-  dwindle = {
-    preserve_split = false,
-    force_split    = 2,
+    dim_inactive = false,
   },
   scrolling = {
     fullscreen_on_one_column  = true,
@@ -190,9 +182,6 @@ hl.config({
     explicit_column_widths    = "0.333, 0.5, 0.667, 1.0",
   },
 })
-
--- disable blur for all normal windows by default
--- hl.window_rule({ match = { class = ".*" }, no_blur = true })
 
 -- *** Animations ***
 hl.curve("Linear",        { type = "bezier", points = { {0, 0},    {0.5, 1}    } })
@@ -424,14 +413,11 @@ hl.window_rule({ match = { class = "^steamwebhelper$" }, workspace = "7" })
 hl.window_rule({ match = { class = "^Steam$" },         workspace = "7" })
 hl.window_rule({ match = { title = "^ProtonUp-Qt$" },   workspace = "7" })
 hl.window_rule({ match = { class = "^gamescope$" }, float = true })
-hl.window_rule({ match = { class = "^gamescope$" }, no_blur = true })
 hl.window_rule({ match = { class = "^gamescope$" }, no_dim = true })
 hl.window_rule({ match = { class = "^gamescope$" }, idle_inhibit = "fullscreen" })
 hl.window_rule({ match = { class = "^gamescope$" }, workspace = "8" })
-hl.window_rule({ match = { class = "^steam_app_.*" },   no_blur = true })
 hl.window_rule({ match = { class = "^steam_app_.*" },   idle_inhibit = "focus" })
 hl.window_rule({ match = { class = "^steam_app_.*" },   workspace = "8" })
-hl.window_rule({ match = { class = "^steam_proton$" },  no_blur = true })
 hl.window_rule({ match = { class = "^steam_proton$" },  no_dim = true })
 hl.window_rule({ match = { class = "^steam_proton$" },  idle_inhibit = "focus" })
 hl.window_rule({ match = { class = "^steam_proton$" },  workspace = "8" })
@@ -443,7 +429,5 @@ hl.window_rule({ match = { class = "^XEyes$" },                      float = tru
 
 -- *** Layer Rules ***
 hl.layer_rule({ match = { namespace = "qs-desktop" }, order = 1 })
--- enable blur for tofi and walker
-hl.layer_rule({ match = { namespace = "launcher" }, blur = true })
 
 -- *** Plugins ***

@@ -25,8 +25,10 @@ if [ -f "$HOME/bin/done-shared.sh" ]; then
   source "$HOME/bin/done-shared.sh"
 fi
 
-if command -v fastfetch &>/dev/null; then
-  fastfetch --config config-short.jsonc
-elif command -v macchina &>/dev/null; then
-  macchina
+if [[ ! -o login ]]; then
+  if command -v fastfetch &>/dev/null; then
+    fastfetch --config config-short.jsonc
+  elif command -v macchina &>/dev/null; then
+    macchina
+  fi
 fi

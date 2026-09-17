@@ -550,7 +550,7 @@ notificationwindow, blankwindow {
 }
 
 .per-app-volume {
-  background-color: var(--noti-bg-alt);
+  background-color: var(--noti-bg-darker);
   margin: 8px;
   margin-bottom: 0;
   border-radius: var(--border-radius);

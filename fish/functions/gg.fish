@@ -2,7 +2,7 @@
 
 function gg
   if git rev-parse --is-inside-work-tree &>/dev/null
-    cd (pwd)/(git rev-parse --show-cdup)
+    cd (git rev-parse --show-toplevel)
   else
     cd ~
   end

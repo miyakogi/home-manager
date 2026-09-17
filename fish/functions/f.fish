@@ -2,7 +2,7 @@
 
 function f
   if ! type -q fzf
-    echo "`f` command requires `fzf` command"
+    echo 'f command requires fzf'
     return 1
   end
 

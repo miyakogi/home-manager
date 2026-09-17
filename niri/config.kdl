@@ -75,7 +75,7 @@ output "HDMI-A-2" {
 }
 
 // xwayland
-spawn-sh-at-startup "~/.nix-profile/bin/xwayland-satellite"
+spawn-at-startup "xwayland-satellite"
 
 // Input Method
 spawn-sh-at-startup "systemctl --user restart fcitx5.service"

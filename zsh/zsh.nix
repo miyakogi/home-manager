@@ -57,7 +57,9 @@
       ssh = ''
         printf '\033]11;#140000\a'
         command ssh "$@"
+        local st=$?
         printf '\033]111\a'
+        return $st
       '';
     };
     initContent = lib.mkMerge [

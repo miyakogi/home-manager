@@ -1,8 +1,6 @@
 { ... }: {
   programs.wezterm = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
   };
 
   xdg.configFile."wezterm/wezterm.lua" = {

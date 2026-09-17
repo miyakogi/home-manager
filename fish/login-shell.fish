@@ -30,10 +30,10 @@ Select Window Manager of Shell:
     set choice 1
   end
 
-  switch "$choice"
-    case 1 "[Hh]ypr"
+  switch (string lower -- "$choice")
+    case 1 hypr hyprland
       set wm "Hyprland"
-    case 2 "[Nn]iri"
+    case 2 niri
       set wm "niri"
     case 3 bash sh
       exec bash

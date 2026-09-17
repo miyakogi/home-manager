@@ -19,7 +19,9 @@
 if [ "$WAYLAND_DISPLAY" != "" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   session="wayland"
 else
-  session="$(loginctl show-session "$(loginctl show-user "$(whoami)" -p Display --value)" -p Type --value)"
+  # XDG_SESSION_ID is the login session id. Note the `Display` property of
+  # `loginctl show-user` is the VT/display number, not a session id.
+  session="$(loginctl show-session "${XDG_SESSION_ID:-}" -p Type --value 2>/dev/null || true)"
 fi
 
 # --- Define Default Flags ---
@@ -67,7 +69,7 @@ if [ "$1" = "wayland" ]; then
   # Enable pipewire support for WebRTC screen sharing
   features="$features,WebRTCPipeWireCapturer"
   # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
-  # -> --disablie-gpu-driver-bug-workarounds does not fix this
+  # -> --disable-gpu-driver-bug-workarounds does not fix this
 
   if [ "$2" = "vulkan" ]; then
     features="$features,Vulkan,VaapiIgnoreDriverChecks,VulkanFromANGLE,DefaultANGLEVulkan"
@@ -94,7 +96,7 @@ if [ "$1" = "wayland" ]; then
 
     # EGL seems to be the best option for now (v98)
     #--use-gl=egl
-    --disable-gpu-driver-bug-workaround
+    --disable-gpu-driver-bug-workarounds
 
     # Necessary to enable fcitx5 (v98+)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/

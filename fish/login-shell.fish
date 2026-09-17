@@ -1,5 +1,7 @@
 export GOPATH="$HOME/.go"
-export RUST_SRC_PATH="(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if type -q rustc
+  export RUST_SRC_PATH="(rustc --print sysroot)/lib/rustlib/src/rust/src"
+end
 
 export EDITOR=nvim
 export MANPAGER="nvim +Man! -u $HOME/.config/nvim/manrc"

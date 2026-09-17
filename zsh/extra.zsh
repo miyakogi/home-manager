@@ -21,7 +21,6 @@ tree() {
 }
 
 # Load Plugins
-: "${DONE_MIN_CMD_DURATION:=5}"
 if [ -f "$HOME/bin/done-shared.sh" ]; then
   source "$HOME/bin/done-shared.sh"
 fi

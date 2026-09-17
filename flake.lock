@@ -163,27 +163,6 @@
         "type": "github"
       }
     },
-    "opencode2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789168223,
-        "narHash": "sha256-aiql7UrXLJvniQtQm0yrLGrWTXggQ2ciISRJiMtw9QA=",
-        "owner": "anomalyco",
-        "repo": "opencode",
-        "rev": "770420bdad90b6e477d9e3fc0d8b7e0152d094a9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anomalyco",
-        "ref": "beta",
-        "repo": "opencode",
-        "type": "github"
-      }
-    },
     "rio": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -215,7 +194,6 @@
         "nix-flatpak": "nix-flatpak",
         "nix-hazkey": "nix-hazkey",
         "nixpkgs": "nixpkgs",
-        "opencode2": "opencode2",
         "rio": "rio",
         "shaders": "shaders",
         "waybar": "waybar"

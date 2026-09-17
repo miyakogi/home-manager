@@ -29,10 +29,6 @@
       url = "github:miyakogi/Anime4K-mpv-glsl";
       flake = false;
     };
-    opencode2 = {
-      url = "github:anomalyco/opencode/beta";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

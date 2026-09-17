@@ -1,22 +1,10 @@
-{ pkgs, inputs, ... }:
-let
-  system = pkgs.stdenv.hostPlatform.system;
-  opencode2Pkgs = inputs.opencode2.packages.${system};
-  # Upstream nix/hashes.json is stale at this pin; on bump, take the "got:"
-  # hash from a failed `nix build github:anomalyco/opencode/<rev>#node_modules_updater`.
-  opencode2 = opencode2Pkgs.default.overrideAttrs (old: {
-    node_modules = old.node_modules.override {
-      hash = "sha256-yzCk746pospz8EVakHRcDhYJkhGYGSt9dHOPbzO4OYo=";
-    };
-  });
-in
+{ pkgs, ... }:
 {
   home.packages = [
     pkgs.opencode-desktop
   ];
   programs.opencode = {
     enable = true;
-    # package = opencode2;
     settings = {
       default_agent = "plan";
       agent = {

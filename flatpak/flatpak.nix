@@ -2,7 +2,6 @@
   services.flatpak = {
     enable = true;
     packages = [
-      # Firefox
       "org.mozilla.firefox" # Firefox
       "app.zen_browser.zen" # Zen
 

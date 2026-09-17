@@ -59,6 +59,7 @@ esac
 
 # Set class/app-id
 if [ "${1:-}" = "--class" ]; then
+  : "${2:?--class requires an argument}"
   case "$_term" in
     alacritty)
       cmd+=(--class "$2")
@@ -118,5 +119,4 @@ fi
 # Test
 # notify-send "Terminal Test" "${cmd[*]} $*"
 
-export DRI_PRIME=1
 exec "${cmd[@]}" "$@"

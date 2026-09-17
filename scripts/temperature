@@ -12,6 +12,7 @@ cpu_temp() {
     echo 0
 }
 
+# NOTE: the sensor chip id below is specific to this machine's AMD GPU.
 gpu_temp() {
   sensors_json |
     jq '.["amdgpu-pci-0300"] | [ .edge.temp1_input, .junction.temp2_input, .mem.temp3_input ] | map(select(. != null)) | max // 0 | floor' ||

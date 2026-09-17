@@ -53,7 +53,7 @@
       '';
       gg = ''
         if git rev-parse --is-inside-work-tree &>/dev/null; then
-          cd "$PWD"/"$(git rev-parse --show-cdup)" || return
+          cd "$(git rev-parse --show-toplevel)" || return
         else
           cd || return
         fi

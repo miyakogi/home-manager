@@ -41,7 +41,7 @@
 #   --no-remote
 # ```
 #
-# Chroimium (X11):
+# Chromium (X11):
 # ```
 # distrobox enter chromium-box --additional-flags "--env USER=$USER" -- \
 #   bw-launch \
@@ -52,11 +52,11 @@
 #   --home chromium \
 #   --home-bind-local .cache/chromium \
 #   --home-bind-local .config/chromium \
-#   --chromium
+#   --chromium \
 #   /usr/bin/chromium
 # ```
 
-local_home="/home/$USER"
+local_home="$HOME"
 
 # Setup base command and flags
 cmd=(
@@ -78,8 +78,6 @@ cmd=(
   --ro-bind /usr/share/libdrm /usr/share/libdrm
   --ro-bind /usr/share/mime /usr/share/mime
   --ro-bind /usr/share/X11/xkb /usr/share/X11/xkb
-  --ro-bind /usr/share/icons /usr/share/icons
-  --ro-bind /usr/share/mime /usr/share/mime
   --ro-bind /etc/resolv.conf /etc/resolv.conf
   --ro-bind /usr/share/ca-certificates /usr/share/ca-certificates
   --ro-bind /etc/ssl /etc/ssl
@@ -123,9 +121,10 @@ declare -a options
 while [[ "$1" = "--"* ]]; do
   case "$1" in
     --wayland)
-      _socket="$(find /run/user/"$(id -u)"/wayland-* | head -n 1)"
+      # Prefer the compositor's own socket over guessing with `find`.
+      wayland_socket="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/${WAYLAND_DISPLAY:-wayland-0}"
       cmd+=(
-        --ro-bind "$_socket" "$_socket"
+        --ro-bind "$wayland_socket" "$wayland_socket"
       )
       shift
       ;;
@@ -159,7 +158,7 @@ while [[ "$1" = "--"* ]]; do
       ;;
     --home)
       # Set program specific home
-      local_home="/home/$USER/.home/$2"
+      local_home="$HOME/.home/$2"
       shift 2
       ;;
     --lib-bind)
@@ -178,7 +177,7 @@ while [[ "$1" = "--"* ]]; do
     --home-bind-host)
       # Bind to host home dir
       cmd+=(
-        --bind "/home/$USER/$2" "$local_home/$2"
+        --bind "$HOME/$2" "$local_home/$2"
       )
       shift 2
       ;;
@@ -234,17 +233,17 @@ if [ -e "$local_home" ]; then
     --dir "$local_home/.local/share"
 
     # use host config
-    --ro-bind "/home/$USER/.config/fontconfig/" "$local_home/.config/fontconfig/"
-    --ro-bind "/home/$USER/.config/fontconfig/conf.d/" "$local_home/.config/fontconfig/conf.d/"
-    --ro-bind "/home/$USER/.config/gtk-3.0/" "$local_home/.config/gtk-3.0/"
-    --ro-bind "/home/$USER/.config/gtk-4.0/" "$local_home/.config/gtk-4.0/"
-    --ro-bind "/home/$USER/.local/share/icons/" "$local_home/.local/share/icons/"
-    --ro-bind "/home/$USER/.local/share/fonts/" "$local_home/.local/share/fonts/"
-    --bind "/home/$USER/.cache/fontconfig/" "$local_home/.cache/fontconfig/"
+    --ro-bind "$HOME/.config/fontconfig/" "$local_home/.config/fontconfig/"
+    --ro-bind "$HOME/.config/fontconfig/conf.d/" "$local_home/.config/fontconfig/conf.d/"
+    --ro-bind "$HOME/.config/gtk-3.0/" "$local_home/.config/gtk-3.0/"
+    --ro-bind "$HOME/.config/gtk-4.0/" "$local_home/.config/gtk-4.0/"
+    --ro-bind "$HOME/.local/share/icons/" "$local_home/.local/share/icons/"
+    --ro-bind "$HOME/.local/share/fonts/" "$local_home/.local/share/fonts/"
+    --bind "$HOME/.cache/fontconfig/" "$local_home/.cache/fontconfig/"
 
     # enable rw-access to `Downloads` dir and ro-access to `Pictures`
-    --bind "/home/$USER/Downloads" "/home/$USER/Downloads"
-    --ro-bind "/home/$USER/Pictures" "/home/$USER/Pictures"
+    --bind "$HOME/Downloads" "$HOME/Downloads"
+    --ro-bind "$HOME/Pictures" "$HOME/Pictures"
 
     # set local_home as HOME
     --setenv HOME "$local_home"

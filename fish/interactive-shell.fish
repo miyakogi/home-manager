@@ -7,11 +7,6 @@ if [ -z "$__fish_execute_once" ] || [ "$HERDR_ENV" = 1 ]
   end
 end
 
-set -x GPG_TTY (tty)
-
-# need to activate auto ls function
-type -q __auto_ls
-
 # ls color setting
 set -x LSCOLORS Exfxcxdxbxegedabagacad
 set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=46;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'

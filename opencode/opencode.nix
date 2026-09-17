@@ -19,7 +19,7 @@ in
     # package = opencode2;
     settings = {
       default_agent = "plan";
-      mode = {
+      agent = {
         build = {
           model = "cline-pass/cline-pass/deepseek-v4.1-flash";
         };

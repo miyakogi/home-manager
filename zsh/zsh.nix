@@ -41,6 +41,10 @@
     };
     siteFunctions = {
       edit = ''
+        if [ -z "$EDITOR" ]; then
+          echo "EDITOR is not set" >&2
+          return 1
+        fi
         "$EDITOR" "$@"
       '';
       hx = ''

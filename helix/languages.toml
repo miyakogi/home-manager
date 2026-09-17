@@ -1,6 +1,6 @@
 [language-server]
 pyright = { command = "pyright-langserver", args = [ "--stdio" ] }
-ruff = { command = "ruff-lsp" }
+ruff = { command = "ruff", args = [ "server" ] }
 typos = { command = "typos-lsp" }
 rust-analyzer.config = { check.command = "clippy" }
 fish-lsp = { command = "fish-lsp", args = ["start"], environment = { "fish_lsp_show_client_popups" = "false" } }
@@ -15,7 +15,7 @@ scope = "source.python"
 injection-regex = "python"
 roots = [ "pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json" ]
 comment-token = "#"
-# install `pyright` and `ruff-lsp`
+# install `pyright` and `ruff`
 language-servers = [ "pyright", "ruff", "typos" ]
 indent = { tab-width = 4, unit = "    " }
 

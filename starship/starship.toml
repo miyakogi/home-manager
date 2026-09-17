@@ -83,7 +83,6 @@ style = "bold yellow"
 
 [cmd_duration]
 format = "[ \\($duration\\)](fg:white bold)"
-disabled = false
 
 [directory]
 truncation_length = 5
@@ -97,7 +96,6 @@ style = "bold blue"
 format = "[$symbol ]($style)"
 symbol = "󰕥"
 style = "bold yellow"
-disabled = true
 
 [custom.giturl]
 description = "Display symbol for remote Git server"

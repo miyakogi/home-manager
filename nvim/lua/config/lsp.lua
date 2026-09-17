@@ -33,7 +33,9 @@ function M.setup()
   -- apply the same on_attach to every language server
   vim.lsp.config('*', { on_attach = on_attach })
 
-  vim.api.nvim_create_user_command('Rename', vim.lsp.buf.rename, {})
+  vim.api.nvim_create_user_command('Rename', function(opts)
+    vim.lsp.buf.rename(opts.args)
+  end, { nargs = 1 })
 
   local lsp_flags = {
     debounce_text_changes = 150,

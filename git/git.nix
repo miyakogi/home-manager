@@ -59,7 +59,6 @@
       core = {
         quotepath = false;
         preloadindex = true;
-        fscache = true;
         autoCRLF = false;
         pager = "delta";
       };

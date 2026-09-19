@@ -153,6 +153,10 @@ format = '[${symbol}(${version} )(\(${virtualenv}\) )]($style)'
 symbol = " "
 detect_extensions = []
 
+[ruby]
+format = "[$symbol($version )]($style)"
+symbol = " "
+
 [rust]
 format = "[$symbol($version )]($style)"
 symbol = "󱘗 "

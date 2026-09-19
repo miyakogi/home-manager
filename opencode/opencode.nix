@@ -9,10 +9,10 @@
       default_agent = "plan";
       agent = {
         build = {
-          model = "cline-pass/cline-pass/deepseek-v4.1-flash";
+          model = "opencode/muse-spark-1.3-contributor-free";
         };
         plan = {
-          model = "cline-pass/cline-pass/deepseek-v4.1-flash";
+          model = "opencode/muse-spark-1.3-contributor-free";
         };
       };
       mcp = {

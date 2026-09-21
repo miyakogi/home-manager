@@ -55,6 +55,7 @@ hl.config({
     key_press_enables_dpms  = true,
     focus_on_activate       = false,
     disable_splash_rendering = true,
+    render_unfocused_fps = 60,
   },
   xwayland = {
     force_zero_scaling = true,
@@ -384,18 +385,13 @@ hl.window_rule({ match = { class = "^org.mozilla.firefox$" }, workspace = "11" }
 hl.window_rule({ match = { class = "^zen-sub$" },          workspace = "11" })
 hl.window_rule({ match = { class = "^vivaldi-stable$" },   workspace = "1" })
 hl.window_rule({ match = { class = "^Vivaldi-stable$" },   workspace = "1" })
--- hl.workspace_rule({ workspace = "1",  gaps_in = 0, gaps_out = 0, no_rounding = true, decorate = false })
--- hl.workspace_rule({ workspace = "11", gaps_in = 0, gaps_out = 0, no_rounding = true, decorate = false })
 hl.window_rule({ match = { class = "^firefox$" },       tile = true })
 hl.window_rule({ match = { class = "^firefox-sub$" },   tile = true })
 hl.window_rule({ match = { class = "^vivaldi-stable$" }, tile = true })
 hl.window_rule({ match = { class = "^Vivaldi-stable$" }, tile = true })
--- hl.window_rule({ match = { class = "^chrom.*-game$" },           workspace = "12", silent = true })
--- hl.window_rule({ match = { class = "^org%.chromium%.Chromium$" }, workspace = "12", silent = true })
-hl.window_rule({ match = { class = "^chrom.*-game$" },            render_unfocused = true })
-hl.window_rule({ match = { class = "^org%.chromium%.Chromium$" }, render_unfocused = true })
--- hl.window_rule({ match = { class = "^Vivaldi-home$" },    workspace = "13", silent = true })
--- hl.window_rule({ match = { class = "^Vivaldi-flatpak$" }, workspace = "13", silent = true })
+hl.window_rule({ match = { class = "^chrom.*-game$" },          render_unfocused = true })
+hl.window_rule({ match = { class = "^org.chromium.Chromium$" }, render_unfocused = true })  -- wayland
+hl.window_rule({ match = { class = "^Org.chromium.Chromium$" }, render_unfocused = true })  -- x11
 hl.window_rule({ match = { class = "^Vivaldi-home$" }, tile = true })
 hl.window_rule({ match = { class = "^discord$" },  workspace = "14" })
 hl.window_rule({ match = { class = "^vesktop$" },  workspace = "14" })

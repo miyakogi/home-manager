@@ -77,18 +77,8 @@ output "HDMI-A-2" {
 // xwayland
 spawn-at-startup "xwayland-satellite"
 
-// Input Method
-spawn-sh-at-startup "systemctl --user restart fcitx5.service"
-
 // Wallpaper
 spawn-sh-at-startup "app2unit -s b -t service -- hyprpaper -c ~/.config/niri/hyprpaper.conf"
-
-// Waybar
-// spawn-sh-at-startup "app2unit -s b -t service -- waybar --style ~/.config/waybar/style-niri.css"
-
-// Notification Daemon
-// spawn-sh-at-startup "app2unit -s b -t service -- mako"
-// spawn-sh-at-startup "app2unit -s b -t service -- swaync"
 
 // Capacities (memo)
 spawn-sh-at-startup "app2unit -s b -t service -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland"

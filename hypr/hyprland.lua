@@ -13,6 +13,7 @@ local theme = require("kanagawa-dragon")
 -- *** Environment ***
 hl.env("TERMINAL", "rio")
 hl.env("DRI_PRIME", "1")
+hl.env("TZDIR", "/etc/zoneinfo")
 
 -- *** Monitors ***
 -- https://wiki.hypr.land/Configuring/Basics/Monitors/

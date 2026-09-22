@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   home.packages = [
     pkgs.blesh
   ];
@@ -13,6 +13,6 @@
         source ${pkgs.blesh}/share/blesh/ble.sh
       fi
     '';
-    initExtra = builtins.readFile ./init-extra.bash;
+    initExtra = lib.mkAfter (builtins.readFile ./init-extra.bash);
   };
 }

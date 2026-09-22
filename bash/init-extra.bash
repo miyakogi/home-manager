@@ -66,6 +66,20 @@ if [ -f "$HOME/bin/done-shared.sh" ]; then
   source "$HOME/bin/done-shared.sh"
 fi
 
+# Override Atuin source for ble.sh auto-complete (directory priority)
+function ble/complete/auto-complete/source:atuin-history {
+  local suggestion
+  suggestion=$(
+    atuin search --cmd-only --limit 1 \
+      --search-mode prefix \
+      --filter-mode directory \
+      -- "$_ble_edit_str" 2>/dev/null
+  )
+  [[ $suggestion == "$_ble_edit_str"?* ]] || return 1
+  ble/complete/auto-complete/enter h 0 \
+    "${suggestion:${#_ble_edit_str}}" '' "$suggestion"
+}
+
 # startup
 if ! shopt -q login_shell; then
   if command -v fastfetch &>/dev/null; then

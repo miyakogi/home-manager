@@ -25,6 +25,17 @@ if [ -f "$HOME/bin/done-shared.sh" ]; then
   source "$HOME/bin/done-shared.sh"
 fi
 
+# Override Atuin strategy to prefer current directory (fish-like)
+_zsh_autosuggest_strategy_atuin() {
+  suggestion=$(
+    ATUIN_QUERY="$1" \
+    atuin search --cmd-only --limit 1 \
+      --search-mode prefix \
+      --filter-mode directory \
+      2>/dev/null
+  )
+}
+
 if [[ ! -o login ]]; then
   if command -v fastfetch &>/dev/null; then
     fastfetch --config config-short.jsonc

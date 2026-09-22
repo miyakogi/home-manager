@@ -13,9 +13,9 @@
       search = {
         shells = "all";
         filters = [
+          "global"
           "directory"
           "session"
-          "global"
           "host"
         ];
       };

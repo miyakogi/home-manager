@@ -23,7 +23,7 @@
       name = "Chromium";
       type = "Application";
       icon = "org.chromium.Chromium";
-      exec = "flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding org.chromium.Chromium --ozone-platform=wayland --enable-features=VaapiVideoDecoder,VaapiIgnoreDriverChecks,Vulkan,UseOzonePlatform --use-angle=vulkan --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --disable-background-timer-throttling --disable-features=CalculateNativeWinOcclusion,IntensiveWakeUpThrottling @@u %U @@";
+      exec = "flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chromium --file-forwarding org.chromium.Chromium --ozone-platform=wayland --enable-features=VaapiVideoDecoder,VaapiIgnoreDriverChecks,UseOzonePlatform,Vulkan --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --disable-background-timer-throttling --disable-features=CalculateNativeWinOcclusion,IntensiveWakeUpThrottling @@u %U @@";
     };
     "capacities" = {
       name = "Capacities";

@@ -8,22 +8,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
     nix-hazkey = {
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rio = {
       url = "github:raphamorim/rio/main";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     helix = {
       url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
       url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     shaders = {
       url = "github:miyakogi/Anime4K-mpv-glsl";

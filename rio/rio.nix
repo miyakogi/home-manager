@@ -1,21 +1,10 @@
-{ pkgs, inputs, ... }:
-let
-  # Build from the flake input to stay ahead of nixpkgs, with the test
-  # suite disabled and only the Wayland backend enabled.
-  rio = inputs.rio.packages.${pkgs.stdenv.hostPlatform.system}.rio.overrideAttrs (old: {
-    doCheck = false;
-    withX11 = false;
-    withWayland = true;
-  });
-in
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     unifont
   ];
 
   programs.rio = {
     enable = true;
-    package = rio;
   };
 
   xdg.configFile."rio/config.toml" = {

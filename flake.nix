@@ -15,9 +15,6 @@
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rio = {
-      url = "github:raphamorim/rio/main";
-    };
     helix = {
       url = "github:helix-editor/helix";
     };

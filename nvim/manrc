@@ -32,6 +32,9 @@ xnoremap <silent> gk k
 noremap H ^
 noremap L $
 
+" Move to bottom
+noremap ge G
+
 " copy char till end of the line
 xnoremap <C-c> "+y
 

@@ -21,7 +21,7 @@
     source = ./config.toml;
   };
   xdg.configFile."rio-hyprland/themes/wm-theme.toml" = {
-    source = ./themes/kanagawa-dragon.toml;
+    source = ./themes/mikado.toml;
   };
   xdg.configFile."rio-niri/config.toml" = {
     source = ./config.toml;

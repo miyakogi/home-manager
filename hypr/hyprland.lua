@@ -390,9 +390,9 @@ hl.window_rule({ match = { class = "^firefox$" },       tile = true })
 hl.window_rule({ match = { class = "^firefox-sub$" },   tile = true })
 hl.window_rule({ match = { class = "^vivaldi-stable$" }, tile = true })
 hl.window_rule({ match = { class = "^Vivaldi-stable$" }, tile = true })
-hl.window_rule({ match = { class = "^chrom.*-game$" },          render_unfocused = true })
-hl.window_rule({ match = { class = "^org.chromium.Chromium$" }, render_unfocused = true })  -- wayland
-hl.window_rule({ match = { class = "^Org.chromium.Chromium$" }, render_unfocused = true })  -- x11
+hl.window_rule({ match = { class = "^chrom.*-game$" },          render_unfocused = true, scrolling_width = 0.333 })
+hl.window_rule({ match = { class = "^org.chromium.Chromium$" }, render_unfocused = true, scrolling_width = 0.333 })  -- wayland
+hl.window_rule({ match = { class = "^Org.chromium.Chromium$" }, render_unfocused = true, scrolling_width = 0.333 })  -- x11
 hl.window_rule({ match = { class = "^Vivaldi-home$" }, tile = true })
 hl.window_rule({ match = { class = "^discord$" },  workspace = "14" })
 hl.window_rule({ match = { class = "^vesktop$" },  workspace = "14" })

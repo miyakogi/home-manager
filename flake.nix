@@ -46,6 +46,8 @@
           builtins.elem (nixpkgs.lib.getName p) [
             "capacities"
             "cursor-cli"
+            "lsfg-vk"
+            "lsfg-vk-ui"
             "zsh-abbr"
           ];
       };

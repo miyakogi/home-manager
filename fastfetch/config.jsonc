@@ -86,6 +86,11 @@
         "format": "{$1}{name} {#2}{size}pt"
       },
       {
+        "type": "terminaltheme",
+        "key": "{#90}│ {#95}Theme       {#90}│",
+        "format": "{$1}{fg-color} / {bg-color} [{bg-type}]"
+      },
+      {
         "type": "shell",
         "key": "{#90}│ {#95}Shell       {#90}│",
         "format": "{$1}{pretty-name} {#2}v{version}"

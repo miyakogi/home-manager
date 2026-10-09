@@ -204,7 +204,7 @@ hl.animation({ leaf = "workspaces",  enabled = true,  speed = 1.2,  bezier = "Li
 hl.bind(mainMod .. " + RETURN",        hl.dsp.exec_cmd("setsid " .. run .. " -- setsid terminal"))
 hl.bind(mainMod .. " + Q",             hl.dsp.window.close())
 hl.bind(mainMod .. " + W",             hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + E",     hl.dsp.exec_cmd("leave"))
+hl.bind(mainMod .. " + SHIFT + E",     hl.dsp.exec_cmd(run .. " -- leave"))
 hl.bind(mainMod .. " + SHIFT + R",     hl.dsp.exec_cmd("systemctl --user restart waybar-hyprland.service"))
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.float({ action = "toggle" }))

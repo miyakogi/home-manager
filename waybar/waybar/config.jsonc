@@ -52,7 +52,7 @@
       "firefox": "",
     },
     "ignored-players": [
-      // "firefox",
+      "firefox",
       "chromium",
     ],
   },

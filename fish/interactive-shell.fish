@@ -1,12 +1,3 @@
-if [ -z "$__fish_execute_once" ] || [ "$HERDR_ENV" = 1 ]
-  export __fish_execute_once=1
-  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ] && [ "$TERM" != xterm-ghostty ]
-    exec zsh
-  else if [ "$XDG_CURRENT_DESKTOP" = niri ] && [ "$TERM" != xterm-ghostty ]
-    exec bash
-  end
-end
-
 # in zellij, ctrl-d should delete a character instead of sending EOF
 if set -q ZELLIJ
   bind ctrl-d delete-char

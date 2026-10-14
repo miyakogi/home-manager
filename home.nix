@@ -206,7 +206,6 @@ in
 
       # ── Productivity ────────────────────────────────────
       capacities
-      taskwarrior3
     ]
     ++ [
       # ── Flake Packages ──────────────────────────────────
@@ -297,6 +296,9 @@ in
     ./agents/agents.nix
     ./opencode/opencode.nix
     ./pi/pi.nix
+
+    # ── Productivity ────────────────────────────────────
+    ./taskwarrior/taskwarrior.nix
 
     # ── Desktop / Applications ──────────────────────────
     ./desktop/desktop.nix

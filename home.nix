@@ -207,7 +207,6 @@ in
       # ── Productivity ────────────────────────────────────
       capacities
       taskwarrior3
-      taskwarrior-tui
     ]
     ++ [
       # ── Flake Packages ──────────────────────────────────

@@ -131,7 +131,7 @@ in
       pkgconf
 
       # ── Benchmark / Coverage ────────────────────────────
-      cargo-llvm-cov
+      # cargo-llvm-cov
       hyperfine
 
       # ── Linter / Formatter ──────────────────────────────

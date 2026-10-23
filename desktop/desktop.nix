@@ -31,6 +31,12 @@
       icon = "capacities";
       exec = "capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland";
     };
+    "ai.opencode.desktop" = {
+      name = "OpenCode (Desktop)";
+      type = "Application";
+      icon = "opencode-desktop";
+      exec = "opencode-desktop --force-device-scale-factor=1.75 --ozone-platform=wayland --disable-smooth-scrolling";
+    };
     # GMetronome (flatpak)
     "org.gnome.gitlab.dqpb.GMetronome" = {
       name = "GMetronome";

@@ -83,7 +83,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd(run .. " -s b -t service -a capacities -- capacities --no-sandbox --force-device-scale-factor=1.5 --ozone-platform=wayland")
 
   -- OpenCode Desktop (AI)
-  hl.exec_cmd(run .. " -s b -t service -- opencode-desktop")
+  hl.exec_cmd(run .. " -s b -t service -- opencode-desktop --force-device-scale-factor=1.75 --ozone-platform=wayland --disable-smooth-scrolling")
 end)
 
 -- *** Cursor Theme ***

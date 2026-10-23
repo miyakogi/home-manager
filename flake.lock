@@ -76,6 +76,23 @@
         "type": "github"
       }
     },
+    "meltype-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792412241,
+        "narHash": "sha256-WihlGZQCejXSdhRQD7WJQnamwrxmjqLNecop7mDlk9s=",
+        "owner": "yksr-melt",
+        "repo": "Meltype",
+        "rev": "6310c44b728d5ad88284853f9ef37ea224993b18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yksr-melt",
+        "ref": "v1.3.0",
+        "repo": "Meltype",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1791644268,
@@ -109,6 +126,27 @@
       "original": {
         "owner": "aster-void",
         "repo": "nix-hazkey",
+        "type": "github"
+      }
+    },
+    "nix-meltype": {
+      "inputs": {
+        "meltype-src": "meltype-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792521233,
+        "narHash": "sha256-8TAqp3DBeJlvh1Za3H3BLzYmDvDDt/gMpJh+pD3ZIL0=",
+        "owner": "aster-void",
+        "repo": "nix-meltype",
+        "rev": "2949e815e80afe76198c6c03a8b8cb583d1f88af",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aster-void",
+        "repo": "nix-meltype",
         "type": "github"
       }
     },
@@ -166,6 +204,7 @@
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
         "nix-hazkey": "nix-hazkey",
+        "nix-meltype": "nix-meltype",
         "nixpkgs": "nixpkgs_2",
         "shaders": "shaders",
         "waybar": "waybar"

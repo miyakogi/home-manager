@@ -15,6 +15,10 @@
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-meltype = {
+      url = "github:aster-void/nix-meltype";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helix = {
       url = "github:helix-editor/helix";
     };
@@ -59,6 +63,7 @@
         extraSpecialArgs = { inherit inputs; };
 
         modules = [
+          inputs.nix-meltype.homeModules.default
           ./home.nix
         ];
       };

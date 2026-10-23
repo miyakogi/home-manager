@@ -42,6 +42,10 @@ in
       kdePackages.fcitx5-configtool
     ];
   };
+  programs.meltype = {
+    enable = true;
+    framework.fcitx5.desktopWorkaround = "none";
+  };
 
   # Keyring
   services.gnome-keyring = {

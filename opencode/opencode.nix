@@ -5,6 +5,7 @@
   ];
   programs.opencode = {
     enable = true;
+    mutableSettings = true;
     settings = {
       default_agent = "plan";
       agent = {

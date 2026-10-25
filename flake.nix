@@ -55,6 +55,18 @@
             "zsh-abbr"
           ];
       };
+
+      # nix-meltype derives systemd.user.sessionVariables from home.sessionVariables,
+      # which recurses through Home Manager's opencode module when mutableSettings is
+      # enabled. The patch reads the fcitx5 option directly until this is fixed upstream.
+      meltypeSrc = pkgs.applyPatches {
+        name = "nix-meltype-patched";
+        src = inputs.nix-meltype.outPath;
+        patches = [ ./patches/nix-meltype-session-vars.patch ];
+      };
+      meltypeModule = import "${meltypeSrc}/modules/home-manager.nix" (
+        meltypePkgs: meltypePkgs.extend inputs.nix-meltype.overlays.default
+      );
     in
     {
       formatter.${system} = pkgs.nixfmt;
@@ -64,7 +76,7 @@
         extraSpecialArgs = { inherit inputs; };
 
         modules = [
-          inputs.nix-meltype.homeModules.default
+          meltypeModule
           ./home.nix
         ];
       };

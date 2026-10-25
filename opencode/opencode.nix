@@ -8,33 +8,6 @@
     mutableSettings = true;
     settings = {
       default_agent = "plan";
-      agent = {
-        build = {
-          model = "opencode/deepseek-v4.1-flash-free";
-        };
-        plan = {
-          model = "opencode/deepseek-v4.1-flash-free";
-        };
-      };
-      mcp = {
-        context7 = {
-          type = "remote";
-          url = "https://mcp.context7.com/mcp";
-          headers = {
-            CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
-          };
-          enabled = true;
-        };
-        github = {
-          type = "remote";
-          url = "https://api.githubcopilot.com/mcp/";
-          enabled = true;
-          oauth = false;
-          headers = {
-            Authorization = "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}";
-          };
-        };
-      };
     };
     cli = {
       theme.name = "system";

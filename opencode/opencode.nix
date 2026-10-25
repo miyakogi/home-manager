@@ -35,9 +35,10 @@
         };
       };
     };
-    tui = {
-      theme = "system";
+    cli = {
+      theme.name = "system";
       mouse = true;
+      animations = true;
       attention = {
         enabled = true;
         notifications = true;

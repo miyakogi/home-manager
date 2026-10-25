@@ -4,7 +4,7 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    systemd.enable = true;
+    systemd.enable = false;
     settings = {
       font-family = [
         "Lilex"

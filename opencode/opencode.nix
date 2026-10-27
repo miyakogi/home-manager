@@ -8,6 +8,9 @@
     mutableSettings = true;
     settings = {
       default_agent = "plan";
+      plugins = [
+        "superpowers@git+https://github.com/obra/superpowers.git"
+      ];
     };
     cli = {
       theme.name = "system";
@@ -18,6 +21,6 @@
         notifications = true;
       };
     };
-    context = builtins.readFile ../agents/AGENTS.md + "\n" + builtins.readFile ./superpowers.md;
+    context = ../agents/AGENTS.md;
   };
 }

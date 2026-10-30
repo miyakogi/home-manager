@@ -1,11 +1,8 @@
 {
   pkgs,
-  inputs,
+  waybarPackage,
   ...
 }:
-let
-  waybar = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
-in
 {
   systemd.user.services.taskwarrior-notify = {
     Unit.Description = "Taskwarrior Due Task Notifier";
@@ -126,7 +123,7 @@ in
       ConditionEnvironment = "XDG_CURRENT_DESKTOP=Hyprland";
     };
     Service = {
-      ExecStart = "${waybar}/bin/waybar";
+      ExecStart = "${waybarPackage}/bin/waybar";
       ExecReload = "${pkgs.procps}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "on-failure";
     };
@@ -142,7 +139,7 @@ in
       ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
     };
     Service = {
-      ExecStart = "${waybar}/bin/waybar --style %h/.config/waybar/style-niri.css";
+      ExecStart = "${waybarPackage}/bin/waybar --style %h/.config/waybar/style-niri.css";
       ExecReload = "${pkgs.procps}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "on-failure";
     };

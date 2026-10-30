@@ -67,13 +67,23 @@
       meltypeModule = import "${meltypeSrc}/modules/home-manager.nix" (
         meltypePkgs: meltypePkgs.extend inputs.nix-meltype.overlays.default
       );
+
+      # Upstream Waybar copies cava into subprojects/cava-1.0.0, but since
+      # f6f73c8 libcava.wrap is a wrap-git without a directory, so meson looks
+      # in subprojects/libcava and falls back to downloading (disabled in the
+      # Nix sandbox), failing the build.
+      waybarPackage = inputs.waybar.packages.${system}.default.overrideAttrs (old: {
+        postUnpack =
+          pkgs.lib.replaceStrings [ "subprojects/cava-1.0.0" ] [ "subprojects/libcava" ]
+            old.postUnpack;
+      });
     in
     {
       formatter.${system} = pkgs.nixfmt;
 
       homeConfigurations."miyaco" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs waybarPackage; };
 
         modules = [
           meltypeModule

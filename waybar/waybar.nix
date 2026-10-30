@@ -1,9 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ waybarPackage, ... }: {
   programs.waybar = {
     enable = true;
     # Build from the flake input to stay ahead of the nixpkgs version
     # (needed for niri/workspaces -> ignore-workspaces option).
-    package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = waybarPackage;
   };
 
   xdg.configFile."waybar" = {
